@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=5.0"/>
+  <title>MedEnglish70 — Tibbiy Ingliz Tili</title>
+  <meta name="description" content="Tibbiy ingliz tilini professional darajada o'rganing. 1000 so'z, 16 zamon, 70 reading, 150+ test."/>
+  <meta name="theme-color" content="#1e40af"/>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🩺</text></svg>"/>
+  <link rel="stylesheet" href="css/style.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+</head>
+<body>
+<div id="splash" class="splash">
+  <div class="splash-inner">
+    <div class="splash-icon"><i class="fas fa-heartbeat"></i></div>
+    <h1>Med<span>English</span>70</h1>
+    <p id="splashText"></p>
+    <div class="splash-loader"><div class="splash-bar"></div></div>
+  </div>
+</div>
+<div id="app" class="app hidden">
+  <header class="header">
+    <div class="header-left">
+      <button class="menu-btn" id="menuBtn" aria-label="Menu"><i class="fas fa-bars"></i></button>
+      <a href="#" class="logo" onclick="App.go('home');return false;"><i class="fas fa-heartbeat"></i> Med<span>English</span>70</a>
+    </div>
+    <div class="header-right">
+      <div class="lang-switch" id="langSwitch">
+        <button class="lang-btn active" data-lang="uz">UZ</button>
+        <button class="lang-btn" data-lang="en">EN</button>
+        <button class="lang-btn" data-lang="ru">RU</button>
+      </div>
+      <div class="progress-pill"><i class="fas fa-trophy"></i><span id="totalProg">0%</span></div>
+    </div>
+  </header>
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-user">
+      <div class="user-avatar"><i class="fas fa-user-graduate"></i></div>
+      <span class="user-name" data-i18n="student"></span>
+      <div class="user-bar"><div class="user-bar-fill" id="userBarFill"></div></div>
+      <small id="userLevel">0%</small>
+    </div>
+    <nav class="sidebar-nav">
+      <a class="nav-link active" data-page="home"><i class="fas fa-home"></i><span data-i18n="home"></span></a>
+      <a class="nav-link" data-page="grammar"><i class="fas fa-book"></i><span data-i18n="grammar"></span><em>16</em></a>
+      <a class="nav-link" data-page="reading"><i class="fas fa-file-medical-alt"></i><span data-i18n="reading"></span><em>70</em></a>
+      <a class="nav-link" data-page="vocabulary"><i class="fas fa-spell-check"></i><span data-i18n="vocabulary"></span><em>1000</em></a>
+      <a class="nav-link" data-page="tests"><i class="fas fa-clipboard-check"></i><span data-i18n="tests"></span><em>150</em></a>
+      <a class="nav-link" data-page="grammar-tests"><i class="fas fa-pen-fancy"></i><span data-i18n="grammarTests"></span><em>16</em></a>
+    </nav>
+    <div class="sidebar-bottom">
+      <a href="https://t.me/adtimania" target="_blank" class="sb-link"><i class="fab fa-telegram"></i><span data-i18n="channel"></span></a>
+      <a href="https://t.me/khusanboyevc" target="_blank" class="sb-link"><i class="fas fa-paper-plane"></i><span data-i18n="contact"></span></a>
+    </div>
+  </aside>
+  <div class="overlay" id="overlay"></div>
+  <main class="main" id="mainContent">
+    <section class="page active" id="page-home"></section>
+    <section class="page" id="page-grammar"></section>
+    <section class="page" id="page-grammar-detail"></section>
+    <section class="page" id="page-reading"></section>
+    <section class="page" id="page-reading-detail"></section>
+    <section class="page" id="page-vocabulary"></section>
+    <section class="page" id="page-tests"></section>
+    <section class="page" id="page-test-active"></section>
+    <section class="page" id="page-grammar-tests"></section>
+    <section class="page" id="page-gtest-active"></section>
+  </main>
+  <footer class="footer">
+    <div class="footer-inner">
+      <span>&copy; 2024 MedEnglish70</span>
+      <div class="footer-links">
+        <a href="https://t.me/adtimania" target="_blank"><i class="fab fa-telegram"></i> <span data-i18n="channel"></span></a>
+        <a href="https://t.me/khusanboyevc" target="_blank"><i class="fas fa-paper-plane"></i> <span data-i18n="contact"></span></a>
+      </div>
+    </div>
+  </footer>
+</div>
+<div id="modal" class="modal hidden"></div>
+<div id="toastContainer"></div>
+<script src="data/i18n.js"></script>
+<script src="data/grammar.js"></script>
+<script src="data/readings.js"></script>
+<script src="data/vocabulary.js"></script>
+<script src="data/tests.js"></script>
+<script src="data/grammar-tests.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

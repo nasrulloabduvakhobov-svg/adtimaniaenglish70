@@ -11,7 +11,6 @@ const $=s=>document.querySelector(s);
 const $$=s=>document.querySelectorAll(s);
 function t(k){return LANG[lang][k]||k;}
 function init(){
-$('#splash').classList.add('hidden');$('#app').classList.remove('hidden');
 applyLang();setupLangSwitch();setupNav();setupMenu();renderHome();updateProgress();
 }
 function applyLang(){

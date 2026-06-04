@@ -11,8 +11,7 @@ const $=s=>document.querySelector(s);
 const $$=s=>document.querySelectorAll(s);
 function t(k){return LANG[lang][k]||k;}
 function init(){
-setTimeout(()=>{$('#splash').classList.add('hidden');$('#app').classList.remove('hidden');},2500);
-$('#splashText').textContent=t('splashText');
+$('#splash').classList.add('hidden');$('#app').classList.remove('hidden');
 applyLang();setupLangSwitch();setupNav();setupMenu();renderHome();updateProgress();
 }
 function applyLang(){

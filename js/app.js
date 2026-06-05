@@ -1,11 +1,14 @@
-/* ===== MedEnglish70 — app core (Grammar + Grammar Tests) ===== */
+/* ===== MedEnglish70 — app core (Grammar, Reading, Vocabulary, Tests, Grammar Tests) ===== */
 (function () {
   "use strict";
 
   var I18N = window.ME70_I18N;
   var GRAMMAR = window.ME70_GRAMMAR;
+  var VOCAB = window.ME70_VOCAB;
+  var READING = window.ME70_READING;
   var GT = window.ME70_GTEST_CONFIG;
 
+  var VTEST_SIZE = 20;
   var TESTS_PER_TENSE = GT.testsPerTense || 10;
   var Q_PER_TEST = GT.questionsPerTest || 20;
   var ALL_TENSE_IDS = GRAMMAR.map(function (g) { return g.id; });
@@ -15,6 +18,10 @@
     lang: localStorage.getItem("me70_lang") || "uz",
     theme: localStorage.getItem("me70_theme") || ""
   };
+  function getStarred() { try { return JSON.parse(localStorage.getItem("me70_starred") || "[]"); } catch (e) { return []; } }
+  function setStarred(a) { localStorage.setItem("me70_starred", JSON.stringify(a)); }
+  function getReadDone() { try { return JSON.parse(localStorage.getItem("me70_reading") || "[]"); } catch (e) { return []; } }
+  function setReadDone(a) { localStorage.setItem("me70_reading", JSON.stringify(a)); }
   function getScores() { try { return JSON.parse(localStorage.getItem("me70_scores") || "{}"); } catch (e) { return {}; } }
   function setScore(key, pct) {
     var s = getScores();
@@ -27,6 +34,7 @@
     var dict = I18N[state.lang] || I18N.uz;
     return dict[key] != null ? dict[key] : (I18N.uz[key] != null ? I18N.uz[key] : key);
   }
+  function meaningLang() { return state.lang === "ru" ? "ru" : "uz"; }
 
   /* ---------- helpers ---------- */
   function esc(s) {
@@ -41,7 +49,6 @@
     }
     return a;
   }
-  // seeded RNG for deterministic test content
   function hashStr(str) {
     var h = 2166136261 >>> 0;
     for (var i = 0; i < str.length; i++) { h ^= str.charCodeAt(i); h = Math.imul(h, 16777619); }
@@ -139,7 +146,6 @@
       default: return v.b;
     }
   }
-  // deterministic full pool (200 combos) for a tense
   function tenseCombos(tid) {
     var pairs = [];
     for (var si = 0; si < GT.subjects.length; si++) {
@@ -148,7 +154,6 @@
     pairs = seededShuffle(pairs, hashStr("ME70:" + tid));
     return pairs.slice(0, TESTS_PER_TENSE * Q_PER_TEST);
   }
-  // base questions (deterministic) for a given test number (1..10)
   function buildBase(tid, num) {
     var pool = tenseCombos(tid);
     var start = (num - 1) * Q_PER_TEST;
@@ -164,7 +169,6 @@
       var time = times[gi % times.length];
       var frame = frames.length ? frames[gi % frames.length] : "";
       var correct = conj(tid, v, s);
-
       var distract = [];
       for (var i = 0; i < distractIds.length && distract.length < 3; i++) {
         var dt = distractIds[i];
@@ -187,8 +191,6 @@
       return { q: renderSentence(it.sentence), options: opts, answer: opts.indexOf(it.correct) };
     });
   }
-
-  // Debug/extension hook (zararsiz): generatorga tashqaridan kirish
   window.ME70 = {
     conj: conj, tenseCombos: tenseCombos, buildBase: buildBase,
     buildQuestions: buildQuestions, allTenseIds: ALL_TENSE_IDS,
@@ -285,27 +287,21 @@
     render();
   }
 
-  /* ---------- Views ---------- */
+  /* ---------- Views: Home ---------- */
   function viewHome() {
     var scores = getScores();
-    var gKeys = Object.keys(scores).filter(function (k) { return k.indexOf("gtest:") === 0; });
-    var vals = gKeys.map(function (k) { return scores[k]; });
-    var avg = vals.length ? Math.round(vals.reduce(function (a, b) { return a + b; }, 0) / vals.length) : 0;
-    // mastered tenses: best score of any test >= 80
-    var bestByTense = {};
-    gKeys.forEach(function (k) {
-      var parts = k.split(":"); // gtest:tid:num
-      var tid = parts[1];
-      if (!bestByTense[tid] || scores[k] > bestByTense[tid]) bestByTense[tid] = scores[k];
-    });
-    var mastered = Object.keys(bestByTense).filter(function (tid) { return bestByTense[tid] >= 80; }).length;
-
-    var totalTests = GRAMMAR.length * TESTS_PER_TENSE;
-    var totalQ = totalTests * Q_PER_TEST;
+    var scoreVals = Object.keys(scores).map(function (k) { return scores[k]; });
+    var avg = scoreVals.length ? Math.round(scoreVals.reduce(function (a, b) { return a + b; }, 0) / scoreVals.length) : 0;
+    var testsDone = Object.keys(scores).filter(function (k) { return k.indexOf("vtest:") === 0 || k.indexOf("gtest:") === 0; }).length;
+    var vTests = Math.ceil(VOCAB.length / VTEST_SIZE);
+    var gTests = GRAMMAR.length * TESTS_PER_TENSE;
 
     var sections = [
       { hash: "#/grammar", icon: "📘", key: "grammar", meta: GRAMMAR.length + " " + t("stat.tenses").toLowerCase() },
-      { hash: "#/grammar-tests", icon: "🧠", key: "gtests", meta: totalTests + " " + t("stat.tests").toLowerCase() }
+      { hash: "#/reading", icon: "📖", key: "reading", meta: READING.length + " " + t("stat.passages").toLowerCase() },
+      { hash: "#/vocabulary", icon: "🗂️", key: "vocabulary", meta: VOCAB.length + " " + t("stat.words").toLowerCase() },
+      { hash: "#/tests", icon: "✅", key: "tests", meta: vTests + " " + t("stat.tests").toLowerCase() },
+      { hash: "#/grammar-tests", icon: "🧠", key: "gtests", meta: gTests + " " + t("stat.tests").toLowerCase() }
     ];
 
     setApp('' +
@@ -314,9 +310,9 @@
         '<p>' + t("home.hero.desc") + '</p>' +
         '<div class="hero-stats">' +
           '<div class="hero-stat"><b>16</b><span>' + t("stat.tenses") + '</span></div>' +
-          '<div class="hero-stat"><b>' + totalTests + '</b><span>' + t("stat.tests") + '</span></div>' +
-          '<div class="hero-stat"><b>' + totalQ + '+</b><span>' + t("stat.questions") + '</span></div>' +
-          '<div class="hero-stat"><b>3</b><span>UZ · EN · RU</span></div>' +
+          '<div class="hero-stat"><b>' + VOCAB.length + '</b><span>' + t("stat.words") + '</span></div>' +
+          '<div class="hero-stat"><b>' + READING.length + '</b><span>' + t("stat.passages") + '</span></div>' +
+          '<div class="hero-stat"><b>' + (vTests + gTests) + '</b><span>' + t("stat.tests") + '</span></div>' +
         '</div>' +
       '</section>' +
       '<div class="grid section-cards">' +
@@ -331,12 +327,14 @@
       '</div>' +
       '<h2 style="margin:26px 0 4px;font-size:1.15rem">' + t("home.progress.title") + '</h2>' +
       '<div class="progress-overview">' +
-        '<div class="po-card"><b>' + mastered + '/16</b><span>' + t("prog.mastered") + '</span></div>' +
-        '<div class="po-card"><b>' + gKeys.length + '</b><span>' + t("prog.testsDone") + '</span></div>' +
+        '<div class="po-card"><b>' + getStarred().length + '</b><span>' + t("prog.wordsLearned") + '</span></div>' +
+        '<div class="po-card"><b>' + testsDone + '</b><span>' + t("prog.testsDone") + '</span></div>' +
+        '<div class="po-card"><b>' + getReadDone().length + '</b><span>' + t("prog.readDone") + '</span></div>' +
         '<div class="po-card"><b>' + avg + '%</b><span>' + t("prog.avgScore") + '</span></div>' +
       '</div>');
   }
 
+  /* ---------- Views: Grammar ---------- */
   function viewGrammarList() {
     setApp('' +
       '<div class="breadcrumb"><a href="#/">‹ ' + t("nav.home") + '</a></div>' +
@@ -378,6 +376,177 @@
       '</div>');
   }
 
+  /* ---------- Views: Reading ---------- */
+  function viewReadingList() {
+    var levels = [
+      { key: "elementary", cls: "elementary" },
+      { key: "pre", cls: "pre" },
+      { key: "inter", cls: "inter" }
+    ];
+    var done = getReadDone();
+    var html = '<div class="breadcrumb"><a href="#/">‹ ' + t("nav.home") + '</a></div>' +
+      '<div class="page-head"><h1>' + t("reading.title") + '</h1><p>' + t("reading.desc") + '</p></div>';
+    levels.forEach(function (lv) {
+      var items = READING.filter(function (r) { return r.level === lv.key; });
+      if (!items.length) return;
+      html += '<h2 style="font-size:1.05rem;margin:18px 0 8px"><span class="level-tag ' + lv.cls + '">' + t("reading.level." + lv.key) + '</span> <span style="color:var(--muted);font-size:.8rem;font-weight:600">(' + items.length + ')</span></h2>';
+      html += '<div class="grid cols">' + items.map(function (r) {
+        var isDone = done.indexOf(r.id) >= 0;
+        return '<a class="tile" href="#/reading/' + r.id + '">' +
+          '<div><div class="tile-title">' + esc(r.title) + '</div>' +
+          '<div class="tile-sub">' + r.questions.length + ' ' + t("gtests.questions") + '</div></div>' +
+          '<span class="tile-badge ' + (isDone ? "done" : "") + '">' + (isDone ? "✓" : "›") + '</span>' +
+        '</a>';
+      }).join("") + '</div>';
+    });
+    setApp(html);
+  }
+
+  function viewPassage(id) {
+    var r = READING.filter(function (x) { return x.id === id; })[0];
+    if (!r) return notFound();
+    var paras = r.text.map(function (p) { return '<p>' + esc(p) + '</p>'; }).join("");
+    setApp('' +
+      '<div class="breadcrumb"><a href="#/reading">‹ ' + t("reading.title") + '</a></div>' +
+      '<div class="passage">' +
+        '<span class="level-tag ' + (r.level === "pre" ? "pre" : r.level === "inter" ? "inter" : "elementary") + '">' + t("reading.level." + r.level) + '</span>' +
+        '<h2>' + esc(r.title) + '</h2>' +
+        '<div class="passage-text">' + paras + '</div>' +
+        '<div class="btn-row"><button class="btn primary" id="startQ">📝 ' + t("reading.answerQ") + ' (' + r.questions.length + ')</button></div>' +
+      '</div>');
+    app.querySelector("#startQ").addEventListener("click", function () {
+      runQuiz(r.questions.map(function (q) { return { q: esc(q.q), options: q.options, answer: q.answer }; }), {
+        title: r.title,
+        subtitle: t("reading.answerQ"),
+        saveKey: "reading:" + r.id,
+        backHash: "#/reading/" + r.id,
+        onFinish: function () {
+          var d = getReadDone();
+          if (d.indexOf(r.id) < 0) { d.push(r.id); setReadDone(d); }
+        }
+      });
+    });
+  }
+
+  /* ---------- Views: Vocabulary ---------- */
+  function viewVocabulary() {
+    var cat = "all", q = "";
+    setApp('' +
+      '<div class="breadcrumb"><a href="#/">‹ ' + t("nav.home") + '</a></div>' +
+      '<div class="page-head"><h1>' + t("vocab.title") + '</h1><p>' + t("vocab.desc") + '</p></div>' +
+      '<div class="vocab-toolbar">' +
+        '<input class="search" id="vsearch" placeholder="' + t("vocab.search") + '">' +
+      '</div>' +
+      '<div class="pills" id="vpills">' +
+        '<button class="pill active" data-cat="all">' + t("vocab.all") + '</button>' +
+        '<button class="pill" data-cat="medical">' + t("vocab.cat.medical") + '</button>' +
+        '<button class="pill" data-cat="common">' + t("vocab.cat.common") + '</button>' +
+        '<button class="pill" data-cat="star">⭐ ' + t("vocab.starred") + '</button>' +
+      '</div>' +
+      '<div id="vcount" class="tense-sub"></div>' +
+      '<div class="vocab-table" id="vtable"></div>');
+
+    function render() {
+      var starred = getStarred();
+      var list = VOCAB.filter(function (w) {
+        if (cat === "medical" && w.cat !== "medical") return false;
+        if (cat === "common" && w.cat !== "common") return false;
+        if (cat === "star" && starred.indexOf(w.en) < 0) return false;
+        if (q) {
+          var hay = (w.en + " " + w.uz + " " + w.ru).toLowerCase();
+          if (hay.indexOf(q.toLowerCase()) < 0) return false;
+        }
+        return true;
+      });
+      document.getElementById("vcount").textContent = list.length + " " + t("vocab.count");
+      var table = document.getElementById("vtable");
+      if (!list.length) { table.innerHTML = '<div class="empty">' + t("vocab.none") + '</div>'; return; }
+      table.innerHTML = list.map(function (w) {
+        var on = starred.indexOf(w.en) >= 0;
+        return '<div class="vocab-row">' +
+          '<div class="vr-main">' +
+            '<div class="w-en">' + esc(w.en) + ' <span class="pos">' + esc(w.pos || "") + '</span></div>' +
+            '<div class="w-trs"><span class="w-tr uz">' + esc(w.uz) + '</span><span class="dot">·</span><span class="w-tr ru">' + esc(w.ru) + '</span></div>' +
+          '</div>' +
+          '<button class="star-btn ' + (on ? "on" : "") + '" data-en="' + esc(w.en) + '" title="' + t("msg.markLearned") + '">★</button>' +
+        '</div>';
+      }).join("");
+      table.querySelectorAll(".star-btn").forEach(function (b) {
+        b.addEventListener("click", function () {
+          var en = b.getAttribute("data-en");
+          var s = getStarred();
+          var i = s.indexOf(en);
+          if (i >= 0) { s.splice(i, 1); b.classList.remove("on"); }
+          else { s.push(en); b.classList.add("on"); toast(t("msg.markLearned")); }
+          setStarred(s);
+        });
+      });
+    }
+    document.getElementById("vsearch").addEventListener("input", function (e) { q = e.target.value; render(); });
+    document.getElementById("vpills").querySelectorAll(".pill").forEach(function (p) {
+      p.addEventListener("click", function () {
+        document.querySelectorAll("#vpills .pill").forEach(function (x) { x.classList.remove("active"); });
+        p.classList.add("active");
+        cat = p.getAttribute("data-cat");
+        render();
+      });
+    });
+    render();
+  }
+
+  /* ---------- Views: Vocabulary Tests ---------- */
+  function viewTestsList() {
+    var total = Math.ceil(VOCAB.length / VTEST_SIZE);
+    var scores = getScores();
+    var tiles = "";
+    for (var i = 0; i < total; i++) {
+      var start = i * VTEST_SIZE;
+      var end = Math.min(start + VTEST_SIZE, VOCAB.length);
+      var key = "vtest:" + (i + 1);
+      var best = scores[key];
+      tiles += '<a class="tile" href="#/tests/' + (i + 1) + '">' +
+        '<div><div class="tile-title">' + t("gtests.test") + ' ' + (i + 1) + '</div>' +
+        '<div class="tile-sub">' + (start + 1) + '–' + end + ' ' + t("tests.range") + '</div></div>' +
+        (best != null ? '<span class="tile-badge done">' + best + '%</span>' : '<span class="tile-badge">›</span>') +
+      '</a>';
+    }
+    setApp('' +
+      '<div class="breadcrumb"><a href="#/">‹ ' + t("nav.home") + '</a></div>' +
+      '<div class="page-head"><h1>' + t("tests.title") + '</h1><p>' + t("tests.desc") + '</p></div>' +
+      '<div class="grid cols">' + tiles + '</div>');
+  }
+
+  function viewRunVocabTest(num) {
+    var i = parseInt(num, 10);
+    var total = Math.ceil(VOCAB.length / VTEST_SIZE);
+    if (!i || i < 1 || i > total) return notFound();
+    var start = (i - 1) * VTEST_SIZE;
+    var chunk = VOCAB.slice(start, start + VTEST_SIZE);
+    var ml = meaningLang();
+
+    function build() {
+      return shuffle(chunk).map(function (w) {
+        var pool = VOCAB.filter(function (x) { return x.en !== w.en && x[ml] !== w[ml]; });
+        var sameCat = pool.filter(function (x) { return x.cat === w.cat; });
+        var distract = shuffle(sameCat.length >= 3 ? sameCat : pool).slice(0, 3).map(function (x) { return x[ml]; });
+        var options = shuffle([w[ml]].concat(distract));
+        return {
+          q: esc(w.en) + (w.pos ? ' <span style="color:var(--muted);font-weight:400;font-size:.85rem">(' + esc(w.pos) + ')</span>' : ''),
+          options: options,
+          answer: options.indexOf(w[ml])
+        };
+      });
+    }
+    runQuiz(build(), {
+      title: t("tests.title") + " " + i,
+      subtitle: (start + 1) + "–" + Math.min(start + VTEST_SIZE, VOCAB.length) + " " + t("tests.range"),
+      saveKey: "vtest:" + i,
+      backHash: "#/tests",
+      reshuffle: build
+    });
+  }
+
+  /* ---------- Views: Grammar Tests ---------- */
   function viewGTestsList() {
     var scores = getScores();
     setApp('' +
@@ -385,7 +554,6 @@
       '<div class="page-head"><h1>' + t("gtests.title") + '</h1><p>' + t("gtests.desc") + '</p></div>' +
       '<div class="grid cols">' +
         GRAMMAR.map(function (g, idx) {
-          // mastered if any test >= 80
           var best = -1;
           for (var n = 1; n <= TESTS_PER_TENSE; n++) {
             var sc = scores["gtest:" + g.id + ":" + n];
@@ -452,6 +620,9 @@
     try {
       if (root === "") return viewHome();
       if (root === "grammar") return parts[1] ? viewGrammarDetail(parts[1]) : viewGrammarList();
+      if (root === "reading") return parts[1] ? viewPassage(parts[1]) : viewReadingList();
+      if (root === "vocabulary") return viewVocabulary();
+      if (root === "tests") return parts[1] ? viewRunVocabTest(parts[1]) : viewTestsList();
       if (root === "grammar-tests") {
         if (parts[1] && parts[2]) return viewRunGTest(parts[1], parts[2]);
         if (parts[1]) return viewGTenseTests(parts[1]);

@@ -1,7 +1,7 @@
 {
-  "name": "MedEnglish70 — English Tenses",
+  "name": "MedEnglish70 — Learn English",
   "short_name": "MedEnglish70",
-  "description": "Ingliz tilining 16 zamoni: qoida, formula, misollar va har zamon uchun 20 savollik testlar. O'zbek, ingliz va rus tillarida.",
+  "description": "Grammar (16 zamon), Reading, Vocabulary, Tests va Grammar Tests. Ingliz tilini o'zbek, ingliz va rus tillarida o'rganing.",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",

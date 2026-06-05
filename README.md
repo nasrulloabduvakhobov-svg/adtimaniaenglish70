@@ -1,6 +1,6 @@
 # MedEnglish70
 
-**Ingliz tili zamonlarini o'rganish** uchun web ilova — **Grammar** va **Grammar Tests** bo'limlari. Interfeys **o'zbek, ingliz va rus** tillarida. Statik (build talab qilmaydi): istalgan brauzerda va Telegram ichida ishlaydi, hatto **offline** ham.
+Ingliz tilini o'rganish uchun web ilova — **Grammar, Reading, Vocabulary, Tests** va **Grammar Tests** bo'limlari. Interfeys **o'zbek, ingliz va rus** tillarida. Statik (build talab qilmaydi): istalgan brauzerda va Telegram ichida ishlaydi, hatto **offline** ham.
 
 🔗 Community havolasi: `adtimaniaenglish70`
 📣 Telegram kanal: https://t.me/adtimania
@@ -12,13 +12,16 @@
 
 | Bo'lim | Tavsif |
 |---|---|
-| 📘 **Grammar** | 16 ta ingliz zamoni — har birida qoida, formula (tasdiq/inkor/so'roq), qachon ishlatilishi, belgi so'zlar va misollar (3 tilda) |
-| 🧠 **Grammar Tests** | Har bir zamon uchun **20 savollik 10 ta test** (jami **160 test / 3200+ savol**). Savollar avtomatik generatsiya qilinadi |
+| 📘 **Grammar** | 16 ta ingliz zamoni — qoida, formula (tasdiq/inkor/so'roq), qachon ishlatilishi, belgi so'zlar va misollar (3 tilda) |
+| 📖 **Reading** | Tibbiyot/salomatlik mavzusidagi matnlar 3 darajada (Elementary / Pre-Intermediate / Intermediate) + comprehension testlari |
+| 🗂️ **Vocabulary** | Muloqot, tibbiyot va eng ko'p ishlatiladigan ingliz so'zlari (en/uz/ru) — qidiruv, kategoriya filtri, "o'rganildi" ⭐ belgisi |
+| ✅ **Tests** | Lug'atdan **avtomatik** 20 talik testlar (1–20, 21–40, ...). Lug'at o'sgani sayin testlar soni avtomatik ko'payadi |
+| 🧠 **Grammar Tests** | Har bir zamon uchun **20 savollik 10 ta test** (160 test / 3200+ savol), generator orqali |
 
-Maqsad: foydalanuvchi barcha zamonlarni **yoddan biladi** va mustahkam o'zlashtiradi. Yutuqlar (o'zlashtirilgan zamonlar, bajarilgan testlar, o'rtacha ball) brauzerda saqlanadi.
+Maqsad: foydalanuvchi zamonlarni va so'zlarni yoddan biladi, o'qish mahoratini oshiradi. Yutuqlar (o'rganilgan so'z, bajarilgan test, o'qilgan matn, o'rtacha ball) brauzerda saqlanadi.
 
 ### Grammar Tests qanday ishlaydi
-Savollar shablon emas — ular **generator** orqali yasaladi: ega (I, She, The doctor, ...) + fe'l (examine, treat, ...) + vaqt iborasi (every day, yesterday, by then, ...) kombinatsiyasidan grammatik to'g'ri gap tuziladi. To'g'ri javob — shu zamonga mos fe'l shakli, noto'g'ri variantlar (distraktorlar) esa boshqa zamonlardagi shakllar. Har bir test **deterministik** (har safar bir xil 20 savol), variantlar tartibi esa har gal aralashtiriladi.
+Savollar generator orqali yasaladi: ega + fe'l + vaqt iborasi kombinatsiyasidan grammatik to'g'ri cloze-gap tuziladi, masalan: `He ___ (examine) the patient every day.` → to'g'ri javob `examines`. Noto'g'ri variantlar boshqa zamonlardagi shakllardan olinadi. Har test deterministik (bir xil 20 savol), variantlar tartibi aralashadi.
 
 ---
 
@@ -29,9 +32,7 @@ python3 -m http.server 8080
 # yoki
 npx serve .
 ```
-Brauzerda `http://localhost:8080`.
-
-> Service Worker (offline) faqat `http(s)` da ishlaydi.
+Brauzerda `http://localhost:8080`. (Service Worker / offline faqat `http(s)` da ishlaydi.)
 
 ---
 
@@ -54,17 +55,17 @@ https://app.netlify.com/drop ga papkani tashlang.
 ---
 
 ## Kontentni kengaytirish (kod bilmasdan)
-
-- **Zamon qoidalari/misollari:** `js/data/grammar.js`
-- **Testlar kengligi:** `js/data/grammarTests.js` — `verbs` ro'yxatiga fe'l, `subjects` ga ega, `times` ga vaqt iborasi qo'shsangiz, savollar xilma-xilligi avtomatik oshadi. `testsPerTense` (10) va `questionsPerTest` (20) sonlarini ham shu yerda o'zgartirish mumkin.
+- **Lug'at:** `js/data/vocabulary.js` — yangi `{ en, uz, ru, cat, pos }` qo'shing; **Tests avtomatik ko'payadi** (har 20 so'zga 1 test).
+- **Reading:** `js/data/reading.js` — `level` = `elementary` | `pre` | `inter`, har matnga `questions`.
+- **Zamon qoidalari:** `js/data/grammar.js`.
+- **Grammar testlari kengligi:** `js/data/grammarTests.js` (`verbs`, `subjects`, `times`).
 - **Interfeys matnlari:** `js/i18n.js` (uz/en/ru).
 
 ---
 
 ## Texnik tafsilotlar
 - Sof HTML + CSS + Vanilla JS (framework yo'q, build yo'q).
-- Hash-routing: `#/grammar`, `#/grammar-tests/present-simple/1`.
-- Savol generatori (seeded RNG) → har test deterministik va o'ziga xos.
-- PWA: `manifest.json` + `sw.js` → o'rnatish va offline.
+- Hash-routing: `#/grammar`, `#/reading/int-1`, `#/tests/3`, `#/grammar-tests/present-simple/1`.
+- PWA: `manifest.json` + `sw.js` (o'rnatish + offline).
 - Telegram Web App SDK (mavzu/expand), bo'lmasa ham ishlaydi.
 - Dark / Light mavzu, to'liq mobil moslik.

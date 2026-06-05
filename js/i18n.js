@@ -3,8 +3,8 @@ window.ME70_I18N = {
   uz: {
     "app.tagline": "Tibbiyot uchun ingliz tilini noldan mukammallikgacha",
     "nav.home": "Bosh sahifa",
-    "home.hero.title": "Ingliz tili zamonlarini mukammal egalla",
-    "home.hero.desc": "16 ta ingliz zamonini qoida, formula va misollar bilan o'rgan, so'ng 20 savollik testlar bilan mashq qilib, ularni yoddan bilib ol.",
+    "home.hero.title": "Ingliz tilini noldan mukammallikgacha",
+    "home.hero.desc": "Grammatika, o'qish, lug'at va testlar — barchasi bir joyda. 16 zamonni yodla, 1500 so'zni o'zlashtir va o'qish mahoratingni oshir.",
     "home.start": "Boshlash",
     "stat.tenses": "Zamon",
     "stat.words": "So'z",
@@ -91,8 +91,8 @@ window.ME70_I18N = {
   en: {
     "app.tagline": "Learn medical English from zero to mastery",
     "nav.home": "Home",
-    "home.hero.title": "Master English Tenses",
-    "home.hero.desc": "Learn all 16 English tenses with rules, formulas and examples, then practise with 20-question tests until you know them by heart.",
+    "home.hero.title": "Master English step by step",
+    "home.hero.desc": "Grammar, reading, vocabulary and tests — all in one place. Memorize the tenses, master 1500 words and boost your reading skills.",
     "home.start": "Get started",
     "stat.tenses": "Tenses",
     "stat.words": "Words",
@@ -179,8 +179,8 @@ window.ME70_I18N = {
   ru: {
     "app.tagline": "Изучайте медицинский английский с нуля до совершенства",
     "nav.home": "Главная",
-    "home.hero.title": "Освойте времена английского языка",
-    "home.hero.desc": "Изучите все 16 английских времён с правилами, формулами и примерами, затем закрепите их тестами по 20 вопросов и выучите наизусть.",
+    "home.hero.title": "Освойте английский с нуля",
+    "home.hero.desc": "Грамматика, чтение, словарь и тесты — всё в одном месте. Выучите времена, освойте 1500 слов и улучшите навыки чтения.",
     "home.start": "Начать",
     "stat.tenses": "Времена",
     "stat.words": "Слова",

@@ -389,3 +389,343 @@ window.ME70_READING.push(
     ]
   }
 );
+
+
+/* ===== BATCH 3: Elementary passages (to reach 25) ===== */
+window.ME70_READING.push(
+  {
+    id: "el-11", level: "elementary", title: "At the Hospital",
+    text: ["Mr. Karimov is at the hospital today.", "He has a pain in his back and cannot walk well.", "A doctor and a nurse help him. They give him medicine.", "After two days, Mr. Karimov feels better and goes home."],
+    questions: [
+      { q: "Where is Mr. Karimov?", options: ["At the hospital", "At school", "At the market", "At home"], answer: 0 },
+      { q: "What is his problem?", options: ["A pain in his back", "A cough", "A cold", "A headache"], answer: 0 },
+      { q: "Who helps him?", options: ["A doctor and a nurse", "A teacher", "A driver", "A cook"], answer: 0 },
+      { q: "How does he feel after two days?", options: ["Better", "Worse", "The same", "Angry"], answer: 0 }
+    ]
+  },
+  {
+    id: "el-12", level: "elementary", title: "Eat Fruit Every Day",
+    text: ["Fruit is good for our health.", "Apples, bananas and oranges have many vitamins.", "Vitamins help our body to be strong.", "We should eat fruit every day."],
+    questions: [
+      { q: "What is good for our health?", options: ["Fruit", "Candy", "Chips", "Soda"], answer: 0 },
+      { q: "What do apples and oranges have?", options: ["Vitamins", "Salt", "Oil", "Sugar only"], answer: 0 },
+      { q: "What do vitamins do?", options: ["Help the body be strong", "Make us tired", "Cause pain", "Nothing"], answer: 0 }
+    ]
+  },
+  {
+    id: "el-13", level: "elementary", title: "A Walk in the Park",
+    text: ["Every evening, Dilnoza walks in the park.", "Walking is a good and easy exercise.", "It makes her legs strong and her heart healthy.", "After the walk, she feels happy and calm."],
+    questions: [
+      { q: "When does Dilnoza walk?", options: ["Every evening", "Every night only", "Once a year", "Never"], answer: 0 },
+      { q: "What kind of exercise is walking?", options: ["Good and easy", "Hard and bad", "Dangerous", "Useless"], answer: 0 },
+      { q: "What does walking make healthy?", options: ["Her heart", "Her phone", "Her car", "Her shoes"], answer: 0 }
+    ]
+  },
+  {
+    id: "el-14", level: "elementary", title: "My Daily Routine",
+    text: ["I wake up at seven o'clock every morning.", "I wash my face, brush my teeth and eat breakfast.", "Then I go to work by bus.", "In the evening, I rest and go to bed early."],
+    questions: [
+      { q: "What time does the person wake up?", options: ["At seven o'clock", "At noon", "At midnight", "At ten"], answer: 0 },
+      { q: "How does the person go to work?", options: ["By bus", "By plane", "By boat", "On foot"], answer: 0 },
+      { q: "What does the person do in the evening?", options: ["Rests and sleeps early", "Works all night", "Goes shopping", "Runs a race"], answer: 0 }
+    ]
+  },
+  {
+    id: "el-15", level: "elementary", title: "Drink Enough Water",
+    text: ["Our body needs water every day.", "Water helps the blood and the skin.", "When it is hot, we must drink more water.", "Doctors say we should drink many glasses of water a day."],
+    questions: [
+      { q: "What does our body need every day?", options: ["Water", "Coffee", "Soda", "Juice only"], answer: 0 },
+      { q: "What does water help?", options: ["The blood and skin", "The phone", "The car", "Nothing"], answer: 0 },
+      { q: "When must we drink more water?", options: ["When it is hot", "When we sleep", "Never", "When it is cold only"], answer: 0 }
+    ]
+  },
+  {
+    id: "el-16", level: "elementary", title: "The School Nurse",
+    text: ["There is a nurse at our school.", "When a child feels sick, the nurse helps.", "She checks the temperature and gives simple care.", "If the child is very sick, she calls the parents."],
+    questions: [
+      { q: "Who helps sick children at school?", options: ["The nurse", "The driver", "The cook", "The guard"], answer: 0 },
+      { q: "What does she check?", options: ["The temperature", "The homework", "The shoes", "The bag"], answer: 0 },
+      { q: "What does she do if a child is very sick?", options: ["Calls the parents", "Goes home", "Does nothing", "Laughs"], answer: 0 }
+    ]
+  },
+  {
+    id: "el-17", level: "elementary", title: "A Cold Winter Day",
+    text: ["It is very cold today. There is snow outside.", "People wear warm coats, hats and gloves.", "In cold weather, some people catch a cold.", "We must keep warm to stay healthy."],
+    questions: [
+      { q: "What is the weather like?", options: ["Very cold with snow", "Hot and sunny", "Rainy and warm", "Windy and dry"], answer: 0 },
+      { q: "What do people wear?", options: ["Warm coats, hats and gloves", "Swimsuits", "Nothing", "Light shirts"], answer: 0 },
+      { q: "Why must we keep warm?", options: ["To stay healthy", "To feel cold", "To get sick", "For no reason"], answer: 0 }
+    ]
+  },
+  {
+    id: "el-18", level: "elementary", title: "Taking Medicine",
+    text: ["When we are sick, the doctor gives us medicine.", "We must take the right amount at the right time.", "Too much medicine can be dangerous.", "Always read the instructions before you take a pill."],
+    questions: [
+      { q: "Who gives us medicine when we are sick?", options: ["The doctor", "The teacher", "The driver", "The neighbour"], answer: 0 },
+      { q: "How must we take medicine?", options: ["The right amount at the right time", "As much as we want", "Never", "Only at night"], answer: 0 },
+      { q: "What can too much medicine be?", options: ["Dangerous", "Healthy", "Tasty", "Free"], answer: 0 }
+    ]
+  },
+  {
+    id: "el-19", level: "elementary", title: "A Healthy Breakfast",
+    text: ["Breakfast is the first meal of the day.", "A good breakfast gives us energy for the morning.", "Bread, eggs and fruit make a healthy breakfast.", "Children who eat breakfast study better at school."],
+    questions: [
+      { q: "What is breakfast?", options: ["The first meal of the day", "A type of sport", "A drink", "A school"], answer: 0 },
+      { q: "What does a good breakfast give us?", options: ["Energy", "A cold", "A headache", "Nothing"], answer: 0 },
+      { q: "Who studies better at school?", options: ["Children who eat breakfast", "Children who skip breakfast", "No one", "Only adults"], answer: 0 }
+    ]
+  },
+  {
+    id: "el-20", level: "elementary", title: "Helping an Old Man",
+    text: ["An old man fell down on the street.", "A young woman saw him and ran to help.", "She called an ambulance and stayed with him.", "Soon the doctors came and took the man to hospital."],
+    questions: [
+      { q: "What happened to the old man?", options: ["He fell down", "He ran fast", "He went home", "He slept"], answer: 0 },
+      { q: "What did the young woman do?", options: ["She helped and called an ambulance", "She ran away", "She laughed", "She did nothing"], answer: 0 },
+      { q: "Where did they take the man?", options: ["To hospital", "To school", "To the park", "To the shop"], answer: 0 }
+    ]
+  },
+  {
+    id: "el-21", level: "elementary", title: "Clean Hands, Healthy Life",
+    text: ["Dirty hands carry many germs.", "Germs can make us sick.", "We must wash our hands with soap before eating.", "Clean hands keep us healthy."],
+    questions: [
+      { q: "What do dirty hands carry?", options: ["Germs", "Water", "Food", "Books"], answer: 0 },
+      { q: "What can germs do?", options: ["Make us sick", "Make us strong", "Help us", "Clean us"], answer: 0 },
+      { q: "When must we wash our hands?", options: ["Before eating", "After sleeping only", "Never", "Once a month"], answer: 0 }
+    ]
+  },
+  {
+    id: "el-22", level: "elementary", title: "At the Pharmacy Again",
+    text: ["My grandmother needs her medicine.", "We go to the pharmacy near our home.", "The pharmacist gives us the right pills.", "He tells us to take one pill after dinner."],
+    questions: [
+      { q: "Who needs medicine?", options: ["My grandmother", "My teacher", "My friend", "The driver"], answer: 0 },
+      { q: "Where do we go?", options: ["To the pharmacy", "To the bank", "To the park", "To school"], answer: 0 },
+      { q: "When should she take the pill?", options: ["After dinner", "Before breakfast", "At midnight", "Never"], answer: 0 }
+    ]
+  },
+  {
+    id: "el-23", level: "elementary", title: "Exercise is Fun",
+    text: ["Children love to run and play.", "Running and playing are good exercise.", "Exercise makes the body strong and healthy.", "It is fun to be active with friends."],
+    questions: [
+      { q: "What do children love to do?", options: ["Run and play", "Sleep all day", "Sit only", "Eat candy"], answer: 0 },
+      { q: "What does exercise make?", options: ["The body strong and healthy", "The body weak", "Us sick", "Nothing"], answer: 0 },
+      { q: "How is it to be active with friends?", options: ["Fun", "Boring", "Dangerous", "Sad"], answer: 0 }
+    ]
+  },
+  {
+    id: "el-24", level: "elementary", title: "The Sick Cat",
+    text: ["Our cat did not eat for two days.", "We took it to the animal doctor.", "The doctor said the cat had a small infection.", "After the medicine, the cat was happy and healthy again."],
+    questions: [
+      { q: "What was wrong with the cat?", options: ["It did not eat for two days", "It ran away", "It slept too much", "Nothing"], answer: 0 },
+      { q: "Where did they take the cat?", options: ["To the animal doctor", "To school", "To the park", "To the shop"], answer: 0 },
+      { q: "What did the cat have?", options: ["A small infection", "A broken leg", "A cold only", "A toothache"], answer: 0 }
+    ]
+  },
+  {
+    id: "el-25", level: "elementary", title: "Good Sleep, Good Day",
+    text: ["Sleep helps our brain and body rest.", "Children need about ten hours of sleep.", "Before bed, do not use the phone.", "After a good sleep, we feel fresh and ready."],
+    questions: [
+      { q: "What does sleep help?", options: ["Our brain and body rest", "Our phone", "Our shoes", "Nothing"], answer: 0 },
+      { q: "How many hours do children need?", options: ["About ten", "About two", "About twenty", "None"], answer: 0 },
+      { q: "What should we not do before bed?", options: ["Use the phone", "Close our eyes", "Rest", "Sleep"], answer: 0 }
+    ]
+  }
+);
+
+
+/* ===== BATCH 4: Pre-Intermediate passages (to reach 20) ===== */
+window.ME70_READING.push(
+  {
+    id: "pre-10", level: "pre", title: "Dealing with Stress",
+    text: ["Stress is the body's reaction to difficult situations. A little stress is normal, but too much can harm our health.", "When we are stressed, the heart beats faster and we may feel tired or worried.", "Simple activities like walking, deep breathing and talking to friends can reduce stress.", "Getting enough sleep and taking breaks also help the mind stay calm."],
+    questions: [
+      { q: "What is stress?", options: ["The body's reaction to difficult situations", "A type of food", "A medicine", "A sport"], answer: 0 },
+      { q: "What happens when we are stressed?", options: ["The heart beats faster", "We feel no change", "We grow taller", "We sleep better"], answer: 0 },
+      { q: "What can reduce stress?", options: ["Walking and deep breathing", "Eating more sugar", "Working all night", "Avoiding sleep"], answer: 0 }
+    ]
+  },
+  {
+    id: "pre-11", level: "pre", title: "The Dangers of Smoking",
+    text: ["Smoking is one of the most harmful habits for human health.", "Cigarettes contain chemicals that damage the lungs and heart.", "Smokers have a higher risk of cancer and breathing problems.", "Quitting smoking, even after many years, greatly improves health."],
+    questions: [
+      { q: "What does smoking damage?", options: ["The lungs and heart", "Only the hair", "The eyes only", "Nothing"], answer: 0 },
+      { q: "What higher risk do smokers have?", options: ["Cancer and breathing problems", "Better health", "Stronger lungs", "More energy"], answer: 0 },
+      { q: "What improves health?", options: ["Quitting smoking", "Smoking more", "Ignoring the problem", "Nothing"], answer: 0 }
+    ]
+  },
+  {
+    id: "pre-12", level: "pre", title: "The Flu Vaccine",
+    text: ["Every year, many people get the flu, especially in winter.", "The flu vaccine helps the body fight the virus before it causes illness.", "Doctors recommend the vaccine for children, older people and those with weak immune systems.", "Although the vaccine is not perfect, it greatly reduces serious illness."],
+    questions: [
+      { q: "When do many people get the flu?", options: ["Especially in winter", "Only in summer", "Never", "Once in ten years"], answer: 0 },
+      { q: "What does the flu vaccine help the body do?", options: ["Fight the virus", "Get sick faster", "Stop eating", "Sleep more"], answer: 0 },
+      { q: "Who do doctors recommend the vaccine for?", options: ["Children and older people", "No one", "Only athletes", "Only doctors"], answer: 0 }
+    ]
+  },
+  {
+    id: "pre-13", level: "pre", title: "Understanding Allergies",
+    text: ["An allergy happens when the body reacts to something that is usually harmless.", "Common causes include pollen, dust, certain foods and animal hair.", "Symptoms can be a runny nose, sneezing, a rash or itchy eyes.", "People with serious allergies should avoid the cause and carry their medicine."],
+    questions: [
+      { q: "When does an allergy happen?", options: ["When the body reacts to something harmless", "When we sleep", "When we exercise", "Never"], answer: 0 },
+      { q: "Which is a common cause of allergies?", options: ["Pollen and dust", "Reading", "Walking", "Sleeping"], answer: 0 },
+      { q: "What should people with serious allergies do?", options: ["Avoid the cause and carry medicine", "Eat the cause", "Ignore it", "Stop breathing"], answer: 0 }
+    ]
+  },
+  {
+    id: "pre-14", level: "pre", title: "Strong Bones",
+    text: ["Bones give our body shape and protect our organs.", "To keep bones strong, we need calcium, which is found in milk and cheese.", "Sunlight helps the body make vitamin D, which is also good for bones.", "Regular exercise makes bones and muscles stronger as we grow."],
+    questions: [
+      { q: "What do bones do?", options: ["Give shape and protect organs", "Pump blood", "Digest food", "Think"], answer: 0 },
+      { q: "Where is calcium found?", options: ["Milk and cheese", "Only in water", "In plastic", "In paper"], answer: 0 },
+      { q: "What helps the body make vitamin D?", options: ["Sunlight", "Darkness", "Cold water", "Noise"], answer: 0 }
+    ]
+  },
+  {
+    id: "pre-15", level: "pre", title: "Caring for Your Heart",
+    text: ["The heart is a strong muscle that pumps blood all day and night.", "To keep it healthy, we should eat less fatty and salty food.", "Regular exercise and avoiding smoking protect the heart.", "Doctors also say that managing stress is good for heart health."],
+    questions: [
+      { q: "What is the heart?", options: ["A strong muscle that pumps blood", "A bone", "A type of food", "A nerve"], answer: 0 },
+      { q: "What should we eat less of?", options: ["Fatty and salty food", "Vegetables", "Water", "Fruit"], answer: 0 },
+      { q: "What protects the heart?", options: ["Exercise and not smoking", "Smoking", "Eating salt", "Sitting all day"], answer: 0 }
+    ]
+  },
+  {
+    id: "pre-16", level: "pre", title: "Hand Hygiene in Hospitals",
+    text: ["In hospitals, clean hands are very important for safety.", "Doctors and nurses wash their hands before and after touching every patient.", "This simple action stops germs from spreading between patients.", "Hospitals also place hand gel near every bed and door."],
+    questions: [
+      { q: "Why are clean hands important in hospitals?", options: ["For safety", "For fun", "For decoration", "For no reason"], answer: 0 },
+      { q: "When do doctors wash their hands?", options: ["Before and after touching every patient", "Once a week", "Never", "Only in the morning"], answer: 0 },
+      { q: "What does hand washing stop?", options: ["Germs from spreading", "Patients from leaving", "Doctors from working", "Nothing"], answer: 0 }
+    ]
+  },
+  {
+    id: "pre-17", level: "pre", title: "The Pharmacist's Job",
+    text: ["A pharmacist is an expert in medicines who works in a pharmacy.", "They prepare and give out the drugs that doctors prescribe.", "Pharmacists explain how and when to take each medicine safely.", "They also warn patients about possible side effects."],
+    questions: [
+      { q: "Who is a pharmacist?", options: ["An expert in medicines", "A bus driver", "A teacher", "A cook"], answer: 0 },
+      { q: "What do they give out?", options: ["The drugs doctors prescribe", "Food", "Books", "Tickets"], answer: 0 },
+      { q: "What do pharmacists warn about?", options: ["Possible side effects", "The weather", "Football scores", "Traffic"], answer: 0 }
+    ]
+  },
+  {
+    id: "pre-18", level: "pre", title: "What Blood Does",
+    text: ["Blood is a special liquid that travels through the whole body.", "It carries oxygen and food to every cell and removes waste.", "Blood also helps fight infection and heal wounds.", "An adult body contains about five litres of blood."],
+    questions: [
+      { q: "What does blood carry to cells?", options: ["Oxygen and food", "Only water", "Air only", "Nothing"], answer: 0 },
+      { q: "What else does blood help with?", options: ["Fighting infection and healing wounds", "Growing hair only", "Sleeping", "Reading"], answer: 0 },
+      { q: "How much blood does an adult have?", options: ["About five litres", "About fifty litres", "One drop", "None"], answer: 0 }
+    ]
+  },
+  {
+    id: "pre-19", level: "pre", title: "A Healthy Weight",
+    text: ["Keeping a healthy weight is important for the whole body.", "Too much weight can cause problems with the heart and joints.", "A balanced diet and daily activity help control weight.", "It is better to make small, steady changes than to follow extreme diets."],
+    questions: [
+      { q: "Why is a healthy weight important?", options: ["For the whole body", "For the phone", "For the car", "For no reason"], answer: 0 },
+      { q: "What can too much weight cause?", options: ["Problems with the heart and joints", "Better health", "Stronger bones", "Nothing"], answer: 0 },
+      { q: "What is better than extreme diets?", options: ["Small, steady changes", "Not eating at all", "Eating only sugar", "Sleeping all day"], answer: 0 }
+    ]
+  },
+  {
+    id: "pre-20", level: "pre", title: "Drinking Water and Health",
+    text: ["Water makes up more than half of the human body.", "We lose water when we sweat, breathe and go to the toilet.", "If we do not drink enough, we can feel tired and get a headache.", "Drinking water regularly keeps the body working well."],
+    questions: [
+      { q: "How much of the body is water?", options: ["More than half", "Almost none", "Exactly ten percent", "All of it"], answer: 0 },
+      { q: "When do we lose water?", options: ["When we sweat and breathe", "When we read", "When we sleep only", "Never"], answer: 0 },
+      { q: "What can happen if we do not drink enough?", options: ["We feel tired and get a headache", "We feel stronger", "We grow taller", "Nothing"], answer: 0 }
+    ]
+  }
+);
+
+
+/* ===== BATCH 5: Intermediate passages (to reach 15) ===== */
+window.ME70_READING.push(
+  {
+    id: "int-7", level: "inter", title: "The Respiratory System",
+    text: ["The respiratory system is responsible for bringing oxygen into the body and removing carbon dioxide, a waste gas.", "When we breathe in, air travels down the windpipe into the lungs, where tiny air sacs pass oxygen into the blood.", "The diaphragm, a large muscle below the lungs, moves down to pull air in and up to push it out.", "Smoking, pollution and infections can damage this system and make breathing difficult."],
+    questions: [
+      { q: "What is the respiratory system responsible for?", options: ["Bringing in oxygen and removing carbon dioxide", "Pumping blood", "Digesting food", "Storing memories"], answer: 0 },
+      { q: "Where does oxygen pass into the blood?", options: ["In tiny air sacs in the lungs", "In the stomach", "In the bones", "In the skin"], answer: 0 },
+      { q: "What is the diaphragm?", options: ["A large muscle below the lungs", "A bone", "A type of blood", "A nerve"], answer: 0 },
+      { q: "What can damage the respiratory system?", options: ["Smoking and pollution", "Drinking water", "Sleeping", "Walking"], answer: 0 }
+    ]
+  },
+  {
+    id: "int-8", level: "inter", title: "The Nervous System",
+    text: ["The nervous system controls almost everything the body does, from movement to thought.", "It is made up of the brain, the spinal cord and a huge network of nerves.", "Nerves carry electrical messages between the brain and the rest of the body at incredible speed.", "Damage to the nervous system, through injury or disease, can affect movement, feeling or memory."],
+    questions: [
+      { q: "What does the nervous system control?", options: ["Almost everything the body does", "Only the hair", "Only digestion", "Nothing"], answer: 0 },
+      { q: "What is it made up of?", options: ["The brain, spinal cord and nerves", "Only bones", "Only blood", "Only muscles"], answer: 0 },
+      { q: "What do nerves carry?", options: ["Electrical messages", "Food", "Air", "Water"], answer: 0 },
+      { q: "What can damage to it affect?", options: ["Movement, feeling or memory", "Only the eyes", "The weather", "Nothing"], answer: 0 }
+    ]
+  },
+  {
+    id: "int-9", level: "inter", title: "Vaccination and Herd Immunity",
+    text: ["Vaccination protects not only the person who receives it but also the wider community.", "When most people in a group are vaccinated, a disease finds it hard to spread. This is called herd immunity.", "Herd immunity protects those who cannot be vaccinated, such as newborn babies or very sick people.", "If too few people are vaccinated, dangerous diseases can return and spread quickly."],
+    questions: [
+      { q: "Who does vaccination protect?", options: ["The person and the wider community", "Only doctors", "Only animals", "No one"], answer: 0 },
+      { q: "What is herd immunity?", options: ["When a disease cannot spread easily because most are vaccinated", "A type of medicine", "A hospital", "A vaccine brand"], answer: 0 },
+      { q: "Who does herd immunity protect?", options: ["Those who cannot be vaccinated", "Only adults", "Only the rich", "No one"], answer: 0 },
+      { q: "What happens if too few are vaccinated?", options: ["Dangerous diseases can return", "Nothing changes", "Everyone gets stronger", "Diseases disappear"], answer: 0 }
+    ]
+  },
+  {
+    id: "int-10", level: "inter", title: "How Wounds Heal",
+    text: ["Wound healing is a remarkable process that the body carries out in several stages.", "First, blood clots to stop the bleeding and form a protective scab over the wound.", "Then, special cells clean the area and fight any bacteria that may cause infection.", "Finally, new tissue grows to close the wound, sometimes leaving a scar behind."],
+    questions: [
+      { q: "How does the body carry out wound healing?", options: ["In several stages", "All at once", "Never", "Only with medicine"], answer: 0 },
+      { q: "What happens first?", options: ["Blood clots and forms a scab", "A scar forms", "New tissue grows", "Nothing"], answer: 0 },
+      { q: "What do special cells do?", options: ["Clean the area and fight bacteria", "Cause infection", "Stop the heart", "Grow hair"], answer: 0 },
+      { q: "What may be left behind at the end?", options: ["A scar", "A bone", "A nerve", "Blood only"], answer: 0 }
+    ]
+  },
+  {
+    id: "int-11", level: "inter", title: "The Liver: A Busy Organ",
+    text: ["The liver is one of the largest and busiest organs in the human body.", "It cleans the blood by removing harmful substances, including alcohol and waste.", "The liver also stores energy and produces a fluid called bile that helps digest fat.", "A healthy diet and avoiding too much alcohol help keep the liver working well."],
+    questions: [
+      { q: "How is the liver described?", options: ["One of the largest and busiest organs", "A small bone", "A type of blood", "A muscle in the leg"], answer: 0 },
+      { q: "How does the liver clean the blood?", options: ["By removing harmful substances", "By adding waste", "By stopping it", "It does not"], answer: 0 },
+      { q: "What does bile help with?", options: ["Digesting fat", "Pumping blood", "Thinking", "Breathing"], answer: 0 },
+      { q: "What helps keep the liver healthy?", options: ["A healthy diet and less alcohol", "More alcohol", "No water", "Smoking"], answer: 0 }
+    ]
+  },
+  {
+    id: "int-12", level: "inter", title: "Infection Control",
+    text: ["Infection control is a set of methods used to prevent the spread of harmful germs, especially in hospitals.", "Washing hands, wearing gloves and masks, and sterilising equipment are all key parts of it.", "Isolating patients with contagious diseases protects other patients and staff.", "Good infection control saves lives and reduces the time patients spend in hospital."],
+    questions: [
+      { q: "What is infection control?", options: ["Methods to prevent the spread of germs", "A type of surgery", "A medicine", "A disease"], answer: 0 },
+      { q: "Which is a key part of it?", options: ["Washing hands and wearing gloves", "Sharing needles", "Ignoring hygiene", "Touching every surface"], answer: 0 },
+      { q: "Why are contagious patients isolated?", options: ["To protect others", "To punish them", "For no reason", "To make them sicker"], answer: 0 },
+      { q: "What does good infection control do?", options: ["Saves lives", "Spreads disease", "Wastes time", "Nothing"], answer: 0 }
+    ]
+  },
+  {
+    id: "int-13", level: "inter", title: "A Balanced Diet",
+    text: ["A balanced diet provides the body with the right mix of nutrients it needs to stay healthy.", "It includes carbohydrates for energy, proteins for growth and repair, and fats in small amounts.", "Vitamins and minerals, found mostly in fruit and vegetables, support many body functions.", "Eating a variety of foods in sensible amounts is the simplest rule of healthy eating."],
+    questions: [
+      { q: "What does a balanced diet provide?", options: ["The right mix of nutrients", "Only sugar", "Only water", "Nothing useful"], answer: 0 },
+      { q: "What are proteins for?", options: ["Growth and repair", "Only energy", "Cooling the body", "Nothing"], answer: 0 },
+      { q: "Where are vitamins and minerals mostly found?", options: ["Fruit and vegetables", "Only meat", "Plastic", "Water only"], answer: 0 },
+      { q: "What is the simplest rule of healthy eating?", options: ["Eat a variety of foods in sensible amounts", "Eat only one food", "Never eat", "Eat only at night"], answer: 0 }
+    ]
+  },
+  {
+    id: "int-14", level: "inter", title: "The Skeleton",
+    text: ["The human skeleton is the strong frame of bones that supports the body and gives it shape.", "An adult skeleton has 206 bones, from the tiny bones in the ear to the long bones in the leg.", "Bones protect important organs; for example, the skull protects the brain and the ribs protect the heart and lungs.", "Bones also produce blood cells and store minerals such as calcium."],
+    questions: [
+      { q: "What is the skeleton?", options: ["The frame of bones that supports the body", "A single muscle", "A type of blood", "An organ that pumps"], answer: 0 },
+      { q: "How many bones does an adult skeleton have?", options: ["206", "12", "1000", "50"], answer: 0 },
+      { q: "What does the skull protect?", options: ["The brain", "The stomach", "The foot", "The hair"], answer: 0 },
+      { q: "What else do bones do?", options: ["Produce blood cells and store minerals", "Digest food", "Think", "Breathe"], answer: 0 }
+    ]
+  },
+  {
+    id: "int-15", level: "inter", title: "Blood Pressure Explained",
+    text: ["Blood pressure is the force of blood pushing against the walls of the arteries as the heart pumps.", "It is written as two numbers, for example 120 over 80, showing the pressure when the heart beats and rests.", "Blood pressure that stays too high can damage the arteries and the heart over time.", "A healthy diet, exercise and limited salt help keep blood pressure in a safe range."],
+    questions: [
+      { q: "What is blood pressure?", options: ["The force of blood against the artery walls", "The speed of breathing", "The amount of food", "The size of bones"], answer: 0 },
+      { q: "How is blood pressure written?", options: ["As two numbers", "As a single letter", "As a colour", "As a word"], answer: 0 },
+      { q: "What can high blood pressure damage?", options: ["The arteries and the heart", "The hair only", "The ears only", "Nothing"], answer: 0 },
+      { q: "What helps keep blood pressure safe?", options: ["Diet, exercise and limited salt", "More salt", "No exercise", "Smoking"], answer: 0 }
+    ]
+  }
+);

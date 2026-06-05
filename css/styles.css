@@ -291,3 +291,16 @@ a.card:hover, .card.clickable:hover { transform: translateY(-3px); box-shadow: v
 @media (max-width: 380px) {
   .lang-btn { padding: 5px 8px; }
 }
+
+
+/* ===== Quiz blank (fill-in-the-gap) ===== */
+.question-text .blank {
+  display: inline-block;
+  min-width: 64px;
+  text-align: center;
+  font-weight: 800;
+  color: var(--primary);
+  border-bottom: 3px solid var(--primary);
+  margin: 0 2px;
+  letter-spacing: 1px;
+}

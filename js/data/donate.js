@@ -24,11 +24,10 @@ window.ME70_DONATE = {
       id: "paynet",
       name: "Paynet",
       icon: "🟢",
-      note: "",
+      note: "Humo karta",
       holder: "MedEnglish Support",
-      // Eslatma: domenni Paynet ilovasidan olingan to'liq havola bilan tekshiring.
-      link: "https://app.paynet.uz/shared-transfer-qr/41f8dec3-f8fd-44c4-abc7-20c28863cb35",
-      number: ""
+      link: "",
+      number: "9860 3501 4113 2612"
     }
   ]
 };

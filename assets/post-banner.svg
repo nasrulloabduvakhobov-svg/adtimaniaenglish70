@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1080" width="1080" height="1080" role="img" aria-label="MedEnglish70 post banner">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0ea5a4"/>
+      <stop offset="0.55" stop-color="#2f8fd6"/>
+      <stop offset="1" stop-color="#6366f1"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.8" cy="0.15" r="0.7">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.25"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="white" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#10b8b4"/>
+      <stop offset="1" stop-color="#6366f1"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1080" height="1080" fill="url(#bg)"/>
+  <rect width="1080" height="1080" fill="url(#glow)"/>
+
+  <!-- decorative circles -->
+  <circle cx="980" cy="120" r="220" fill="#ffffff" opacity="0.06"/>
+  <circle cx="120" cy="980" r="260" fill="#ffffff" opacity="0.05"/>
+
+  <!-- emblem (logo mark) -->
+  <g transform="translate(400,86)">
+    <rect x="0" y="0" width="280" height="280" rx="70" fill="#ffffff"/>
+    <path d="M60 80 h160 a28 28 0 0 1 28 28 v74 a28 28 0 0 1 -28 28 H126 l-40 36 v-36 h-26 a28 28 0 0 1 -28 -28 V108 a28 28 0 0 1 28 -28 Z" fill="url(#white)"/>
+    <g fill="#ffffff">
+      <rect x="124" y="98" width="32" height="96" rx="9"/>
+      <rect x="92" y="130" width="96" height="32" rx="9"/>
+    </g>
+    <circle cx="214" cy="214" r="50" fill="#ffffff"/>
+    <text x="214" y="233" font-family="Arial, Helvetica, sans-serif" font-size="54" font-weight="800" text-anchor="middle" fill="#0ea5a4">70</text>
+  </g>
+
+  <!-- title -->
+  <text x="540" y="470" font-family="Arial, Helvetica, sans-serif" font-size="104" font-weight="800" text-anchor="middle" fill="#ffffff">MedEnglish70</text>
+  <text x="540" y="532" font-family="Arial, Helvetica, sans-serif" font-size="40" font-weight="600" text-anchor="middle" fill="#ffffff" opacity="0.92">Ingliz tilini noldan mukammallikgacha</text>
+
+  <!-- feature pills -->
+  <g font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="700" text-anchor="middle">
+    <g transform="translate(170,600)">
+      <rect width="330" height="74" rx="37" fill="#ffffff" opacity="0.16"/>
+      <text x="165" y="49" fill="#ffffff">📘 Grammar · 🗂 1500 so'z</text>
+    </g>
+    <g transform="translate(580,600)">
+      <rect width="330" height="74" rx="37" fill="#ffffff" opacity="0.16"/>
+      <text x="165" y="49" fill="#ffffff">📖 Reading · 🎧 Listening</text>
+    </g>
+    <g transform="translate(170,694)">
+      <rect width="330" height="74" rx="37" fill="#ffffff" opacity="0.16"/>
+      <text x="165" y="49" fill="#ffffff">✍️ Writing · 🎙 Speaking</text>
+    </g>
+    <g transform="translate(580,694)">
+      <rect width="330" height="74" rx="37" fill="#ffffff" opacity="0.16"/>
+      <text x="165" y="49" fill="#ffffff">✅ 236 Test · 🧠 Grammar</text>
+    </g>
+  </g>
+
+  <!-- 70-day marathon badge -->
+  <g transform="translate(340,812)">
+    <rect width="400" height="86" rx="43" fill="#ffffff"/>
+    <text x="200" y="58" font-family="Arial, Helvetica, sans-serif" font-size="40" font-weight="800" text-anchor="middle" fill="#0ea5a4">🔥 70 KUNLIK MARAFON</text>
+  </g>
+
+  <!-- footer info -->
+  <text x="540" y="958" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="700" text-anchor="middle" fill="#ffffff">BEPUL · UZ / RU / EN · Offline ishlaydi</text>
+  <text x="540" y="1012" font-family="Arial, Helvetica, sans-serif" font-size="38" font-weight="800" text-anchor="middle" fill="#ffffff">@MedEnglish70</text>
+</svg>

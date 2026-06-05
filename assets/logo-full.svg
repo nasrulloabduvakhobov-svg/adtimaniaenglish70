@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 360" width="1100" height="360" role="img" aria-label="MedEnglish70">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#10b8b4"/>
+      <stop offset="1" stop-color="#6366f1"/>
+    </linearGradient>
+    <linearGradient id="txt" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#10b8b4"/>
+      <stop offset="1" stop-color="#6366f1"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1100" height="360" fill="#ffffff"/>
+
+  <!-- emblem -->
+  <g transform="translate(40,40)">
+    <rect x="0" y="0" width="280" height="280" rx="66" fill="url(#bg)"/>
+    <path d="M64 84 h152 a26 26 0 0 1 26 26 v70 a26 26 0 0 1 -26 26 H128 l-36 32 v-32 h-28 a26 26 0 0 1 -26 -26 V110 a26 26 0 0 1 26 -26 Z" fill="#ffffff"/>
+    <g fill="url(#bg)">
+      <rect x="124" y="100" width="32" height="92" rx="9"/>
+      <rect x="94" y="130" width="92" height="32" rx="9"/>
+    </g>
+    <circle cx="214" cy="214" r="48" fill="#ffffff"/>
+    <text x="214" y="232" font-family="Arial, Helvetica, sans-serif" font-size="52" font-weight="800" text-anchor="middle" fill="#0ea5a4">70</text>
+  </g>
+
+  <!-- wordmark -->
+  <g transform="translate(360,0)">
+    <text x="0" y="170" font-family="Arial, Helvetica, sans-serif" font-size="96" font-weight="800" fill="#0f172a">Med<tspan fill="url(#txt)">English</tspan>70</text>
+    <text x="4" y="232" font-family="Arial, Helvetica, sans-serif" font-size="40" font-weight="600" fill="#51607a">Ingliz tili &amp; Self-Improvement</text>
+    <g transform="translate(4,262)" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="700">
+      <rect x="0" y="0" width="300" height="46" rx="23" fill="#d6f3f2"/>
+      <text x="150" y="31" text-anchor="middle" fill="#0c8a89">70 KUNLIK MARAFON</text>
+    </g>
+  </g>
+</svg>

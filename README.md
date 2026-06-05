@@ -72,3 +72,22 @@ https://app.netlify.com/drop ga papkani tashlang.
 - PWA: `manifest.json` + `sw.js` (o'rnatish + offline).
 - Telegram Web App SDK (mavzu/expand), bo'lmasa ham ishlaydi.
 - Dark / Light mavzu, to'liq mobil moslik.
+
+
+---
+
+## Brend materiallari (assets/)
+
+| Fayl | Tavsif | Ishlatish |
+|---|---|---|
+| `icon.svg` | Ilova/favicon ikonkasi | Brauzer va PWA |
+| `assets/logo-mark.svg` | Faqat emblema (kvadrat) | Kanal avatari, profil rasm |
+| `assets/logo-full.svg` | Emblema + "MedEnglish70" matni | Kanal shapkasi, hujjatlar |
+| `assets/post-banner.svg` | 1080×1080 post banneri | Telegram/Instagram posti |
+
+**SVG ni PNG ga aylantirish (post uchun):**
+1. SVG faylni brauzerda oching.
+2. Skrinshot oling **yoki** onlayn `svg2png` xizmatidan foydalaning (masalan cloudconvert).
+3. Telegram'ga rasm sifatida joylang.
+
+Ranglar: `#10b8b4` (teal) → `#6366f1` (indigo). Shrift: Arial/Helvetica (bold).

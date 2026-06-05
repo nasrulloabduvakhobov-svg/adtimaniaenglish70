@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1080" width="1080" height="1080" role="img" aria-label="Ilovani qo'llab-quvvatlash">
+  <defs>
+    <linearGradient id="brand" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#10b8b4"/>
+      <stop offset="1" stop-color="#6366f1"/>
+    </linearGradient>
+    <linearGradient id="heart" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ef4444"/>
+      <stop offset="1" stop-color="#ec4899"/>
+    </linearGradient>
+  </defs>
+
+  <!-- white background -->
+  <rect width="1080" height="1080" fill="#ffffff"/>
+
+  <!-- subtle brand corner accents -->
+  <circle cx="60" cy="60" r="180" fill="#10b8b4" opacity="0.06"/>
+  <circle cx="1020" cy="1020" r="220" fill="#6366f1" opacity="0.06"/>
+
+  <!-- top accent bar -->
+  <rect x="0" y="0" width="1080" height="12" fill="url(#brand)"/>
+
+  <!-- logo emblem -->
+  <g transform="translate(400,90)">
+    <rect x="0" y="0" width="280" height="280" rx="70" fill="url(#brand)"/>
+    <path d="M60 80 h160 a28 28 0 0 1 28 28 v74 a28 28 0 0 1 -28 28 H126 l-40 36 v-36 h-26 a28 28 0 0 1 -28 -28 V108 a28 28 0 0 1 28 -28 Z" fill="#ffffff"/>
+    <g fill="url(#brand)">
+      <rect x="124" y="98" width="32" height="96" rx="9"/>
+      <rect x="92" y="130" width="96" height="32" rx="9"/>
+    </g>
+    <circle cx="214" cy="214" r="50" fill="#ffffff"/>
+    <text x="214" y="233" font-family="Arial, Helvetica, sans-serif" font-size="54" font-weight="800" text-anchor="middle" fill="#0ea5a4">70</text>
+  </g>
+
+  <!-- brand name -->
+  <text x="540" y="448" font-family="Arial, Helvetica, sans-serif" font-size="58" font-weight="800" text-anchor="middle" fill="#0f172a">MedEnglish70</text>
+
+  <!-- heart -->
+  <g transform="translate(490,500)">
+    <path d="M50 92 C50 92 8 64 8 34 C8 16 22 6 36 6 C44 6 50 12 50 12 C50 12 56 6 64 6 C78 6 92 16 92 34 C92 64 50 92 50 92 Z" fill="url(#heart)"/>
+  </g>
+
+  <!-- title -->
+  <text x="540" y="690" font-family="Arial, Helvetica, sans-serif" font-size="76" font-weight="800" text-anchor="middle" fill="#0f172a">Ilovani qo'llab-quvvatlash</text>
+
+  <!-- subtitle -->
+  <text x="540" y="752" font-family="Arial, Helvetica, sans-serif" font-size="36" font-weight="500" text-anchor="middle" fill="#51607a">MedEnglish70 — bepul va reklamasiz.</text>
+  <text x="540" y="800" font-family="Arial, Helvetica, sans-serif" font-size="36" font-weight="500" text-anchor="middle" fill="#51607a">Xayriyangiz ilova rivoji uchun ishlatiladi.</text>
+
+  <!-- payment pills -->
+  <g font-family="Arial, Helvetica, sans-serif" font-size="40" font-weight="700" text-anchor="middle">
+    <g transform="translate(290,852)">
+      <rect width="230" height="86" rx="43" fill="#eef2ff" stroke="#6366f1" stroke-width="2"/>
+      <text x="115" y="56" fill="#4f46e5">🔵 Click</text>
+    </g>
+    <g transform="translate(560,852)">
+      <rect width="230" height="86" rx="43" fill="#ecfdf5" stroke="#10b981" stroke-width="2"/>
+      <text x="115" y="56" fill="#059669">🟢 Paynet</text>
+    </g>
+  </g>
+
+  <!-- footer -->
+  <text x="540" y="1010" font-family="Arial, Helvetica, sans-serif" font-size="40" font-weight="800" text-anchor="middle" fill="#0ea5a4">@MedEnglish70</text>
+
+  <!-- bottom accent bar -->
+  <rect x="0" y="1068" width="1080" height="12" fill="url(#brand)"/>
+</svg>

@@ -101,6 +101,61 @@
     meRecorder = null; meActiveStream = null;
   }
 
+  /* ---------- Donate / Support ---------- */
+  function copyText(txt) {
+    var done = false;
+    try { if (navigator.clipboard && navigator.clipboard.writeText) { navigator.clipboard.writeText(txt); done = true; } } catch (e) {}
+    if (!done) {
+      try {
+        var ta = document.createElement("textarea");
+        ta.value = txt;
+        document.body.appendChild(ta);
+        if (ta.select) ta.select();
+        if (document.execCommand) document.execCommand("copy");
+        if (ta.remove) ta.remove();
+      } catch (e) {}
+    }
+    toast(t("donate.copied"));
+  }
+  function openDonate() {
+    var cfg = window.ME70_DONATE;
+    if (!cfg || cfg.enabled === false || !cfg.wallets) return;
+    var existing = document.querySelector(".modal-overlay");
+    if (existing && existing.remove) existing.remove();
+
+    var rows = cfg.wallets.map(function (w) {
+      return '<div class="donate-row">' +
+        '<div class="donate-w"><span class="donate-ico">' + (w.icon || "💳") + '</span>' +
+          '<div><div class="donate-name">' + esc(w.name) + '</div>' +
+            '<div class="donate-num">' + esc(w.number) + '</div>' +
+            (w.holder ? '<div class="donate-holder">' + esc(w.holder) + '</div>' : '') +
+          '</div>' +
+        '</div>' +
+        '<div class="donate-actions">' +
+          (w.link ? '<a class="btn primary" href="' + esc(w.link) + '" target="_blank" rel="noopener">' + t("donate.open") + '</a>' : '') +
+          '<button class="btn copy-btn" data-num="' + esc(w.number) + '">📋 ' + t("donate.copy") + '</button>' +
+        '</div>' +
+      '</div>';
+    }).join("");
+
+    var overlay = el('<div class="modal-overlay"></div>');
+    overlay.innerHTML = '<div class="modal">' +
+      '<button class="modal-close" id="donateClose" aria-label="' + t("donate.close") + '">✕</button>' +
+      '<h2 class="modal-title">❤️ ' + t("donate.title") + '</h2>' +
+      '<p class="modal-note">' + t("donate.note") + '</p>' +
+      rows +
+    '</div>';
+    document.body.appendChild(overlay);
+
+    function close() { if (overlay.remove) overlay.remove(); }
+    var closeBtn = overlay.querySelector("#donateClose");
+    if (closeBtn) closeBtn.addEventListener("click", close);
+    overlay.addEventListener("click", function (e) { if (e.target === overlay) close(); });
+    overlay.querySelectorAll(".copy-btn").forEach(function (b) {
+      b.addEventListener("click", function () { copyText(b.getAttribute("data-num")); });
+    });
+  }
+
   var toastTimer;
   function toast(msg) {
     var tEl = document.querySelector(".toast");
@@ -991,6 +1046,15 @@
       b.addEventListener("click", function () { setLang(b.getAttribute("data-lang")); });
     });
     document.getElementById("themeToggle").addEventListener("click", toggleTheme);
+
+    var donateCfg = window.ME70_DONATE;
+    var donateOn = !!(donateCfg && donateCfg.enabled !== false && donateCfg.wallets && donateCfg.wallets.length);
+    ["donateTop", "donateBtn"].forEach(function (bid) {
+      var b = document.getElementById(bid);
+      if (!b) return;
+      if (donateOn) b.addEventListener("click", openDonate);
+      else b.style.display = "none";
+    });
     if (window.matchMedia) {
       window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", function () { if (!state.theme) applyTheme(); });
     }

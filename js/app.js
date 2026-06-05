@@ -7,6 +7,7 @@
   var VOCAB = window.ME70_VOCAB;
   var READING = window.ME70_READING;
   var LISTENING = window.ME70_LISTENING;
+  var WRITING = window.ME70_WRITING;
   var GT = window.ME70_GTEST_CONFIG;
 
   var VTEST_SIZE = 20;
@@ -25,6 +26,10 @@
   function setReadDone(a) { localStorage.setItem("me70_reading", JSON.stringify(a)); }
   function getListenDone() { try { return JSON.parse(localStorage.getItem("me70_listening") || "[]"); } catch (e) { return []; } }
   function setListenDone(a) { localStorage.setItem("me70_listening", JSON.stringify(a)); }
+  function getWriteDone() { try { return JSON.parse(localStorage.getItem("me70_writing") || "[]"); } catch (e) { return []; } }
+  function setWriteDone(a) { localStorage.setItem("me70_writing", JSON.stringify(a)); }
+  function getDraft(id) { return localStorage.getItem("me70_draft:" + id) || ""; }
+  function setDraft(id, txt) { try { localStorage.setItem("me70_draft:" + id, txt); } catch (e) {} }
   function getScores() { try { return JSON.parse(localStorage.getItem("me70_scores") || "{}"); } catch (e) { return {}; } }
   function setScore(key, pct) {
     var s = getScores();
@@ -307,6 +312,7 @@
       { hash: "#/grammar", icon: "📘", key: "grammar", meta: GRAMMAR.length + " " + t("stat.tenses").toLowerCase() },
       { hash: "#/reading", icon: "📖", key: "reading", meta: READING.length + " " + t("stat.passages").toLowerCase() },
       { hash: "#/listening", icon: "🎧", key: "listening", meta: LISTENING.length + " " + t("listening.unit") },
+      { hash: "#/writing", icon: "✍️", key: "writing", meta: WRITING.length + " " + t("writing.unit") },
       { hash: "#/vocabulary", icon: "🗂️", key: "vocabulary", meta: VOCAB.length + " " + t("stat.words").toLowerCase() },
       { hash: "#/tests", icon: "✅", key: "tests", meta: vTests + " " + t("stat.tests").toLowerCase() },
       { hash: "#/grammar-tests", icon: "🧠", key: "gtests", meta: gTests + " " + t("stat.tests").toLowerCase() }
@@ -687,12 +693,13 @@
         else window.speechSynthesis.pause();
       } catch (e) {}
     });
+    var scriptShown = !supported;
     var scriptBtn = app.querySelector("#lisScriptBtn");
     if (scriptBtn) scriptBtn.addEventListener("click", function () {
       var box = app.querySelector("#lisScript");
-      var shown = box.style.display !== "none";
-      box.style.display = shown ? "none" : "block";
-      scriptBtn.innerHTML = "📄 " + (shown ? t("listening.showScript") : t("listening.hideScript"));
+      scriptShown = !scriptShown;
+      box.style.display = scriptShown ? "block" : "none";
+      scriptBtn.innerHTML = "📄 " + (scriptShown ? t("listening.hideScript") : t("listening.showScript"));
     });
     app.querySelector("#startQ").addEventListener("click", function () {
       stopSpeech();
@@ -706,6 +713,97 @@
           if (d.indexOf(item.id) < 0) { d.push(item.id); setListenDone(d); }
         }
       });
+    });
+  }
+
+  /* ---------- Views: Writing ---------- */
+  function viewWritingList() {
+    var done = getWriteDone();
+    var cats = [
+      { key: "medical", cls: "inter" },
+      { key: "general", cls: "elementary" }
+    ];
+    var html = '<div class="breadcrumb"><a href="#/">‹ ' + t("nav.home") + '</a></div>' +
+      '<div class="page-head"><h1>' + t("writing.title") + '</h1><p>' + t("writing.desc") + '</p></div>';
+    cats.forEach(function (c) {
+      var items = WRITING.filter(function (x) { return x.cat === c.key; });
+      if (!items.length) return;
+      html += '<h2 style="font-size:1.05rem;margin:18px 0 8px"><span class="level-tag ' + c.cls + '">' + t("writing.cat." + c.key) + '</span> <span style="color:var(--muted);font-size:.8rem;font-weight:600">(' + items.length + ')</span></h2>';
+      html += '<div class="grid cols">' + items.map(function (it) {
+        var isDone = done.indexOf(it.id) >= 0;
+        return '<a class="tile" href="#/writing/' + it.id + '">' +
+          '<div><div class="tile-title">✍️ ' + esc(it.title) + '</div>' +
+          '<div class="tile-sub">' + (it.type ? esc(it.type) + " · " : "") + (it.level ? it.level + " · " : "") + "~" + it.minWords + " " + t("writing.words") + '</div></div>' +
+          '<span class="tile-badge ' + (isDone ? "done" : "") + '">' + (isDone ? "✓" : "›") + '</span>' +
+        '</a>';
+      }).join("") + '</div>';
+    });
+    setApp(html);
+  }
+
+  function viewWriting(id) {
+    var item = WRITING.filter(function (x) { return x.id === id; })[0];
+    if (!item) return notFound();
+    var tips = item.tips.map(function (p) { return '<li>' + esc(p) + '</li>'; }).join("");
+    var model = item.sample.map(function (p) { return '<p>' + esc(p) + '</p>'; }).join("");
+    var isDone = getWriteDone().indexOf(id) >= 0;
+
+    setApp('' +
+      '<div class="breadcrumb"><a href="#/writing">‹ ' + t("writing.title") + '</a></div>' +
+      '<div class="passage">' +
+        '<span class="level-tag ' + (item.cat === "medical" ? "inter" : "elementary") + '">' + t("writing.cat." + item.cat) + (item.level ? " · " + item.level : "") + (item.type ? " · " + esc(item.type) : "") + '</span>' +
+        '<h2>✍️ ' + esc(item.title) + '</h2>' +
+        '<div class="sub-h">' + t("writing.prompt") + '</div>' +
+        '<p>' + esc(item.prompt) + '</p>' +
+        '<div class="sub-h">' + t("writing.tips") + '</div>' +
+        '<ul class="usage-list">' + tips + '</ul>' +
+        '<div class="lis-tip">📏 ' + t("writing.minWords") + ': ~' + item.minWords + ' ' + t("writing.words") + '</div>' +
+        '<div class="sub-h">' + t("writing.yourText") + '</div>' +
+        '<textarea id="writeArea" class="write-area" placeholder="' + t("writing.placeholder") + '"></textarea>' +
+        '<div class="write-meta"><span id="writeCount">0 ' + t("writing.words") + '</span><span id="writeSaved" class="write-saved"></span></div>' +
+        '<div class="btn-row">' +
+          '<button class="btn" id="wModelBtn">📄 ' + t("writing.showModel") + '</button>' +
+          '<button class="btn primary" id="wDone">✓ ' + (isDone ? t("writing.done") : t("writing.markDone")) + '</button>' +
+          '<button class="btn ghost" id="wClear">🗑 ' + t("writing.clear") + '</button>' +
+        '</div>' +
+        '<div class="lis-script" id="wModel" style="display:none"><div class="sub-h" style="margin-top:0">' + t("writing.model") + '</div>' + model + '</div>' +
+      '</div>');
+
+    var area = app.querySelector("#writeArea");
+    var countEl = app.querySelector("#writeCount");
+    var savedEl = app.querySelector("#writeSaved");
+    var modelBtn = app.querySelector("#wModelBtn");
+    var doneBtn = app.querySelector("#wDone");
+    var clearBtn = app.querySelector("#wClear");
+
+    function wc(s) { s = (s || "").trim(); return s ? s.split(/\s+/).length : 0; }
+    function update() { countEl.textContent = wc(area.value) + " " + t("writing.words"); }
+    area.value = getDraft(id);
+    update();
+
+    var saveTimer;
+    area.addEventListener("input", function () {
+      update();
+      setDraft(id, area.value);
+      savedEl.textContent = t("writing.saved");
+      clearTimeout(saveTimer);
+      saveTimer = setTimeout(function () { savedEl.textContent = ""; }, 1500);
+    });
+    var modelShown = false;
+    modelBtn.addEventListener("click", function () {
+      var box = app.querySelector("#wModel");
+      modelShown = !modelShown;
+      box.style.display = modelShown ? "block" : "none";
+      modelBtn.innerHTML = "📄 " + (modelShown ? t("writing.hideModel") : t("writing.showModel"));
+    });
+    doneBtn.addEventListener("click", function () {
+      var d = getWriteDone();
+      if (d.indexOf(id) < 0) { d.push(id); setWriteDone(d); }
+      doneBtn.innerHTML = "✓ " + t("writing.done");
+      toast(t("writing.done"));
+    });
+    clearBtn.addEventListener("click", function () {
+      area.value = ""; setDraft(id, ""); update();
     });
   }
 
@@ -724,6 +822,7 @@
       if (root === "grammar") return parts[1] ? viewGrammarDetail(parts[1]) : viewGrammarList();
       if (root === "reading") return parts[1] ? viewPassage(parts[1]) : viewReadingList();
       if (root === "listening") return parts[1] ? viewListening(parts[1]) : viewListeningList();
+      if (root === "writing") return parts[1] ? viewWriting(parts[1]) : viewWritingList();
       if (root === "vocabulary") return viewVocabulary();
       if (root === "tests") return parts[1] ? viewRunVocabTest(parts[1]) : viewTestsList();
       if (root === "grammar-tests") {

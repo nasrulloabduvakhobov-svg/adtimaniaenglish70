@@ -150,7 +150,7 @@ window.ME70_I18N = {
     "common.back": "Orqaga",
     "common.of": "dan",
     "footer.tagline": "Tibbiyot uchun ingliz tili",
-    "footer.channel": "Telegram kanal",
+    "footer.channel": "Speaking Club",
     "footer.contact": "Aloqa uchun",
     "msg.saved": "Saqlandi ✓",
     "msg.markLearned": "O'rganildi deb belgilandi"
@@ -305,7 +305,7 @@ window.ME70_I18N = {
     "common.back": "Back",
     "common.of": "of",
     "footer.tagline": "Medical English",
-    "footer.channel": "Telegram channel",
+    "footer.channel": "Speaking Club",
     "footer.contact": "Contact",
     "msg.saved": "Saved ✓",
     "msg.markLearned": "Marked as learned"
@@ -460,7 +460,7 @@ window.ME70_I18N = {
     "common.back": "Назад",
     "common.of": "из",
     "footer.tagline": "Медицинский английский",
-    "footer.channel": "Telegram канал",
+    "footer.channel": "Speaking Club",
     "footer.contact": "Связь",
     "msg.saved": "Сохранено ✓",
     "msg.markLearned": "Отмечено как выучено"

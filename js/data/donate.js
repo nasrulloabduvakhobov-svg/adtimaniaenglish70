@@ -1,17 +1,34 @@
 /* ===== Donate / Support configuration =====
-   Ilovani qo'llab-quvvatlash uchun hamyon ma'lumotlari.
-   >>> RAQAMLARNI VA QABUL QILUVCHI ISMINI O'ZINGIZNIKIGA O'ZGARTIRING <<<
-   - number: karta yoki telefon raqami (foydalanuvchi nusxa oladi)
+   Ilovani qo'llab-quvvatlash uchun to'lov havolalari.
+   - name:   hamyon nomi
+   - icon:   ko'rsatiladigan emoji
+   - note:   qo'shimcha matn (masalan karta yoki "Humo • TBC ••• 2612")
    - holder: qabul qiluvchi ism-familiyasi
-   - type:   "card" yoki "phone" (faqat ko'rsatish uchun)
-   - link:   (ixtiyoriy) to'lov havolasi bo'lsa, "Ochish" tugmasi chiqadi; bo'lmasa ""
+   - link:   to'lov havolasi ("Ochish" tugmasi shu havolaga o'tkazadi)
+   - number: (ixtiyoriy) nusxa olish uchun raqam; bo'lsa "Nusxa olish" tugmasi chiqadi
    enabled: false qilsangiz, qo'llab-quvvatlash tugmalari yashiriladi.
 */
 window.ME70_DONATE = {
   enabled: true,
   wallets: [
-    { id: "uzum",   name: "Uzum Bank", icon: "🟣", type: "card",  number: "8600 0000 0000 0000", holder: "ISM FAMILIYA", link: "" },
-    { id: "click",  name: "Click",     icon: "🔵", type: "phone", number: "+998 90 000 00 00",   holder: "ISM FAMILIYA", link: "" },
-    { id: "paynet", name: "Paynet",    icon: "🟢", type: "phone", number: "+998 90 000 00 00",   holder: "ISM FAMILIYA", link: "" }
+    {
+      id: "click",
+      name: "Click",
+      icon: "🔵",
+      note: "Humo • TBC ••• 2612",
+      holder: "NASRULLO ABDUVAKHOBOV",
+      link: "https://my.click.uz/clickp2p/DA2CFEAC8CEF8821381B11BEFBD1FD5003154C2832945144350F1F0B0F8440A1",
+      number: ""
+    },
+    {
+      id: "paynet",
+      name: "Paynet",
+      icon: "🟢",
+      note: "",
+      holder: "NASRULLO ABDUVAKHOBOV",
+      // Eslatma: domenni Paynet ilovasidan olingan to'liq havola bilan tekshiring.
+      link: "https://app.paynet.uz/shared-transfer-qr/41f8dec3-f8fd-44c4-abc7-20c28863cb35",
+      number: ""
+    }
   ]
 };

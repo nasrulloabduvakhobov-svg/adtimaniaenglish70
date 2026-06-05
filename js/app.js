@@ -127,13 +127,14 @@
       return '<div class="donate-row">' +
         '<div class="donate-w"><span class="donate-ico">' + (w.icon || "💳") + '</span>' +
           '<div><div class="donate-name">' + esc(w.name) + '</div>' +
-            '<div class="donate-num">' + esc(w.number) + '</div>' +
+            (w.number ? '<div class="donate-num">' + esc(w.number) + '</div>' : '') +
+            (w.note ? '<div class="donate-note-line">' + esc(w.note) + '</div>' : '') +
             (w.holder ? '<div class="donate-holder">' + esc(w.holder) + '</div>' : '') +
           '</div>' +
         '</div>' +
         '<div class="donate-actions">' +
           (w.link ? '<a class="btn primary" href="' + esc(w.link) + '" target="_blank" rel="noopener">' + t("donate.open") + '</a>' : '') +
-          '<button class="btn copy-btn" data-num="' + esc(w.number) + '">📋 ' + t("donate.copy") + '</button>' +
+          (w.number ? '<button class="btn copy-btn" data-num="' + esc(w.number) + '">📋 ' + t("donate.copy") + '</button>' : '') +
         '</div>' +
       '</div>';
     }).join("");

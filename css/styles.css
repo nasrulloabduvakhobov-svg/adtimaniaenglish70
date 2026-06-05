@@ -380,6 +380,7 @@ a.card:hover, .card.clickable:hover { transform: translateY(-3px); box-shadow: v
 .donate-ico { font-size: 1.5rem; }
 .donate-name { font-weight: 700; }
 .donate-num { font-family: "SFMono-Regular", Consolas, monospace; color: var(--text); font-size: 1rem; letter-spacing: .5px; }
+.donate-note-line { font-size: .82rem; color: var(--text-soft); }
 .donate-holder { font-size: .78rem; color: var(--muted); }
 .donate-actions { display: flex; gap: 8px; }
 .donate-actions .btn { padding: 8px 12px; font-size: .85rem; }

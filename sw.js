@@ -1,5 +1,5 @@
 /* MedEnglish70 service worker — offline app shell caching */
-var CACHE = "medenglish70-v13";
+var CACHE = "medenglish70-v14";
 var ASSETS = [
   "./",
   "./index.html",

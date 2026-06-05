@@ -9,6 +9,7 @@
   var LISTENING = window.ME70_LISTENING;
   var WRITING = window.ME70_WRITING;
   var SPEAKING = window.ME70_SPEAKING;
+  var FUND = window.ME70_FUNDAMENTALS || { subjects: [] };
   var GT = window.ME70_GTEST_CONFIG;
 
   var VTEST_SIZE = 20;
@@ -382,7 +383,8 @@
       { hash: "#/speaking", icon: "🎙️", key: "speaking", meta: SPEAKING.length + " " + t("speaking.unit") },
       { hash: "#/vocabulary", icon: "🗂️", key: "vocabulary", meta: VOCAB.length + " " + t("stat.words").toLowerCase() },
       { hash: "#/tests", icon: "✅", key: "tests", meta: vTests + " " + t("stat.tests").toLowerCase() },
-      { hash: "#/grammar-tests", icon: "🧠", key: "gtests", meta: gTests + " " + t("stat.tests").toLowerCase() }
+      { hash: "#/grammar-tests", icon: "🧠", key: "gtests", meta: gTests + " " + t("stat.tests").toLowerCase() },
+      { hash: "#/fundamentals", icon: "🔬", key: "fundamentals", meta: FUND.subjects.length + " " + t("fund.subjectsWord") }
     ];
 
     setApp('' +
@@ -1006,6 +1008,81 @@
     });
   }
 
+  /* ---------- Views: Fundamental sciences ---------- */
+  function fundLang() {
+    return (state.lang === "ru" || state.lang === "en") ? state.lang : "uz";
+  }
+  function viewFundList() {
+    var scores = getScores();
+    var html = '<div class="breadcrumb"><a href="#/">‹ ' + t("nav.home") + '</a></div>' +
+      '<div class="page-head"><h1>' + t("fund.title") + '</h1><p>' + t("fund.desc") + '</p></div>' +
+      '<div class="grid cols">' +
+      FUND.subjects.map(function (s, i) {
+        // mastered tests
+        var best = -1;
+        for (var n = 1; n <= s.tests.length; n++) {
+          var sc = scores["fund:" + s.id + ":" + n];
+          if (sc != null && sc > best) best = sc;
+        }
+        var badge = best >= 80 ? '<span class="tile-badge done">✓ ' + best + '%</span>'
+          : (best >= 0 ? '<span class="tile-badge">' + best + '%</span>' : '<span class="tile-badge">›</span>');
+        return '<a class="tile" href="#/fundamentals/' + s.id + '">' +
+          '<div><div class="tile-title">' + (s.icon || "🔬") + ' ' + esc(s.name[state.lang] || s.name.uz) + '</div>' +
+          '<div class="tile-sub">' + s.tests.length + ' ' + t("fund.tests") + ' · ' + (s.tests.length * 20) + ' ' + t("fund.questions") + '</div></div>' +
+          badge +
+        '</a>';
+      }).join("") +
+      '</div>';
+    setApp(html);
+  }
+
+  function viewFundSubject(sid) {
+    var s = FUND.subjects.filter(function (x) { return x.id === sid; })[0];
+    if (!s) return notFound();
+    var scores = getScores();
+    var tiles = "";
+    for (var n = 1; n <= s.tests.length; n++) {
+      var key = "fund:" + sid + ":" + n;
+      var best = scores[key];
+      var badge = best != null
+        ? '<span class="tile-badge ' + (best >= 80 ? "done" : "") + '">' + best + '%</span>'
+        : '<span class="tile-badge">›</span>';
+      tiles += '<a class="tile" href="#/fundamentals/' + sid + '/' + n + '">' +
+        '<div><div class="tile-title">' + t("fund.test") + ' ' + n + '</div>' +
+        '<div class="tile-sub">20 ' + t("fund.questions") + '</div></div>' +
+        badge +
+      '</a>';
+    }
+    setApp('' +
+      '<div class="breadcrumb"><a href="#/fundamentals">‹ ' + t("fund.title") + '</a></div>' +
+      '<div class="page-head"><h1>' + (s.icon || "🔬") + ' ' + esc(s.name[state.lang] || s.name.uz) + '</h1><p>' + t("fund.subjectDesc") + '</p></div>' +
+      '<div class="grid cols">' + tiles + '</div>');
+  }
+
+  function viewRunFundTest(sid, numStr) {
+    var s = FUND.subjects.filter(function (x) { return x.id === sid; })[0];
+    var num = parseInt(numStr, 10);
+    if (!s || !num || num < 1 || num > s.tests.length) return notFound();
+    var bank = s.tests[num - 1];
+    var lang = fundLang();
+
+    function build() {
+      return shuffle(bank).map(function (item) {
+        var loc = item[lang] || item.uz;
+        var correctVal = loc.o[item.a];
+        var opts = shuffle(loc.o.slice());
+        return { q: esc(loc.q), options: opts, answer: opts.indexOf(correctVal) };
+      });
+    }
+    runQuiz(build(), {
+      title: (s.name[state.lang] || s.name.uz) + " — " + t("fund.test") + " " + num,
+      subtitle: "20 " + t("fund.questions"),
+      saveKey: "fund:" + sid + ":" + num,
+      backHash: "#/fundamentals/" + sid,
+      reshuffle: build
+    });
+  }
+
   function notFound() {
     setApp('<div class="empty"><h2>404</h2><p><a class="btn" href="#/">' + t("nav.home") + '</a></p></div>');
   }
@@ -1030,6 +1107,11 @@
         if (parts[1] && parts[2]) return viewRunGTest(parts[1], parts[2]);
         if (parts[1]) return viewGTenseTests(parts[1]);
         return viewGTestsList();
+      }
+      if (root === "fundamentals") {
+        if (parts[1] && parts[2]) return viewRunFundTest(parts[1], parts[2]);
+        if (parts[1]) return viewFundSubject(parts[1]);
+        return viewFundList();
       }
       return notFound();
     } catch (e) {

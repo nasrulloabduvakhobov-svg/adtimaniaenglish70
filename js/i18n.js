@@ -157,7 +157,17 @@ window.ME70_I18N = {
     "footer.channel": "Speaking Club",
     "footer.contact": "Aloqa uchun",
     "msg.saved": "Saqlandi ✓",
-    "msg.markLearned": "O'rganildi deb belgilandi"
+    "msg.markLearned": "O'rganildi deb belgilandi",
+    "section.fundamentals": "Fundamental fanlar",
+    "section.fundamentals.desc": "Anatomiya va boshqa tibbiy fanlardan testlar (UZ/RU/EN).",
+    "fund.title": "Fundamental fanlar",
+    "fund.desc": "Fanni tanlang, so'ng 20 savollik testlardan birini ishlang. Savollar 3 tilda.",
+    "fund.subjectDesc": "20 savollik testni tanlang.",
+    "fund.test": "Test",
+    "fund.questions": "savol",
+    "fund.tests": "test",
+    "fund.subjectsWord": "fan",
+    "fund.viewRule": "Fanlar ro'yxati"
   },
   en: {
     "app.tagline": "Learn medical English from zero to mastery",
@@ -316,7 +326,17 @@ window.ME70_I18N = {
     "footer.channel": "Speaking Club",
     "footer.contact": "Contact",
     "msg.saved": "Saved ✓",
-    "msg.markLearned": "Marked as learned"
+    "msg.markLearned": "Marked as learned",
+    "section.fundamentals": "Fundamental Sciences",
+    "section.fundamentals.desc": "Tests in Anatomy and other medical sciences (UZ/RU/EN).",
+    "fund.title": "Fundamental Sciences",
+    "fund.desc": "Choose a subject, then take one of the 20-question tests. Questions are in 3 languages.",
+    "fund.subjectDesc": "Choose a 20-question test.",
+    "fund.test": "Test",
+    "fund.questions": "questions",
+    "fund.tests": "tests",
+    "fund.subjectsWord": "subjects",
+    "fund.viewRule": "Subjects list"
   },
   ru: {
     "app.tagline": "Изучайте медицинский английский с нуля до совершенства",
@@ -475,6 +495,16 @@ window.ME70_I18N = {
     "footer.channel": "Speaking Club",
     "footer.contact": "Связь",
     "msg.saved": "Сохранено ✓",
-    "msg.markLearned": "Отмечено как выучено"
+    "msg.markLearned": "Отмечено как выучено",
+    "section.fundamentals": "Фундаментальные науки",
+    "section.fundamentals.desc": "Тесты по анатомии и другим медицинским наукам (UZ/RU/EN).",
+    "fund.title": "Фундаментальные науки",
+    "fund.desc": "Выберите предмет, затем пройдите один из тестов на 20 вопросов. Вопросы на 3 языках.",
+    "fund.subjectDesc": "Выберите тест на 20 вопросов.",
+    "fund.test": "Тест",
+    "fund.questions": "вопросов",
+    "fund.tests": "тестов",
+    "fund.subjectsWord": "предметов",
+    "fund.viewRule": "Список предметов"
   }
 };

@@ -393,7 +393,11 @@
           '<div class="hero-stat"><b>16</b><span>' + t("stat.tenses") + '</span></div>' +
           '<div class="hero-stat"><b>' + VOCAB.length + '</b><span>' + t("stat.words") + '</span></div>' +
           '<div class="hero-stat"><b>' + READING.length + '</b><span>' + t("stat.passages") + '</span></div>' +
+          '<div class="hero-stat"><b>' + LISTENING.length + '</b><span>' + t("stat.listening") + '</span></div>' +
+          '<div class="hero-stat"><b>' + WRITING.length + '</b><span>' + t("stat.writing") + '</span></div>' +
+          '<div class="hero-stat"><b>' + SPEAKING.length + '</b><span>' + t("stat.speaking") + '</span></div>' +
           '<div class="hero-stat"><b>' + (vTests + gTests) + '</b><span>' + t("stat.tests") + '</span></div>' +
+          '<div class="hero-stat"><b>3</b><span>UZ · EN · RU</span></div>' +
         '</div>' +
       '</section>' +
       '<div class="grid section-cards">' +

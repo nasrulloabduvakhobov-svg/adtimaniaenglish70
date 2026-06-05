@@ -1,0 +1,15 @@
+{
+  "name": "MedEnglish70 — Medical English",
+  "short_name": "MedEnglish70",
+  "description": "Tibbiyot uchun ingliz tili: Grammar, Reading, Vocabulary va Tests. O'zbek, ingliz va rus tillarida.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0ea5a4",
+  "theme_color": "#0ea5a4",
+  "lang": "uz",
+  "icons": [
+    { "src": "icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
+  ]
+}

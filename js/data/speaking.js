@@ -222,3 +222,293 @@ window.ME70_SPEAKING.push(
     model: ["I will always remember the day I received my exam results.", "It started as a normal day, but I was very nervous.", "When I saw my high marks, I felt proud and grateful to my parents.", "It was memorable because all my hard work had finally paid off."]
   }
 );
+
+
+/* ===== MEDICAL 16-35 (top-up to 35) ===== */
+window.ME70_SPEAKING.push(
+  {
+    id: "sp-med-16", cat: "medical", level: "B1", title: "Explaining a Treatment Plan",
+    prompt: "Imagine you are a doctor. Explain a simple treatment plan to a patient.",
+    questions: ["How do you explain the plan in simple words?", "What instructions do you give?", "How do you check the patient understood?"],
+    phrases: ["I would like to explain your treatment.", "You need to take ... for ... days.", "It is important that you ...", "Do you have any questions?", "Please come back if ..."],
+    model: ["I would like to explain your treatment plan in simple words.", "You need to take this medicine twice a day, after meals, for one week.", "It is important that you rest and drink plenty of water.", "Do you have any questions? Please come back if you do not feel better."]
+  },
+  {
+    id: "sp-med-17", cat: "medical", level: "A2", title: "Calling to Make an Appointment",
+    prompt: "Role-play a phone call to a clinic to make an appointment.",
+    questions: ["How do you start the call politely?", "What information do you give?", "How do you agree on a time?"],
+    phrases: ["Hello, I would like to make an appointment.", "My name is ...", "I need to see a doctor about ...", "Are you free on ...?", "Thank you, see you then."],
+    model: ["Hello, I would like to make an appointment to see a doctor.", "My name is Bek, and I need to see someone about a bad cough.", "Are you free tomorrow morning?", "Ten o'clock is perfect. Thank you, see you then."]
+  },
+  {
+    id: "sp-med-18", cat: "medical", level: "B1", title: "Talking About Bad Habits",
+    prompt: "Talk about unhealthy habits and how to change them.",
+    questions: ["What unhealthy habits are common?", "Why are they hard to change?", "What advice can help someone change?"],
+    phrases: ["A common bad habit is ...", "People find it hard to stop because ...", "One way to change is ...", "It helps to ...", "Step by step, ..."],
+    model: ["A common bad habit is eating too much fast food or sitting all day.", "People find it hard to stop because these habits feel comfortable.", "One way to change is to set small, realistic goals.", "It helps to replace the bad habit with a good one, step by step."]
+  },
+  {
+    id: "sp-med-19", cat: "medical", level: "B2", title: "Describing the Human Body",
+    prompt: "Describe the main systems of the human body and what they do.",
+    questions: ["What are the main body systems?", "What does each one do?", "Why is it useful to understand them?"],
+    phrases: ["The body has several systems, such as ...", "The ... system is responsible for ...", "It works together with ...", "If one system fails, ...", "Understanding this helps us ..."],
+    model: ["The human body has several systems, such as the circulatory, respiratory and digestive systems.", "The circulatory system carries blood and oxygen, while the respiratory system controls breathing.", "These systems work together to keep us alive and healthy.", "Understanding them helps us take better care of our bodies."]
+  },
+  {
+    id: "sp-med-20", cat: "medical", level: "B1", title: "Reassuring a Nervous Patient",
+    prompt: "A patient is nervous before a small procedure. Talk to calm them down.",
+    questions: ["How do you make the patient feel safe?", "How do you explain what will happen?", "What kind words can you use?"],
+    phrases: ["There is no need to worry.", "This is a very common procedure.", "I will explain each step.", "You will feel only ...", "We are here to help you."],
+    model: ["There is no need to worry; this is a very common and safe procedure.", "I will explain each step so you know exactly what will happen.", "You may feel only a small scratch, and it will be over quickly.", "We are here to help you, and you are in good hands."]
+  },
+  {
+    id: "sp-med-21", cat: "medical", level: "B2", title: "The Importance of Sleep",
+    prompt: "Talk about why sleep is so important for health.",
+    questions: ["Why does the body need sleep?", "What happens when we do not sleep enough?", "How can people sleep better?"],
+    phrases: ["Sleep is essential because ...", "During sleep, the body ...", "Without enough sleep, ...", "To sleep better, we should ...", "A good routine helps ..."],
+    model: ["Sleep is essential because it lets the body and brain rest and repair.", "During sleep, the body heals and the brain stores what we have learned.", "Without enough sleep, we feel tired, stressed and unable to concentrate.", "To sleep better, we should keep a regular routine and avoid screens before bed."]
+  },
+  {
+    id: "sp-med-22", cat: "medical", level: "A2", title: "At the Pharmacy: Asking Questions",
+    prompt: "Role-play asking a pharmacist questions about a medicine.",
+    questions: ["What do you want to buy?", "What do you ask about the dose?", "What else do you check?"],
+    phrases: ["I need something for ...", "How do I take this?", "How many times a day?", "Can I take it with food?", "Thank you for your help."],
+    model: ["Hello, I need something for a sore throat.", "How do I take this medicine, and how many times a day?", "Can I take it with food, or on an empty stomach?", "Thank you very much for your help."]
+  },
+  {
+    id: "sp-med-23", cat: "medical", level: "B1", title: "Healthy Food vs Junk Food",
+    prompt: "Compare healthy food and junk food and give your opinion.",
+    questions: ["What is the difference between them?", "Why do people choose junk food?", "How can we eat more healthily?"],
+    phrases: ["Healthy food gives us ...", "Junk food is ... but ...", "People choose junk food because ...", "To eat better, we can ...", "In my opinion, ..."],
+    model: ["Healthy food gives us vitamins and energy, while junk food is tasty but full of sugar and fat.", "People often choose junk food because it is quick and cheap.", "To eat more healthily, we can cook at home and prepare fruit as snacks.", "In my opinion, junk food is fine sometimes, but balance is the key."]
+  },
+  {
+    id: "sp-med-24", cat: "medical", level: "B2", title: "Describing an Illness You Had",
+    prompt: "Talk about a time you were ill: symptoms, treatment and recovery.",
+    questions: ["What illness did you have?", "What were the symptoms?", "How did you recover?"],
+    phrases: ["A while ago, I had ...", "The symptoms were ...", "The doctor told me to ...", "It took ... to recover.", "Now I feel ..."],
+    model: ["A couple of years ago, I had a bad case of the flu.", "The symptoms were a high fever, body aches and a terrible cough.", "The doctor told me to rest, drink fluids and take medicine for the fever.", "It took about a week to recover, and now I feel completely healthy again."]
+  },
+  {
+    id: "sp-med-25", cat: "medical", level: "B1", title: "Giving Directions in a Hospital",
+    prompt: "A visitor is lost in a hospital. Give them clear directions to a department.",
+    questions: ["How do you start helping politely?", "How do you describe the way?", "How do you make sure they understood?"],
+    phrases: ["Can I help you find ...?", "Go straight and then ...", "Take the lift to ...", "It is on your ...", "You can't miss it."],
+    model: ["Can I help you find the right department?", "Go straight down this corridor and then turn left.", "Take the lift to the second floor; the cardiology department is on your right.", "You can't miss it — there is a big blue sign. Shall I repeat that?"]
+  },
+  {
+    id: "sp-med-26", cat: "medical", level: "B2", title: "Talking About a Healthy Diet",
+    prompt: "Describe what a healthy diet looks like and how you try to follow one.",
+    questions: ["What does a healthy diet include?", "What should we limit?", "How do you try to eat well?"],
+    phrases: ["A healthy diet includes ...", "We should limit ...", "It is better to ... than to ...", "Personally, I try to ...", "Balance is important because ..."],
+    model: ["A healthy diet includes plenty of vegetables, fruit, whole grains and enough protein.", "We should limit sugar, salt and fried food.", "It is better to drink water than sugary drinks.", "Personally, I try to cook at home and eat regular meals. Balance is important for long-term health."]
+  },
+  {
+    id: "sp-med-27", cat: "medical", level: "A2", title: "Asking How Someone Feels",
+    prompt: "A friend has been ill. Ask how they feel and offer help.",
+    questions: ["How do you ask about their health?", "What help can you offer?", "How do you wish them well?"],
+    phrases: ["How are you feeling now?", "Are you feeling any better?", "Do you need anything?", "I can help you with ...", "Get well soon!"],
+    model: ["Hi, how are you feeling now? Are you any better than yesterday?", "Do you need anything from the shop or the pharmacy?", "I can help you with cooking or buying your medicine.", "Take care of yourself and get well soon!"]
+  },
+  {
+    id: "sp-med-28", cat: "medical", level: "B2", title: "Should Healthcare Be Free?",
+    prompt: "Discuss whether healthcare should be free for everyone. Give your opinion.",
+    questions: ["What are the benefits of free healthcare?", "What are the challenges?", "What is your opinion?"],
+    phrases: ["One major benefit is ...", "On the other hand, ...", "It is expensive because ...", "However, I believe ...", "A fair system should ..."],
+    model: ["One major benefit of free healthcare is that everyone can get help, regardless of money.", "On the other hand, it is expensive, and governments must find ways to pay for it.", "However, I believe that basic healthcare should be available to all.", "A fair system should protect the poor while keeping good quality for everyone."]
+  },
+  {
+    id: "sp-med-29", cat: "medical", level: "B1", title: "First Aid in an Emergency",
+    prompt: "Explain what you would do if someone near you suddenly felt very ill.",
+    questions: ["What is the first thing you would do?", "How do you call for help?", "How do you stay calm?"],
+    phrases: ["The first thing I would do is ...", "I would check if ...", "Then I would call ...", "While waiting, I would ...", "Staying calm is important because ..."],
+    model: ["The first thing I would do is check if the person is conscious and breathing.", "I would ask someone to call an ambulance immediately.", "While waiting, I would keep the person comfortable and warm.", "Staying calm is important because it helps me think clearly and reassure the person."]
+  },
+  {
+    id: "sp-med-30", cat: "medical", level: "B2", title: "The Future of Medicine",
+    prompt: "Talk about how medicine might change in the future.",
+    questions: ["How might technology change medicine?", "What problems could it solve?", "Are there any risks?"],
+    phrases: ["In the future, medicine may ...", "Technology could help us ...", "This might solve problems such as ...", "However, we should be careful about ...", "Overall, I am optimistic because ..."],
+    model: ["In the future, medicine may use artificial intelligence to diagnose diseases very early.", "Technology could help doctors treat patients remotely and personalise treatments.", "This might solve problems such as long waiting times and lack of specialists.", "However, we should be careful about privacy and not lose the human touch. Overall, I am optimistic about the future of medicine."]
+  },
+  {
+    id: "sp-med-31", cat: "medical", level: "A2", title: "Parts of the Body",
+    prompt: "Describe the main parts of the body and what we use them for.",
+    questions: ["Which parts of the body can you name?", "What do we use them for?", "Which part do you think is most important?"],
+    phrases: ["We use our ... to ...", "The ... helps us to ...", "Without our ..., we could not ...", "I think the most important part is ...", "Our body is amazing because ..."],
+    model: ["We use our eyes to see and our ears to hear.", "The legs help us to walk and run, and the hands help us to hold things.", "Without our heart, we could not live, because it pumps blood around the body.", "I think the brain is the most important part because it controls everything."]
+  },
+  {
+    id: "sp-med-32", cat: "medical", level: "B1", title: "Visiting Someone in Hospital",
+    prompt: "You are visiting a friend in hospital. Talk to them and lift their spirits.",
+    questions: ["How do you greet your friend?", "What do you talk about?", "How do you encourage them?"],
+    phrases: ["Hi, how are you doing today?", "You look ... than last time.", "Everyone says hello and ...", "The doctors say ...", "You'll be home soon!"],
+    model: ["Hi, how are you doing today? You look much better than last time.", "Everyone at school says hello and wishes you a quick recovery.", "The doctors say you are healing well, which is great news.", "Don't worry about anything — you'll be home and back to normal soon!"]
+  },
+  {
+    id: "sp-med-33", cat: "medical", level: "B2", title: "Mental and Physical Health",
+    prompt: "Discuss the connection between mental and physical health.",
+    questions: ["How are mental and physical health connected?", "Can one affect the other?", "How can we look after both?"],
+    phrases: ["Mental and physical health are ...", "For example, stress can ...", "On the other hand, exercise ...", "To look after both, we should ...", "A balanced life means ..."],
+    model: ["Mental and physical health are closely connected and affect each other.", "For example, stress and worry can cause headaches, poor sleep and a weak immune system.", "On the other hand, exercise releases chemicals that improve our mood.", "To look after both, we should eat well, move regularly, rest and talk about our feelings."]
+  },
+  {
+    id: "sp-med-34", cat: "medical", level: "B1", title: "Explaining Healthy Habits to a Child",
+    prompt: "Explain to a child, in simple words, how to stay healthy.",
+    questions: ["How do you explain it simply?", "What habits do you mention?", "How do you make it fun?"],
+    phrases: ["To stay healthy, you should ...", "Eat lots of ...", "Don't forget to ...", "Sleep helps you to ...", "It's fun to ..."],
+    model: ["To stay healthy and strong, you should eat lots of fruit and vegetables.", "Don't forget to wash your hands and brush your teeth every day.", "Drinking water and sleeping well help you grow and feel good.", "And it's fun to run and play outside instead of watching screens all day!"]
+  },
+  {
+    id: "sp-med-35", cat: "medical", level: "B2", title: "A Doctor's Typical Day",
+    prompt: "Describe a typical day in the life of a doctor.",
+    questions: ["How does a doctor's day start?", "What does a doctor do during the day?", "Why is the job challenging?"],
+    phrases: ["A doctor's day usually starts ...", "In the morning, they ...", "During the day, they ...", "The job is challenging because ...", "Despite this, ..."],
+    model: ["A doctor's day usually starts early, often with a meeting about the patients.", "In the morning, they examine patients, study test results and plan treatments.", "During the day, they may perform procedures, answer questions and work with nurses.", "The job is challenging because of long hours and difficult decisions, but it is also very rewarding."]
+  }
+);
+
+
+/* ===== GENERAL 16-35 (top-up to 35) ===== */
+window.ME70_SPEAKING.push(
+  {
+    id: "sp-gen-16", cat: "general", level: "A2", title: "My Favourite Food",
+    prompt: "Talk about your favourite food and meals.",
+    questions: ["What is your favourite food?", "When do you usually eat it?", "Can you cook it yourself?"],
+    phrases: ["My favourite food is ...", "I usually eat it ...", "It tastes ...", "I can / can't cook it.", "I like it because ..."],
+    model: ["My favourite food is plov, a traditional rice dish with meat and carrots.", "I usually eat it at family gatherings and on special days.", "It tastes delicious, and the smell is wonderful.", "I can cook a simple version myself, but my grandmother makes it best."]
+  },
+  {
+    id: "sp-gen-17", cat: "general", level: "A2", title: "The Weather Today",
+    prompt: "Describe today's weather and your favourite kind of weather.",
+    questions: ["What is the weather like today?", "What is your favourite weather?", "What do you do in different weather?"],
+    phrases: ["Today it is ...", "My favourite weather is ...", "When it is sunny, I ...", "When it rains, I ...", "I don't like ... weather because ..."],
+    model: ["Today it is warm and sunny with a clear blue sky.", "My favourite weather is a cool, sunny day in spring.", "When it is sunny, I like to walk in the park.", "When it rains, I stay at home and read a book. I don't like very cold weather because it makes me tired."]
+  },
+  {
+    id: "sp-gen-18", cat: "general", level: "B1", title: "Technology and Gadgets",
+    prompt: "Talk about the gadgets you use and how they help you.",
+    questions: ["What gadgets do you use every day?", "How do they help you?", "Could you live without them?"],
+    phrases: ["The gadget I use most is ...", "It helps me to ...", "I also use ... for ...", "I couldn't live without ... because ...", "However, sometimes ..."],
+    model: ["The gadget I use most is my smartphone.", "It helps me to study, communicate and find information quickly.", "I also use a laptop for writing and watching lessons.", "I couldn't live without my phone because it keeps me connected, although sometimes I use it too much."]
+  },
+  {
+    id: "sp-gen-19", cat: "general", level: "B1", title: "Shopping Habits",
+    prompt: "Talk about how and where you like to shop.",
+    questions: ["Where do you usually shop?", "Do you prefer online or in-store shopping?", "How do you decide what to buy?"],
+    phrases: ["I usually shop at ...", "I prefer ... shopping because ...", "Before I buy something, I ...", "I try not to ...", "The best thing about ... is ..."],
+    model: ["I usually shop at the local market and sometimes at supermarkets.", "I prefer in-store shopping because I can see and try the products.", "Before I buy something, I compare prices and quality.", "I try not to spend money on things I don't really need."]
+  },
+  {
+    id: "sp-gen-20", cat: "general", level: "B2", title: "The Importance of Education",
+    prompt: "Discuss why education is important for a person and for society.",
+    questions: ["Why is education important?", "How does it change a person's life?", "How does it help society?"],
+    phrases: ["Education is important because ...", "It gives people ...", "On a personal level, ...", "For society, education ...", "In short, ..."],
+    model: ["Education is important because it gives people knowledge and opportunities.", "On a personal level, it helps us find better jobs and understand the world.", "For society, education reduces poverty and creates skilled doctors, teachers and engineers.", "In short, education is the foundation of a better future for everyone."]
+  },
+  {
+    id: "sp-gen-21", cat: "general", level: "B1", title: "Music in My Life",
+    prompt: "Talk about the role of music in your life.",
+    questions: ["What kind of music do you like?", "When do you listen to it?", "How does music make you feel?"],
+    phrases: ["I really enjoy ... music.", "I listen to music when I ...", "My favourite singer / group is ...", "Music makes me feel ...", "Sometimes I ..."],
+    model: ["I really enjoy calm and modern music.", "I listen to music when I study, travel or want to relax.", "Music makes me feel happy and helps me forget my worries.", "Sometimes I even sing along, although I am not a great singer!"]
+  },
+  {
+    id: "sp-gen-22", cat: "general", level: "B2", title: "Protecting the Environment",
+    prompt: "Discuss why we should protect the environment and what we can do.",
+    questions: ["Why is the environment in danger?", "Why should we protect it?", "What can ordinary people do?"],
+    phrases: ["The environment is in danger because ...", "We should protect it because ...", "Everyone can help by ...", "For example, ...", "If we all ..., then ..."],
+    model: ["The environment is in danger because of pollution, waste and climate change.", "We should protect it because our health and future depend on a clean planet.", "Everyone can help by saving water, reducing plastic and recycling.", "For example, using a reusable bottle is a small but useful step. If we all act, we can make a real difference."]
+  },
+  {
+    id: "sp-gen-23", cat: "general", level: "A2", title: "My Morning Routine",
+    prompt: "Describe what you do every morning.",
+    questions: ["What time do you wake up?", "What do you do first?", "How do you get ready for the day?"],
+    phrases: ["I wake up at ...", "First, I ...", "Then I ...", "After breakfast, I ...", "Finally, I ..."],
+    model: ["I usually wake up at six thirty in the morning.", "First, I wash my face and brush my teeth.", "Then I do some light exercises and have breakfast.", "After breakfast, I get dressed and prepare my things. Finally, I leave for work or study."]
+  },
+  {
+    id: "sp-gen-24", cat: "general", level: "B1", title: "A Place I Want to Visit",
+    prompt: "Talk about a place you would love to visit one day.",
+    questions: ["Where would you like to go?", "Why do you want to visit it?", "What would you do there?"],
+    phrases: ["One place I would love to visit is ...", "I want to go there because ...", "I have heard that ...", "If I went there, I would ...", "It is my dream to ..."],
+    model: ["One place I would love to visit is Japan.", "I want to go there because of its rich culture and beautiful nature.", "I have heard that the cities are clean and the food is amazing.", "If I went there, I would visit ancient temples and try local dishes. It is my dream to travel there one day."]
+  },
+  {
+    id: "sp-gen-25", cat: "general", level: "B2", title: "Success in Life",
+    prompt: "Discuss what success means to you.",
+    questions: ["What does success mean to you?", "Is success only about money?", "How can a person become successful?"],
+    phrases: ["For me, success means ...", "Success is not only about ...", "A successful person usually ...", "To succeed, you need ...", "In the end, ..."],
+    model: ["For me, success means being happy and doing work that I love.", "Success is not only about money; it is also about health, family and respect.", "A successful person usually works hard, never gives up and keeps learning.", "To succeed, you need clear goals and patience. In the end, success is a personal feeling, not just a number."]
+  },
+  {
+    id: "sp-gen-26", cat: "general", level: "A2", title: "My Free Time",
+    prompt: "Talk about what you do in your free time.",
+    questions: ["What do you do in your free time?", "Who do you spend it with?", "What would you like to try?"],
+    phrases: ["In my free time, I like to ...", "I usually ... with ...", "At weekends, I ...", "I would like to try ...", "It makes me feel ..."],
+    model: ["In my free time, I like to read, watch films and play football.", "I usually spend time with my friends and family.", "At weekends, I sometimes go to the park or a cafe.", "I would like to try painting one day. Free time makes me feel relaxed and happy."]
+  },
+  {
+    id: "sp-gen-27", cat: "general", level: "B1", title: "Friendship",
+    prompt: "Talk about what friendship means to you.",
+    questions: ["What makes a good friend?", "How do you keep a friendship strong?", "Can you describe a good friend?"],
+    phrases: ["A good friend is someone who ...", "Friendship is important because ...", "To keep a friendship strong, you should ...", "My friend ... always ...", "I value friendship because ..."],
+    model: ["A good friend is someone who supports you in good and bad times.", "Friendship is important because it makes life happier and less lonely.", "To keep a friendship strong, you should be honest, kind and spend time together.", "My best friend always listens to me and helps me. I value friendship because true friends are like family."]
+  },
+  {
+    id: "sp-gen-28", cat: "general", level: "B2", title: "Working from Home",
+    prompt: "Discuss the advantages and disadvantages of working from home.",
+    questions: ["What are the advantages?", "What are the disadvantages?", "Would you like to work from home?"],
+    phrases: ["Working from home has become ...", "One advantage is ...", "However, a disadvantage is ...", "Personally, I would ...", "It depends on ..."],
+    model: ["Working from home has become very common in recent years.", "One advantage is that it saves time and money on travel.", "However, a disadvantage is that it can feel lonely and it is harder to separate work from rest.", "Personally, I would enjoy working from home a few days a week. It really depends on the type of job."]
+  },
+  {
+    id: "sp-gen-29", cat: "general", level: "A2", title: "My Favourite Holiday",
+    prompt: "Talk about your favourite holiday or celebration.",
+    questions: ["What is your favourite holiday?", "How do you celebrate it?", "Who do you spend it with?"],
+    phrases: ["My favourite holiday is ...", "We celebrate it by ...", "On this day, we ...", "I spend it with ...", "I love it because ..."],
+    model: ["My favourite holiday is Navruz, which welcomes the spring.", "We celebrate it by cooking special food and visiting relatives.", "On this day, we wear nice clothes and enjoy time outside.", "I spend it with my whole family. I love it because everyone is happy and together."]
+  },
+  {
+    id: "sp-gen-30", cat: "general", level: "B1", title: "Giving Directions",
+    prompt: "A tourist asks you for directions. Help them find a place in your town.",
+    questions: ["How do you start helping politely?", "How do you describe the route?", "How do you finish the conversation?"],
+    phrases: ["Of course, I can help you.", "Go straight on until ...", "Then turn ... at ...", "It will be on your ...", "It takes about ... minutes."],
+    model: ["Of course, I can help you find the museum.", "Go straight on until you reach the big square.", "Then turn right at the bank and walk for a few minutes.", "The museum will be on your left, next to the park. It takes about ten minutes on foot."]
+  },
+  {
+    id: "sp-gen-31", cat: "general", level: "B2", title: "The Power of Reading",
+    prompt: "Talk about why reading books is valuable.",
+    questions: ["Why is reading important?", "What kinds of books do you like?", "How does reading help us?"],
+    phrases: ["Reading is valuable because ...", "I particularly enjoy ...", "Books allow us to ...", "Reading also improves ...", "In my view, ..."],
+    model: ["Reading is valuable because it expands our knowledge and imagination.", "I particularly enjoy adventure stories and books about science.", "Books allow us to travel to other worlds and live other lives.", "Reading also improves our vocabulary and concentration. In my view, a person who reads never feels alone."]
+  },
+  {
+    id: "sp-gen-32", cat: "general", level: "A2", title: "My Pet or Favourite Animal",
+    prompt: "Talk about a pet you have or your favourite animal.",
+    questions: ["Do you have a pet or a favourite animal?", "What does it look like?", "Why do you like it?"],
+    phrases: ["I have a ... / My favourite animal is ...", "It is ... and ...", "It likes to ...", "I like it because ...", "Animals are ..."],
+    model: ["My favourite animal is the dog.", "Dogs are friendly, loyal and full of energy.", "They like to play, run and protect their owners.", "I like dogs because they are kind and always happy to see you. Animals make our lives brighter."]
+  },
+  {
+    id: "sp-gen-33", cat: "general", level: "B1", title: "Plans for the Weekend",
+    prompt: "Talk about your plans for the coming weekend.",
+    questions: ["What are you going to do this weekend?", "Who will you spend it with?", "Why are you looking forward to it?"],
+    phrases: ["This weekend, I am going to ...", "On Saturday, I will ...", "On Sunday, I plan to ...", "I will spend time with ...", "I am looking forward to it because ..."],
+    model: ["This weekend, I am going to relax and meet my friends.", "On Saturday, I will go shopping and watch a film.", "On Sunday, I plan to visit my grandparents and help them in the garden.", "I am looking forward to it because I will spend time with the people I love."]
+  },
+  {
+    id: "sp-gen-34", cat: "general", level: "B2", title: "Dealing with Failure",
+    prompt: "Talk about how people can deal with failure and learn from it.",
+    questions: ["Why do people fear failure?", "Can failure be useful?", "How should we react to failure?"],
+    phrases: ["Many people fear failure because ...", "However, failure can ...", "Every successful person has ...", "The best reaction is to ...", "I believe that ..."],
+    model: ["Many people fear failure because they worry about what others will think.", "However, failure can be a great teacher if we learn from our mistakes.", "Every successful person has failed many times before succeeding.", "The best reaction is to stay calm, understand what went wrong and try again. I believe that failure is just a step towards success."]
+  },
+  {
+    id: "sp-gen-35", cat: "general", level: "B1", title: "Describing Your Best Day",
+    prompt: "Talk about one of the best days of your life.",
+    questions: ["What happened on that day?", "Why was it special?", "How did you feel?"],
+    phrases: ["One of the best days of my life was ...", "On that day, ...", "It was special because ...", "I felt ...", "I will always remember ..."],
+    model: ["One of the best days of my life was when I passed my final exams.", "On that day, I woke up nervous but full of hope.", "It was special because all my hard work had finally paid off.", "I felt proud, relieved and grateful to my family. I will always remember the joy we shared that evening."]
+  }
+);

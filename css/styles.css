@@ -335,3 +335,9 @@ a.card:hover, .card.clickable:hover { transform: translateY(-3px); box-shadow: v
 .write-area:focus { outline: none; border-color: var(--primary); }
 .write-meta { display: flex; justify-content: space-between; align-items: center; margin: 8px 2px 4px; font-size: .85rem; color: var(--muted); }
 .write-saved { color: var(--good); font-weight: 600; }
+
+
+/* ===== Speaking record area ===== */
+.sp-record { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; margin: 12px 0; }
+.sp-record .write-saved { color: var(--bad); font-weight: 700; }
+#spAudio { border-radius: 10px; }

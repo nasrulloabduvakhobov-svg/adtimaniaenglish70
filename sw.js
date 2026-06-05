@@ -1,5 +1,5 @@
 /* MedEnglish70 service worker — offline app shell caching */
-var CACHE = "medenglish70-v7";
+var CACHE = "medenglish70-v8";
 var ASSETS = [
   "./",
   "./index.html",
@@ -10,6 +10,7 @@ var ASSETS = [
   "./js/data/reading.js",
   "./js/data/listening.js",
   "./js/data/writing.js",
+  "./js/data/speaking.js",
   "./js/data/grammarTests.js",
   "./js/app.js",
   "./manifest.json",

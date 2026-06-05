@@ -16,6 +16,7 @@ Ingliz tilini o'rganish uchun web ilova — **Grammar, Reading, Vocabulary, Test
 | 📖 **Reading** | Tibbiyot/salomatlik mavzusidagi matnlar 5 darajada (Elementary, Pre-Intermediate, Intermediate, Upper-Intermediate, Advanced) + comprehension testlari |
 | 🎧 **Listening** | 70 ta tinglash mashqi (35 tibbiy + 35 umumiy). Matn yashirin, brauzer TTS orqali tinglanadi, so'ng savollar |
 | ✍️ **Writing** | 30 ta yozish topshirig'i (15 tibbiy + 15 umumiy): ko'rsatma, foydali iboralar, so'z sanagich, avtomatik saqlash va namuna javob |
+| 🎙️ **Speaking** | 30 ta gapirish mavzusi (15 tibbiy + 15 umumiy): savollar, iboralar, namuna talaffuz (TTS) va o'z ovozini yozib olish (offline) |
 | 🗂️ **Vocabulary** | Muloqot, tibbiyot va eng ko'p ishlatiladigan ingliz so'zlari (en/uz/ru) — qidiruv, kategoriya filtri, "o'rganildi" ⭐ belgisi |
 | ✅ **Tests** | Lug'atdan **avtomatik** 20 talik testlar (1–20, 21–40, ...). Lug'at o'sgani sayin testlar soni avtomatik ko'payadi |
 | 🧠 **Grammar Tests** | Har bir zamon uchun **20 savollik 10 ta test** (160 test / 3200+ savol), generator orqali |

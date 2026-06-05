@@ -13,7 +13,8 @@ Ingliz tilini o'rganish uchun web ilova — **Grammar, Reading, Vocabulary, Test
 | Bo'lim | Tavsif |
 |---|---|
 | 📘 **Grammar** | 16 ta ingliz zamoni — qoida, formula (tasdiq/inkor/so'roq), qachon ishlatilishi, belgi so'zlar va misollar (3 tilda) |
-| 📖 **Reading** | Tibbiyot/salomatlik mavzusidagi matnlar 3 darajada (Elementary / Pre-Intermediate / Intermediate) + comprehension testlari |
+| 📖 **Reading** | Tibbiyot/salomatlik mavzusidagi matnlar 5 darajada (Elementary, Pre-Intermediate, Intermediate, Upper-Intermediate, Advanced) + comprehension testlari |
+| 🎧 **Listening** | 70 ta tinglash mashqi (35 tibbiy + 35 umumiy). Matn yashirin, brauzer TTS orqali tinglanadi, so'ng savollar |
 | 🗂️ **Vocabulary** | Muloqot, tibbiyot va eng ko'p ishlatiladigan ingliz so'zlari (en/uz/ru) — qidiruv, kategoriya filtri, "o'rganildi" ⭐ belgisi |
 | ✅ **Tests** | Lug'atdan **avtomatik** 20 talik testlar (1–20, 21–40, ...). Lug'at o'sgani sayin testlar soni avtomatik ko'payadi |
 | 🧠 **Grammar Tests** | Har bir zamon uchun **20 savollik 10 ta test** (160 test / 3200+ savol), generator orqali |

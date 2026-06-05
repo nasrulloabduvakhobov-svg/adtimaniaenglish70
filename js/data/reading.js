@@ -729,3 +729,158 @@ window.ME70_READING.push(
     ]
   }
 );
+
+
+/* ===== BATCH 6: Upper-Intermediate (5) & Advanced (5) ===== */
+window.ME70_READING.push(
+  {
+    id: "upp-1", level: "upper", title: "The Rise of Telemedicine",
+    text: [
+      "Telemedicine, the practice of treating patients remotely through video calls and digital tools, has grown rapidly in recent years.",
+      "It allows people in distant villages to consult specialists they could never reach in person, saving both time and travel costs.",
+      "Doctors can monitor chronic conditions, adjust medication and answer questions without the patient leaving home.",
+      "However, telemedicine has limits: some examinations still require physical contact, and a reliable internet connection is essential."
+    ],
+    questions: [
+      { q: "What is telemedicine?", options: ["Treating patients remotely with digital tools", "A type of surgery", "A new medicine", "A hospital building"], answer: 0 },
+      { q: "Who benefits especially from it?", options: ["People in distant villages", "Only city doctors", "Only children", "Nobody"], answer: 0 },
+      { q: "What can doctors do remotely?", options: ["Monitor conditions and adjust medication", "Perform open surgery", "Set broken bones", "Give injections"], answer: 0 },
+      { q: "What is one limitation?", options: ["Some exams need physical contact", "It is always free", "It never works", "It replaces all doctors"], answer: 0 }
+    ]
+  },
+  {
+    id: "upp-2", level: "upper", title: "The Placebo Effect",
+    text: [
+      "The placebo effect is a fascinating phenomenon in which patients feel better after taking a treatment that has no active ingredient.",
+      "A sugar pill, for example, can sometimes reduce pain simply because the patient believes it will work.",
+      "Scientists think this happens because the brain releases natural chemicals when we expect to recover.",
+      "Because of this powerful effect, new medicines are always tested against a placebo to prove that they truly work."
+    ],
+    questions: [
+      { q: "What is the placebo effect?", options: ["Feeling better from a treatment with no active ingredient", "A dangerous disease", "A type of surgery", "A strong painkiller"], answer: 0 },
+      { q: "Why might a sugar pill reduce pain?", options: ["Because the patient believes it will work", "Because it is sweet", "Because it is expensive", "Because it is large"], answer: 0 },
+      { q: "What does the brain release when we expect to recover?", options: ["Natural chemicals", "More bacteria", "Cold air", "Nothing"], answer: 0 },
+      { q: "Why are new medicines tested against a placebo?", options: ["To prove they truly work", "To make them cheaper", "To make them sweet", "For no reason"], answer: 0 }
+    ]
+  },
+  {
+    id: "upp-3", level: "upper", title: "How Sleep Cleans the Brain",
+    text: [
+      "For a long time, scientists wondered why sleep is so essential for the brain.",
+      "Recent research suggests that during deep sleep, the brain clears away waste products that build up while we are awake.",
+      "This 'cleaning' process may help protect us from serious memory diseases later in life.",
+      "It is yet another reason why regularly missing sleep can be harmful to our long-term health."
+    ],
+    questions: [
+      { q: "What did scientists wonder about?", options: ["Why sleep is essential for the brain", "Why we eat", "Why we walk", "Why we talk"], answer: 0 },
+      { q: "What happens during deep sleep?", options: ["The brain clears away waste products", "The brain stops completely", "The body grows taller", "Nothing"], answer: 0 },
+      { q: "What may this process protect us from?", options: ["Serious memory diseases", "Broken bones", "Colds only", "Tall buildings"], answer: 0 },
+      { q: "What can be harmful to long-term health?", options: ["Regularly missing sleep", "Sleeping enough", "Drinking water", "Reading books"], answer: 0 }
+    ]
+  },
+  {
+    id: "upp-4", level: "upper", title: "Breaking the Stigma of Mental Health",
+    text: [
+      "In many societies, people are still afraid to talk openly about mental health problems.",
+      "This silence, often called 'stigma', can stop people from seeking the help they need.",
+      "Yet conditions such as depression and anxiety are common and, importantly, treatable.",
+      "Encouraging open conversation and showing understanding can save lives and help people recover faster."
+    ],
+    questions: [
+      { q: "What are people in many societies afraid to do?", options: ["Talk openly about mental health", "Eat in public", "Walk outside", "Use phones"], answer: 0 },
+      { q: "What is this silence often called?", options: ["Stigma", "Therapy", "Recovery", "Diagnosis"], answer: 0 },
+      { q: "What does the text say about depression and anxiety?", options: ["They are common and treatable", "They are rare and incurable", "They are not real", "They only affect children"], answer: 0 },
+      { q: "What can save lives?", options: ["Open conversation and understanding", "More silence", "Ignoring the problem", "Avoiding doctors"], answer: 0 }
+    ]
+  },
+  {
+    id: "upp-5", level: "upper", title: "Using Antibiotics Wisely",
+    text: [
+      "Antibiotics are powerful drugs that have saved millions of lives by fighting bacterial infections.",
+      "Unfortunately, using them too often or incorrectly has allowed some bacteria to become resistant.",
+      "Doctors now practise 'antibiotic stewardship', meaning they prescribe these drugs only when truly necessary.",
+      "Patients can help too, by finishing every course and never sharing antibiotics with others."
+    ],
+    questions: [
+      { q: "What do antibiotics fight?", options: ["Bacterial infections", "Broken bones", "Headaches only", "Cold weather"], answer: 0 },
+      { q: "What has caused bacteria to become resistant?", options: ["Using antibiotics too often or incorrectly", "Drinking water", "Sleeping", "Exercise"], answer: 0 },
+      { q: "What is 'antibiotic stewardship'?", options: ["Prescribing antibiotics only when truly necessary", "Giving antibiotics to everyone", "Banning all medicine", "Selling antibiotics freely"], answer: 0 },
+      { q: "How can patients help?", options: ["Finish every course and not share them", "Stop halfway", "Share with friends", "Take double doses"], answer: 0 }
+    ]
+  },
+  {
+    id: "adv-1", level: "advanced", title: "The Promise of Gene Therapy",
+    text: [
+      "Gene therapy represents one of the most ambitious frontiers of modern medicine, aiming to treat disease at its genetic root.",
+      "Rather than merely managing symptoms, scientists attempt to repair, replace or silence faulty genes responsible for a condition.",
+      "Early successes have included treatments for certain inherited forms of blindness and disorders of the immune system.",
+      "Nevertheless, the field faces significant hurdles, from the high cost of therapies to complex ethical questions about altering human DNA."
+    ],
+    questions: [
+      { q: "What does gene therapy aim to do?", options: ["Treat disease at its genetic root", "Only reduce fever", "Replace all surgery", "Cure tiredness"], answer: 0 },
+      { q: "How does it differ from ordinary treatment?", options: ["It repairs faulty genes rather than only managing symptoms", "It ignores the cause", "It uses no science", "It is always cheap"], answer: 0 },
+      { q: "Which early success is mentioned?", options: ["Certain inherited forms of blindness", "The common cold", "Broken legs", "Toothache"], answer: 0 },
+      { q: "What is one hurdle the field faces?", options: ["High cost and ethical questions", "Too many patients cured", "Lack of interest", "No diseases left"], answer: 0 }
+    ]
+  },
+  {
+    id: "adv-2", level: "advanced", title: "The Human Microbiome",
+    text: [
+      "The human body is home to trillions of microorganisms, collectively known as the microbiome, most of which live in the gut.",
+      "Far from being harmful, many of these microbes are essential, helping us digest food, produce vitamins and train the immune system.",
+      "Research increasingly links an imbalance in the microbiome to conditions ranging from obesity to certain autoimmune diseases.",
+      "Understanding this hidden ecosystem may one day allow doctors to treat illness by carefully reshaping the bacteria within us."
+    ],
+    questions: [
+      { q: "What is the microbiome?", options: ["Trillions of microorganisms living in the body", "A single large organ", "A type of vaccine", "A surgical tool"], answer: 0 },
+      { q: "Where do most of these microbes live?", options: ["In the gut", "In the hair", "In the bones", "Outside the body"], answer: 0 },
+      { q: "What do many of these microbes help with?", options: ["Digestion, vitamins and the immune system", "Nothing useful", "Causing every disease", "Making us taller"], answer: 0 },
+      { q: "What is an imbalance increasingly linked to?", options: ["Conditions such as obesity and autoimmune diseases", "Better eyesight", "Faster running", "Longer hair"], answer: 0 }
+    ]
+  },
+  {
+    id: "adv-3", level: "advanced", title: "The Ethics of Organ Transplantation",
+    text: [
+      "Organ transplantation can offer a second chance at life, yet it raises profound ethical dilemmas.",
+      "Because donor organs are scarce, medical teams must decide fairly who should receive them when many patients are waiting.",
+      "Questions of consent, the definition of death, and the possibility of organ trafficking all demand careful regulation.",
+      "Societies continue to debate how to encourage donation while protecting the vulnerable from exploitation."
+    ],
+    questions: [
+      { q: "What can organ transplantation offer?", options: ["A second chance at life", "Instant wealth", "A new language", "Eternal youth"], answer: 0 },
+      { q: "Why must teams decide fairly who receives an organ?", options: ["Because donor organs are scarce", "Because organs are cheap", "Because nobody needs them", "Because it is illegal"], answer: 0 },
+      { q: "Which issue is mentioned as needing regulation?", options: ["Organ trafficking and consent", "Choosing a hospital colour", "Parking", "Meal times"], answer: 0 },
+      { q: "What do societies continue to debate?", options: ["How to encourage donation while protecting the vulnerable", "How to ban all medicine", "How to close hospitals", "How to stop research"], answer: 0 }
+    ]
+  },
+  {
+    id: "adv-4", level: "advanced", title: "Artificial Intelligence in Diagnosis",
+    text: [
+      "Artificial intelligence is beginning to transform the way diseases are diagnosed.",
+      "By analysing thousands of medical images, AI systems can sometimes detect early signs of cancer that the human eye might miss.",
+      "These tools are not designed to replace doctors but to support them, offering a valuable second opinion.",
+      "Still, experts warn that algorithms must be carefully tested to avoid bias and to ensure patient data remains private."
+    ],
+    questions: [
+      { q: "What is AI beginning to transform?", options: ["The way diseases are diagnosed", "The price of food", "The weather", "Public transport"], answer: 0 },
+      { q: "What can AI sometimes detect?", options: ["Early signs of cancer", "The future", "Lost keys", "Traffic jams"], answer: 0 },
+      { q: "What is the role of these tools?", options: ["To support doctors, not replace them", "To replace all doctors", "To sell medicine", "To close clinics"], answer: 0 },
+      { q: "What do experts warn about?", options: ["Bias and patient data privacy", "The colour of screens", "The size of hospitals", "Nothing at all"], answer: 0 }
+    ]
+  },
+  {
+    id: "adv-5", level: "advanced", title: "Epigenetics: Beyond the Genes",
+    text: [
+      "For decades, it was believed that our DNA alone determined our health and traits.",
+      "The field of epigenetics has revealed a more complex picture, showing that our environment and behaviour can switch genes on or off.",
+      "Factors such as diet, stress and exposure to toxins may influence how genes are expressed, sometimes for years.",
+      "Remarkably, some of these changes appear to be passed on to the next generation, blurring the old line between nature and nurture."
+    ],
+    questions: [
+      { q: "What was believed for decades?", options: ["DNA alone determined health and traits", "Genes do not exist", "Food has no effect", "Sleep is useless"], answer: 0 },
+      { q: "What has epigenetics revealed?", options: ["Environment and behaviour can switch genes on or off", "Genes never change", "DNA is fake", "Nothing new"], answer: 0 },
+      { q: "Which factors may influence gene expression?", options: ["Diet, stress and toxins", "Only height", "Only eye colour", "Nothing"], answer: 0 },
+      { q: "What is remarkable about some changes?", options: ["They may pass to the next generation", "They disappear instantly", "They are invisible forever", "They cannot be studied"], answer: 0 }
+    ]
+  }
+);

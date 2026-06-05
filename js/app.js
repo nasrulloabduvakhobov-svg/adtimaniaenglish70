@@ -6,6 +6,7 @@
   var GRAMMAR = window.ME70_GRAMMAR;
   var VOCAB = window.ME70_VOCAB;
   var READING = window.ME70_READING;
+  var LISTENING = window.ME70_LISTENING;
   var GT = window.ME70_GTEST_CONFIG;
 
   var VTEST_SIZE = 20;
@@ -22,6 +23,8 @@
   function setStarred(a) { localStorage.setItem("me70_starred", JSON.stringify(a)); }
   function getReadDone() { try { return JSON.parse(localStorage.getItem("me70_reading") || "[]"); } catch (e) { return []; } }
   function setReadDone(a) { localStorage.setItem("me70_reading", JSON.stringify(a)); }
+  function getListenDone() { try { return JSON.parse(localStorage.getItem("me70_listening") || "[]"); } catch (e) { return []; } }
+  function setListenDone(a) { localStorage.setItem("me70_listening", JSON.stringify(a)); }
   function getScores() { try { return JSON.parse(localStorage.getItem("me70_scores") || "{}"); } catch (e) { return {}; } }
   function setScore(key, pct) {
     var s = getScores();
@@ -78,6 +81,10 @@
   }
   var app = document.getElementById("app");
   function setApp(html) { app.innerHTML = html; window.scrollTo(0, 0); }
+
+  function stopSpeech() {
+    try { if (window.speechSynthesis) window.speechSynthesis.cancel(); } catch (e) {}
+  }
 
   var toastTimer;
   function toast(msg) {
@@ -299,6 +306,7 @@
     var sections = [
       { hash: "#/grammar", icon: "📘", key: "grammar", meta: GRAMMAR.length + " " + t("stat.tenses").toLowerCase() },
       { hash: "#/reading", icon: "📖", key: "reading", meta: READING.length + " " + t("stat.passages").toLowerCase() },
+      { hash: "#/listening", icon: "🎧", key: "listening", meta: LISTENING.length + " " + t("listening.unit") },
       { hash: "#/vocabulary", icon: "🗂️", key: "vocabulary", meta: VOCAB.length + " " + t("stat.words").toLowerCase() },
       { hash: "#/tests", icon: "✅", key: "tests", meta: vTests + " " + t("stat.tests").toLowerCase() },
       { hash: "#/grammar-tests", icon: "🧠", key: "gtests", meta: gTests + " " + t("stat.tests").toLowerCase() }
@@ -381,7 +389,9 @@
     var levels = [
       { key: "elementary", cls: "elementary" },
       { key: "pre", cls: "pre" },
-      { key: "inter", cls: "inter" }
+      { key: "inter", cls: "inter" },
+      { key: "upper", cls: "upper" },
+      { key: "advanced", cls: "advanced" }
     ];
     var done = getReadDone();
     var html = '<div class="breadcrumb"><a href="#/">‹ ' + t("nav.home") + '</a></div>' +
@@ -409,7 +419,7 @@
     setApp('' +
       '<div class="breadcrumb"><a href="#/reading">‹ ' + t("reading.title") + '</a></div>' +
       '<div class="passage">' +
-        '<span class="level-tag ' + (r.level === "pre" ? "pre" : r.level === "inter" ? "inter" : "elementary") + '">' + t("reading.level." + r.level) + '</span>' +
+        '<span class="level-tag ' + esc(r.level) + '">' + t("reading.level." + r.level) + '</span>' +
         '<h2>' + esc(r.title) + '</h2>' +
         '<div class="passage-text">' + paras + '</div>' +
         '<div class="btn-row"><button class="btn primary" id="startQ">📝 ' + t("reading.answerQ") + ' (' + r.questions.length + ')</button></div>' +
@@ -608,12 +618,104 @@
     });
   }
 
+  /* ---------- Views: Listening ---------- */
+  function viewListeningList() {
+    var done = getListenDone();
+    var cats = [
+      { key: "medical", cls: "inter" },
+      { key: "general", cls: "elementary" }
+    ];
+    var html = '<div class="breadcrumb"><a href="#/">‹ ' + t("nav.home") + '</a></div>' +
+      '<div class="page-head"><h1>' + t("listening.title") + '</h1><p>' + t("listening.desc") + '</p></div>';
+    cats.forEach(function (c) {
+      var items = LISTENING.filter(function (x) { return x.cat === c.key; });
+      if (!items.length) return;
+      html += '<h2 style="font-size:1.05rem;margin:18px 0 8px"><span class="level-tag ' + c.cls + '">' + t("listening.cat." + c.key) + '</span> <span style="color:var(--muted);font-size:.8rem;font-weight:600">(' + items.length + ')</span></h2>';
+      html += '<div class="grid cols">' + items.map(function (it) {
+        var isDone = done.indexOf(it.id) >= 0;
+        return '<a class="tile" href="#/listening/' + it.id + '">' +
+          '<div><div class="tile-title">🎧 ' + esc(it.title) + '</div>' +
+          '<div class="tile-sub">' + (it.level ? it.level + " · " : "") + it.questions.length + ' ' + t("gtests.questions") + '</div></div>' +
+          '<span class="tile-badge ' + (isDone ? "done" : "") + '">' + (isDone ? "✓" : "›") + '</span>' +
+        '</a>';
+      }).join("") + '</div>';
+    });
+    setApp(html);
+  }
+
+  function viewListening(id) {
+    var item = LISTENING.filter(function (x) { return x.id === id; })[0];
+    if (!item) return notFound();
+    var supported = !!(window.speechSynthesis && typeof window.SpeechSynthesisUtterance !== "undefined");
+    var fullText = item.script.join(" ");
+    var paras = item.script.map(function (p) { return '<p>' + esc(p) + '</p>'; }).join("");
+
+    setApp('' +
+      '<div class="breadcrumb"><a href="#/listening">‹ ' + t("listening.title") + '</a></div>' +
+      '<div class="passage">' +
+        '<span class="level-tag ' + (item.cat === "medical" ? "inter" : "elementary") + '">' + t("listening.cat." + item.cat) + (item.level ? " · " + item.level : "") + '</span>' +
+        '<h2>🎧 ' + esc(item.title) + '</h2>' +
+        '<div class="lis-player">' +
+          '<button class="btn primary lis-big" id="lisPlay">▶ ' + t("listening.play") + '</button>' +
+          '<button class="btn" id="lisPause">⏸</button>' +
+          '<button class="btn" id="lisReplay">🔁 ' + t("listening.replay") + '</button>' +
+        '</div>' +
+        (supported ? '<p class="lis-tip">💡 ' + t("listening.tip") + '</p>' : '<p class="lis-noaudio">⚠️ ' + t("listening.noAudio") + '</p>') +
+        '<button class="btn ghost" id="lisScriptBtn" style="margin-top:6px">📄 ' + t("listening.showScript") + '</button>' +
+        '<div class="lis-script" id="lisScript" style="display:' + (supported ? "none" : "block") + '">' + paras + '</div>' +
+        '<div class="btn-row"><button class="btn primary" id="startQ">📝 ' + t("listening.answerQ") + ' (' + item.questions.length + ')</button></div>' +
+      '</div>');
+
+    function speak() {
+      if (!supported) return;
+      try {
+        window.speechSynthesis.cancel();
+        var u = new window.SpeechSynthesisUtterance(fullText);
+        u.lang = "en-US"; u.rate = 0.92; u.pitch = 1;
+        window.speechSynthesis.speak(u);
+      } catch (e) {}
+    }
+    var playBtn = app.querySelector("#lisPlay");
+    if (playBtn) playBtn.addEventListener("click", speak);
+    var replayBtn = app.querySelector("#lisReplay");
+    if (replayBtn) replayBtn.addEventListener("click", speak);
+    var pauseBtn = app.querySelector("#lisPause");
+    if (pauseBtn) pauseBtn.addEventListener("click", function () {
+      try {
+        if (!window.speechSynthesis) return;
+        if (window.speechSynthesis.paused) window.speechSynthesis.resume();
+        else window.speechSynthesis.pause();
+      } catch (e) {}
+    });
+    var scriptBtn = app.querySelector("#lisScriptBtn");
+    if (scriptBtn) scriptBtn.addEventListener("click", function () {
+      var box = app.querySelector("#lisScript");
+      var shown = box.style.display !== "none";
+      box.style.display = shown ? "none" : "block";
+      scriptBtn.innerHTML = "📄 " + (shown ? t("listening.showScript") : t("listening.hideScript"));
+    });
+    app.querySelector("#startQ").addEventListener("click", function () {
+      stopSpeech();
+      runQuiz(item.questions.map(function (q) { return { q: esc(q.q), options: q.options, answer: q.answer }; }), {
+        title: item.title,
+        subtitle: t("listening.answerQ"),
+        saveKey: "listening:" + item.id,
+        backHash: "#/listening/" + item.id,
+        onFinish: function () {
+          var d = getListenDone();
+          if (d.indexOf(item.id) < 0) { d.push(item.id); setListenDone(d); }
+        }
+      });
+    });
+  }
+
   function notFound() {
     setApp('<div class="empty"><h2>404</h2><p><a class="btn" href="#/">' + t("nav.home") + '</a></p></div>');
   }
 
   /* ---------- Router ---------- */
   function router() {
+    stopSpeech();
     var hash = location.hash.replace(/^#\/?/, "");
     var parts = hash.split("/").filter(Boolean);
     var root = parts[0] || "";
@@ -621,6 +723,7 @@
       if (root === "") return viewHome();
       if (root === "grammar") return parts[1] ? viewGrammarDetail(parts[1]) : viewGrammarList();
       if (root === "reading") return parts[1] ? viewPassage(parts[1]) : viewReadingList();
+      if (root === "listening") return parts[1] ? viewListening(parts[1]) : viewListeningList();
       if (root === "vocabulary") return viewVocabulary();
       if (root === "tests") return parts[1] ? viewRunVocabTest(parts[1]) : viewTestsList();
       if (root === "grammar-tests") {

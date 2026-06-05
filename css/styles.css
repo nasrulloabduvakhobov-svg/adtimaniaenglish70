@@ -304,3 +304,22 @@ a.card:hover, .card.clickable:hover { transform: translateY(-3px); box-shadow: v
   margin: 0 2px;
   letter-spacing: 1px;
 }
+
+
+/* ===== Reading levels: Upper & Advanced ===== */
+.level-tag.upper { background: #e0f2fe; color: #0369a1; }
+.level-tag.advanced { background: #fde2e4; color: #be123c; }
+[data-theme="dark"] .level-tag.upper { background: #0c3a55; color: #7dd3fc; }
+[data-theme="dark"] .level-tag.advanced { background: #4a1020; color: #fda4af; }
+
+/* ===== Listening player ===== */
+.lis-player { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; margin: 8px 0 4px; }
+.btn.lis-big { font-size: 1.05rem; padding: 13px 26px; }
+.lis-tip { font-size: .86rem; color: var(--text-soft); margin: 8px 0; }
+.lis-noaudio { font-size: .9rem; color: var(--warn); background: var(--bg); border: 1px dashed var(--border); border-radius: 10px; padding: 10px 12px; margin: 8px 0; }
+.lis-script {
+  margin: 12px 0; padding: 14px 16px; border: 1px solid var(--border);
+  border-radius: 12px; background: var(--bg); line-height: 1.8; font-size: 1.02rem;
+}
+.lis-script p { margin: 0 0 8px; }
+.lis-script p:last-child { margin-bottom: 0; }

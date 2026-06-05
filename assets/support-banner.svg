@@ -44,8 +44,8 @@
   <text x="540" y="690" font-family="Arial, Helvetica, sans-serif" font-size="76" font-weight="800" text-anchor="middle" fill="#0f172a">Ilovani qo'llab-quvvatlash</text>
 
   <!-- subtitle -->
-  <text x="540" y="752" font-family="Arial, Helvetica, sans-serif" font-size="36" font-weight="500" text-anchor="middle" fill="#51607a">MedEnglish70 — bepul va reklamasiz.</text>
-  <text x="540" y="800" font-family="Arial, Helvetica, sans-serif" font-size="36" font-weight="500" text-anchor="middle" fill="#51607a">Xayriyangiz ilova rivoji uchun ishlatiladi.</text>
+  <text x="540" y="752" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="500" text-anchor="middle" fill="#51607a">Yig'ilgan mablag' ilova rivoji va shu kabi</text>
+  <text x="540" y="798" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="500" text-anchor="middle" fill="#51607a">yangi loyihalarni amalga oshirishda ishlatiladi.</text>
 
   <!-- payment pills -->
   <g font-family="Arial, Helvetica, sans-serif" font-size="40" font-weight="700" text-anchor="middle">

@@ -16,7 +16,7 @@ window.ME70_DONATE = {
       name: "Click",
       icon: "🔵",
       note: "Humo • TBC ••• 2612",
-      holder: "NASRULLO ABDUVAKHOBOV",
+      holder: "MedEnglish Support",
       link: "https://my.click.uz/clickp2p/DA2CFEAC8CEF8821381B11BEFBD1FD5003154C2832945144350F1F0B0F8440A1",
       number: ""
     },
@@ -25,7 +25,7 @@ window.ME70_DONATE = {
       name: "Paynet",
       icon: "🟢",
       note: "",
-      holder: "NASRULLO ABDUVAKHOBOV",
+      holder: "MedEnglish Support",
       // Eslatma: domenni Paynet ilovasidan olingan to'liq havola bilan tekshiring.
       link: "https://app.paynet.uz/shared-transfer-qr/41f8dec3-f8fd-44c4-abc7-20c28863cb35",
       number: ""

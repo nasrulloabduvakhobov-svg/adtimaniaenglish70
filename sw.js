@@ -1,5 +1,5 @@
-/* MedEnglish70 service worker — offline app shell caching */
-var CACHE = "medenglish70-v21";
+/* MedEnglish70 service worker — network-first (auto-update on refresh, offline fallback) */
+var CACHE = "medenglish70-v22";
 var ASSETS = [
   "./",
   "./index.html",
@@ -20,6 +20,7 @@ var ASSETS = [
 ];
 
 self.addEventListener("install", function (e) {
+  // Activate the new worker immediately, without waiting for old tabs to close.
   self.skipWaiting();
   e.waitUntil(caches.open(CACHE).then(function (c) { return c.addAll(ASSETS); }).catch(function () {}));
 });
@@ -32,6 +33,11 @@ self.addEventListener("activate", function (e) {
   );
 });
 
+// Allow the page to tell a waiting worker to take over right away.
+self.addEventListener("message", function (e) {
+  if (e.data === "skipWaiting") self.skipWaiting();
+});
+
 self.addEventListener("fetch", function (e) {
   var req = e.request;
   if (req.method !== "GET") return;
@@ -39,14 +45,16 @@ self.addEventListener("fetch", function (e) {
   // only handle same-origin requests; let external (telegram SDK) pass through
   if (url.origin !== self.location.origin) return;
 
+  // Network-first: always try to fetch the freshest version, fall back to cache when offline.
   e.respondWith(
-    caches.match(req).then(function (cached) {
-      if (cached) return cached;
-      return fetch(req).then(function (res) {
-        var copy = res.clone();
-        caches.open(CACHE).then(function (c) { c.put(req, copy); }).catch(function () {});
-        return res;
-      }).catch(function () {
+    fetch(req).then(function (res) {
+      // Cache a fresh copy for offline use.
+      var copy = res.clone();
+      caches.open(CACHE).then(function (c) { c.put(req, copy); }).catch(function () {});
+      return res;
+    }).catch(function () {
+      return caches.match(req).then(function (cached) {
+        if (cached) return cached;
         // offline fallback: return cached index for navigations
         if (req.mode === "navigate") return caches.match("./index.html");
       });

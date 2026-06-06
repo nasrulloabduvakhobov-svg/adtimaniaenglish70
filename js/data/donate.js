@@ -16,16 +16,16 @@ window.ME70_DONATE = {
       name: "Click",
       icon: "🔵",
       note: "Humo • TBC ••• 2612",
-      holder: "MedEnglish Support",
+      holder: "MedLingua Support",
       link: "https://my.click.uz/clickp2p/DA2CFEAC8CEF8821381B11BEFBD1FD5003154C2832945144350F1F0B0F8440A1",
       number: ""
     },
     {
       id: "paynet",
-      name: "MedEnglish Fund",
+      name: "MedLingua Fund",
       icon: "🟢",
       note: "Humo karta",
-      holder: "MedEnglish Support",
+      holder: "MedLingua Support",
       link: "",
       number: "9860 3501 4113 2612"
     }

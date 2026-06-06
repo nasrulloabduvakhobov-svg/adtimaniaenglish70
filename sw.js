@@ -1,5 +1,5 @@
 /* MedLingua service worker — network-first (auto-update on refresh, offline fallback) */
-var CACHE = "medlingua-v33";
+var CACHE = "medlingua-v34";
 var ASSETS = [
   "./",
   "./index.html",

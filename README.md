@@ -1,6 +1,6 @@
 # MedLingua
 
-Ingliz tilini o'rganish uchun web ilova — **Grammar, Reading, Vocabulary, Tests** va **Grammar Tests** bo'limlari. Interfeys **o'zbek, ingliz va rus** tillarida. Statik (build talab qilmaydi): istalgan brauzerda va Telegram ichida ishlaydi, hatto **offline** ham.
+Xorijiy tillarni o'rganish uchun web ilova — **Grammar, Reading, Vocabulary, Tests** va **Grammar Tests** bo'limlari. Interfeys **o'zbek, ingliz va rus** tillarida. Statik (build talab qilmaydi): istalgan brauzerda va Telegram ichida ishlaydi, hatto **offline** ham.
 
 🔗 Community havolasi: `adtimaniaenglish70`
 📣 Telegram kanal: https://t.me/Med_Lingua

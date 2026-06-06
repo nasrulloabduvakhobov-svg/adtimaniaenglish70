@@ -1,4 +1,4 @@
-# MedEnglish70
+# MedLingua
 
 Ingliz tilini o'rganish uchun web ilova — **Grammar, Reading, Vocabulary, Tests** va **Grammar Tests** bo'limlari. Interfeys **o'zbek, ingliz va rus** tillarida. Statik (build talab qilmaydi): istalgan brauzerda va Telegram ichida ishlaydi, hatto **offline** ham.
 
@@ -82,7 +82,7 @@ https://app.netlify.com/drop ga papkani tashlang.
 |---|---|---|
 | `icon.svg` | Ilova/favicon ikonkasi | Brauzer va PWA |
 | `assets/logo-mark.svg` | Faqat emblema (kvadrat) | Kanal avatari, profil rasm |
-| `assets/logo-full.svg` | Emblema + "MedEnglish70" matni | Kanal shapkasi, hujjatlar |
+| `assets/logo-full.svg` | Emblema + "MedLingua" matni | Kanal shapkasi, hujjatlar |
 | `assets/post-banner.svg` | 1080×1080 post banneri | Telegram/Instagram posti |
 
 **SVG ni PNG ga aylantirish (post uchun):**

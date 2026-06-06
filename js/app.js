@@ -1,4 +1,4 @@
-/* ===== MedEnglish70 — app core (Grammar, Reading, Vocabulary, Tests, Grammar Tests) ===== */
+/* ===== MedLingua — app core (Grammar, Reading, Vocabulary, Tests, Grammar Tests) ===== */
 (function () {
   "use strict";
 

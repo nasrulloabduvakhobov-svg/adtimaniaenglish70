@@ -1,5 +1,5 @@
-/* MedEnglish70 service worker — network-first (auto-update on refresh, offline fallback) */
-var CACHE = "medenglish70-v32";
+/* MedLingua service worker — network-first (auto-update on refresh, offline fallback) */
+var CACHE = "medlingua-v33";
 var ASSETS = [
   "./",
   "./index.html",

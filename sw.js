@@ -1,5 +1,5 @@
 /* MedEnglish70 service worker — network-first (auto-update on refresh, offline fallback) */
-var CACHE = "medenglish70-v22";
+var CACHE = "medenglish70-v23";
 var ASSETS = [
   "./",
   "./index.html",
@@ -20,8 +20,8 @@ var ASSETS = [
 ];
 
 self.addEventListener("install", function (e) {
-  // Activate the new worker immediately, without waiting for old tabs to close.
-  self.skipWaiting();
+  // Pre-cache the app shell for offline use. The new worker stays in "waiting"
+  // state until the user accepts the update (via the in-app banner) or all tabs close.
   e.waitUntil(caches.open(CACHE).then(function (c) { return c.addAll(ASSETS); }).catch(function () {}));
 });
 

@@ -181,6 +181,25 @@
     toastTimer = setTimeout(function () { tEl.classList.remove("show"); }, 1800);
   }
 
+  /* ---------- Update banner ---------- */
+  function showUpdateBanner(worker) {
+    if (document.querySelector(".update-bar")) return;
+    var bar = el('<div class="update-bar" role="alert">' +
+      '<span class="update-msg">✨ ' + t("update.available") + '</span>' +
+      '<button class="update-btn">' + t("update.reload") + '</button>' +
+    '</div>');
+    document.body.appendChild(bar);
+    requestAnimationFrame(function () { bar.classList.add("show"); });
+    var btn = bar.querySelector(".update-btn");
+    btn.addEventListener("click", function () {
+      btn.disabled = true;
+      btn.textContent = "…";
+      try { worker.postMessage("skipWaiting"); } catch (e) {}
+      // Fallback: if controllerchange doesn't fire shortly, reload anyway.
+      setTimeout(function () { try { window.location.reload(); } catch (e) {} }, 1500);
+    });
+  }
+
   /* ---------- Theme ---------- */
   function applyTheme() {
     var theme = state.theme;
@@ -1172,7 +1191,29 @@
     router();
 
     if ("serviceWorker" in navigator && location.protocol.indexOf("http") === 0) {
-      navigator.serviceWorker.register("sw.js").catch(function () {});
+      navigator.serviceWorker.register("sw.js").then(function (reg) {
+        // A worker is already waiting (update downloaded in a previous visit).
+        if (reg.waiting && navigator.serviceWorker.controller) showUpdateBanner(reg.waiting);
+        // A new worker started installing — watch until it is ready.
+        reg.addEventListener("updatefound", function () {
+          var nw = reg.installing;
+          if (!nw) return;
+          nw.addEventListener("statechange", function () {
+            if (nw.state === "installed" && navigator.serviceWorker.controller) showUpdateBanner(nw);
+          });
+        });
+        // Periodically check for a new version, plus when the tab regains focus.
+        setInterval(function () { reg.update().catch(function () {}); }, 60000);
+        window.addEventListener("focus", function () { reg.update().catch(function () {}); });
+      }).catch(function () {});
+
+      // When the new worker takes control, reload once to load fresh assets.
+      var refreshing = false;
+      navigator.serviceWorker.addEventListener("controllerchange", function () {
+        if (refreshing) return;
+        refreshing = true;
+        window.location.reload();
+      });
     }
   }
 

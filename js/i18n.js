@@ -3,7 +3,7 @@ window.ME70_I18N = {
   uz: {
     "app.tagline": "Tibbiyot uchun ingliz tilini noldan mukammallikgacha",
     "nav.home": "Bosh sahifa",
-    "home.hero.title": "Ingliz tilini noldan mukammallikgacha",
+    "home.hero.title": "Xorijiy tillarni noldan mukammallikgacha",
     "home.hero.desc": "Grammatika, o'qish, tinglash, yozish, gapirish, lug'at va testlar — barchasi bir joyda. To'rt ko'nikmani rivojlantir, zamonlarni va so'zlarni yoddan bil.",
     "home.start": "Boshlash",
     "stat.tenses": "Zamon",
@@ -203,7 +203,7 @@ window.ME70_I18N = {
   en: {
     "app.tagline": "Learn medical English from zero to mastery",
     "nav.home": "Home",
-    "home.hero.title": "Master English step by step",
+    "home.hero.title": "Master foreign languages step by step",
     "home.hero.desc": "Grammar, reading, listening, writing, speaking, vocabulary and tests — all in one place. Develop all four skills and master the tenses and words.",
     "home.start": "Get started",
     "stat.tenses": "Tenses",
@@ -403,7 +403,7 @@ window.ME70_I18N = {
   ru: {
     "app.tagline": "Изучайте медицинский английский с нуля до совершенства",
     "nav.home": "Главная",
-    "home.hero.title": "Освойте английский с нуля",
+    "home.hero.title": "Освойте иностранные языки с нуля",
     "home.hero.desc": "Грамматика, чтение, аудирование, письмо, говорение, словарь и тесты — всё в одном месте. Развивайте все четыре навыка и осваивайте времена и слова.",
     "home.start": "Начать",
     "stat.tenses": "Времена",

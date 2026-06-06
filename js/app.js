@@ -414,14 +414,7 @@
 
     var sections = [
       { hash: "#/marathon", icon: "🏁", key: "marathon", meta: MARATHON_DAYS + " " + t("marathon.dayWord") },
-      { hash: "#/grammar", icon: "📘", key: "grammar", meta: GRAMMAR.length + " " + t("stat.tenses").toLowerCase() },
-      { hash: "#/reading", icon: "📖", key: "reading", meta: READING.length + " " + t("stat.passages").toLowerCase() },
-      { hash: "#/listening", icon: "🎧", key: "listening", meta: LISTENING.length + " " + t("listening.unit") },
-      { hash: "#/writing", icon: "✍️", key: "writing", meta: WRITING.length + " " + t("writing.unit") },
-      { hash: "#/speaking", icon: "🎙️", key: "speaking", meta: SPEAKING.length + " " + t("speaking.unit") },
-      { hash: "#/vocabulary", icon: "🗂️", key: "vocabulary", meta: VOCAB.length + " " + t("stat.words").toLowerCase() },
-      { hash: "#/tests", icon: "✅", key: "tests", meta: vTests + " " + t("stat.tests").toLowerCase() },
-      { hash: "#/grammar-tests", icon: "🧠", key: "gtests", meta: gTests + " " + t("stat.tests").toLowerCase() },
+      { hash: "#/english", icon: "🇺🇲", key: "english", meta: "8 " + t("english.unit") },
       { hash: "#/fundamentals", icon: "🔬", key: "fundamentals", meta: FUND.subjects.length + " " + t("fund.subjectsWord") }
     ];
 
@@ -499,6 +492,37 @@
         if (target) target.scrollIntoView({ behavior: "smooth", block: "start" });
       });
     }
+  }
+
+  /* ---------- Views: English (grouped skills) ---------- */
+  function viewEnglish() {
+    var vTests = Math.ceil(VOCAB.length / VTEST_SIZE);
+    var gTests = GRAMMAR.length * TESTS_PER_TENSE;
+
+    var sections = [
+      { hash: "#/grammar", icon: "📘", key: "grammar", meta: GRAMMAR.length + " " + t("stat.tenses").toLowerCase() },
+      { hash: "#/vocabulary", icon: "🗂️", key: "vocabulary", meta: VOCAB.length + " " + t("stat.words").toLowerCase() },
+      { hash: "#/reading", icon: "📖", key: "reading", meta: READING.length + " " + t("stat.passages").toLowerCase() },
+      { hash: "#/listening", icon: "🎧", key: "listening", meta: LISTENING.length + " " + t("listening.unit") },
+      { hash: "#/writing", icon: "✍️", key: "writing", meta: WRITING.length + " " + t("writing.unit") },
+      { hash: "#/speaking", icon: "🎙️", key: "speaking", meta: SPEAKING.length + " " + t("speaking.unit") },
+      { hash: "#/grammar-tests", icon: "🧠", key: "gtests", meta: gTests + " " + t("stat.tests").toLowerCase() },
+      { hash: "#/tests", icon: "✅", key: "tests", meta: vTests + " " + t("stat.tests").toLowerCase() }
+    ];
+
+    setApp('' +
+      '<div class="breadcrumb"><a href="#/">‹ ' + t("nav.home") + '</a></div>' +
+      '<div class="page-head"><h1>' + t("section.english") + '</h1><p>' + t("section.english.desc") + '</p></div>' +
+      '<div class="grid section-cards">' +
+        sections.map(function (s) {
+          return '<a class="card clickable" href="' + s.hash + '">' +
+            '<div class="card-ico">' + s.icon + '</div>' +
+            '<h3>' + t("section." + s.key) + '</h3>' +
+            '<p>' + t("section." + s.key + ".desc") + '</p>' +
+            '<div class="card-meta">' + s.meta + ' ›</div>' +
+          '</a>';
+        }).join("") +
+      '</div>');
   }
 
   /* ---------- Views: Grammar ---------- */
@@ -1331,6 +1355,7 @@
     var root = parts[0] || "";
     try {
       if (root === "") return viewHome();
+      if (root === "english") return viewEnglish();
       if (root === "marathon") return parts[1] ? viewMarathonDay(parts[1]) : viewMarathonList();
       if (root === "grammar") return parts[1] ? viewGrammarDetail(parts[1]) : viewGrammarList();
       if (root === "reading") return parts[1] ? viewPassage(parts[1]) : viewReadingList();

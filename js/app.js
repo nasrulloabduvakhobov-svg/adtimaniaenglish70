@@ -371,7 +371,7 @@
     var scores = getScores();
     var scoreVals = Object.keys(scores).map(function (k) { return scores[k]; });
     var avg = scoreVals.length ? Math.round(scoreVals.reduce(function (a, b) { return a + b; }, 0) / scoreVals.length) : 0;
-    var testsDone = Object.keys(scores).filter(function (k) { return k.indexOf("vtest:") === 0 || k.indexOf("gtest:") === 0; }).length;
+    var testsDone = Object.keys(scores).filter(function (k) { return k.indexOf("vtest:") === 0 || k.indexOf("gtest:") === 0 || k.indexOf("fund:") === 0; }).length;
     var vTests = Math.ceil(VOCAB.length / VTEST_SIZE);
     var gTests = GRAMMAR.length * TESTS_PER_TENSE;
 
@@ -417,6 +417,9 @@
         '<div class="po-card"><b>' + getStarred().length + '</b><span>' + t("prog.wordsLearned") + '</span></div>' +
         '<div class="po-card"><b>' + testsDone + '</b><span>' + t("prog.testsDone") + '</span></div>' +
         '<div class="po-card"><b>' + getReadDone().length + '</b><span>' + t("prog.readDone") + '</span></div>' +
+        '<div class="po-card"><b>' + getListenDone().length + '</b><span>' + t("prog.listenDone") + '</span></div>' +
+        '<div class="po-card"><b>' + getWriteDone().length + '</b><span>' + t("prog.writeDone") + '</span></div>' +
+        '<div class="po-card"><b>' + getSpeakDone().length + '</b><span>' + t("prog.speakDone") + '</span></div>' +
         '<div class="po-card"><b>' + avg + '%</b><span>' + t("prog.avgScore") + '</span></div>' +
       '</div>');
   }

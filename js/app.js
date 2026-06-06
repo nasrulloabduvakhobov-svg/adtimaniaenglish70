@@ -32,6 +32,19 @@
   function setWriteDone(a) { localStorage.setItem("me70_writing", JSON.stringify(a)); }
   function getSpeakDone() { try { return JSON.parse(localStorage.getItem("me70_speaking") || "[]"); } catch (e) { return []; } }
   function setSpeakDone(a) { localStorage.setItem("me70_speaking", JSON.stringify(a)); }
+  function getStreak() { try { return JSON.parse(localStorage.getItem("me70_streak") || "null") || { count: 0, last: "" }; } catch (e) { return { count: 0, last: "" }; } }
+  function dayKey(d) { return d.getFullYear() + "-" + (d.getMonth() + 1) + "-" + d.getDate(); }
+  function touchStreak() {
+    var s = getStreak();
+    var now = new Date();
+    var today = dayKey(now);
+    if (s.last === today) return s;
+    var yesterday = dayKey(new Date(now.getTime() - 86400000));
+    s.count = (s.last === yesterday) ? (s.count || 0) + 1 : 1;
+    s.last = today;
+    try { localStorage.setItem("me70_streak", JSON.stringify(s)); } catch (e) {}
+    return s;
+  }
   function getDraft(id) { return localStorage.getItem("me70_draft:" + id) || ""; }
   function setDraft(id, txt) { try { localStorage.setItem("me70_draft:" + id, txt); } catch (e) {} }
   function getScores() { try { return JSON.parse(localStorage.getItem("me70_scores") || "{}"); } catch (e) { return {}; } }
@@ -374,6 +387,9 @@
     var testsDone = Object.keys(scores).filter(function (k) { return k.indexOf("vtest:") === 0 || k.indexOf("gtest:") === 0 || k.indexOf("fund:") === 0; }).length;
     var vTests = Math.ceil(VOCAB.length / VTEST_SIZE);
     var gTests = GRAMMAR.length * TESTS_PER_TENSE;
+    var fundTests = (FUND.subjects || []).reduce(function (a, s) { return a + (s.tests ? s.tests.length : 0); }, 0);
+    var totalTests = vTests + gTests + fundTests;
+    var langCount = Object.keys(I18N || {}).length || 3;
 
     var sections = [
       { hash: "#/grammar", icon: "📘", key: "grammar", meta: GRAMMAR.length + " " + t("stat.tenses").toLowerCase() },
@@ -392,14 +408,14 @@
         '<h1>' + t("home.hero.title") + '</h1>' +
         '<p>' + t("home.hero.desc") + '</p>' +
         '<div class="hero-stats">' +
-          '<div class="hero-stat"><b>16</b><span>' + t("stat.tenses") + '</span></div>' +
+          '<div class="hero-stat"><b>' + GRAMMAR.length + '</b><span>' + t("stat.tenses") + '</span></div>' +
           '<div class="hero-stat"><b>' + VOCAB.length + '</b><span>' + t("stat.words") + '</span></div>' +
           '<div class="hero-stat"><b>' + READING.length + '</b><span>' + t("stat.passages") + '</span></div>' +
           '<div class="hero-stat"><b>' + LISTENING.length + '</b><span>' + t("stat.listening") + '</span></div>' +
           '<div class="hero-stat"><b>' + WRITING.length + '</b><span>' + t("stat.writing") + '</span></div>' +
           '<div class="hero-stat"><b>' + SPEAKING.length + '</b><span>' + t("stat.speaking") + '</span></div>' +
-          '<div class="hero-stat"><b>' + (vTests + gTests) + '</b><span>' + t("stat.tests") + '</span></div>' +
-          '<div class="hero-stat"><b>3</b><span>UZ · EN · RU</span></div>' +
+          '<div class="hero-stat"><b>' + totalTests + '</b><span>' + t("stat.tests") + '</span></div>' +
+          '<div class="hero-stat"><b>' + langCount + '</b><span>UZ · EN · RU</span></div>' +
         '</div>' +
       '</section>' +
       '<div class="grid section-cards">' +
@@ -414,6 +430,7 @@
       '</div>' +
       '<h2 style="margin:26px 0 4px;font-size:1.15rem">' + t("home.progress.title") + '</h2>' +
       '<div class="progress-overview">' +
+        '<div class="po-card"><b>🔥 ' + getStreak().count + '</b><span>' + t("prog.streak") + '</span></div>' +
         '<div class="po-card"><b>' + getStarred().length + '</b><span>' + t("prog.wordsLearned") + '</span></div>' +
         '<div class="po-card"><b>' + testsDone + '</b><span>' + t("prog.testsDone") + '</span></div>' +
         '<div class="po-card"><b>' + getReadDone().length + '</b><span>' + t("prog.readDone") + '</span></div>' +
@@ -1129,6 +1146,7 @@
     if (tg) { try { tg.ready(); tg.expand(); } catch (e) {} }
 
     document.getElementById("year").textContent = new Date().getFullYear();
+    touchStreak();
     applyTheme();
     applyStaticI18n();
 

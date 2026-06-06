@@ -1,5 +1,5 @@
 /* MedEnglish70 service worker — network-first (auto-update on refresh, offline fallback) */
-var CACHE = "medenglish70-v24";
+var CACHE = "medenglish70-v25";
 var ASSETS = [
   "./",
   "./index.html",
@@ -20,9 +20,19 @@ var ASSETS = [
 ];
 
 self.addEventListener("install", function (e) {
-  // Pre-cache the app shell for offline use. The new worker stays in "waiting"
-  // state until the user accepts the update (via the in-app banner) or all tabs close.
-  e.waitUntil(caches.open(CACHE).then(function (c) { return c.addAll(ASSETS); }).catch(function () {}));
+  // Pre-cache the app shell for offline use. Use {cache:"reload"} so the install
+  // always pulls fresh files from the network (bypassing the browser HTTP cache).
+  // The new worker stays in "waiting" state until the user accepts the update
+  // (via the in-app banner) or all tabs close.
+  e.waitUntil(
+    caches.open(CACHE).then(function (c) {
+      return Promise.all(ASSETS.map(function (u) {
+        return fetch(new Request(u, { cache: "reload" })).then(function (res) {
+          if (res && (res.ok || res.type === "opaque")) return c.put(u, res);
+        }).catch(function () {});
+      }));
+    }).catch(function () {})
+  );
 });
 
 self.addEventListener("activate", function (e) {
@@ -45,9 +55,11 @@ self.addEventListener("fetch", function (e) {
   // only handle same-origin requests; let external (telegram SDK) pass through
   if (url.origin !== self.location.origin) return;
 
-  // Network-first: always try to fetch the freshest version, fall back to cache when offline.
+  // Network-first with revalidation: {cache:"no-cache"} forces the browser to check
+  // with the server (conditional request) instead of serving a stale HTTP-cached copy,
+  // so a single refresh always loads the latest deployed files. Falls back to cache when offline.
   e.respondWith(
-    fetch(req).then(function (res) {
+    fetch(req, { cache: "no-cache" }).then(function (res) {
       // Cache a fresh copy for offline use.
       var copy = res.clone();
       caches.open(CACHE).then(function (c) { c.put(req, copy); }).catch(function () {});

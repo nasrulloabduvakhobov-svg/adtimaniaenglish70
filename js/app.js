@@ -196,8 +196,9 @@
       btn.disabled = true;
       btn.textContent = "…";
       try { worker.postMessage("skipWaiting"); } catch (e) {}
-      // Fallback: if controllerchange doesn't fire shortly, reload anyway.
-      setTimeout(function () { try { window.location.reload(); } catch (e) {} }, 1500);
+      // The "controllerchange" listener reloads as soon as the new worker takes over.
+      // This is only a safety net in case that event does not fire.
+      setTimeout(function () { try { window.location.reload(); } catch (e) {} }, 3500);
     });
   }
 

@@ -456,6 +456,13 @@
           '<p>' + t("section.session90.desc") + '</p>' +
           '<div class="card-meta">🔒 ' + t("section.soon") + '</div>' +
         '</div>' +
+        '<div class="card locked" id="usmleCard" role="button" tabindex="0" aria-disabled="true">' +
+          '<span class="soon-badge">' + t("section.soon") + '</span>' +
+          '<div class="card-ico">🇺🇸</div>' +
+          '<h3>' + t("section.usmle") + '</h3>' +
+          '<p>' + t("section.usmle.desc") + '</p>' +
+          '<div class="card-meta">🔒 ' + t("section.soon") + '</div>' +
+        '</div>' +
       '</div>' +
       '<h2 style="margin:26px 0 4px;font-size:1.15rem">' + t("home.progress.title") + '</h2>' +
       '<div class="progress-overview">' +
@@ -469,12 +476,13 @@
         '<div class="po-card"><b>' + avg + '%</b><span>' + t("prog.avgScore") + '</span></div>' +
       '</div>');
 
-    var cs = document.getElementById("session90Card");
-    if (cs) {
-      var notify = function () { toast(t("section.soonMsg")); };
-      cs.addEventListener("click", notify);
-      cs.addEventListener("keydown", function (e) { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); notify(); } });
-    }
+    var notify = function () { toast(t("section.soonMsg")); };
+    ["session90Card", "usmleCard"].forEach(function (cid) {
+      var c = document.getElementById(cid);
+      if (!c) return;
+      c.addEventListener("click", notify);
+      c.addEventListener("keydown", function (e) { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); notify(); } });
+    });
   }
 
   /* ---------- Views: Grammar ---------- */

@@ -143,7 +143,7 @@
     var overlay = el('<div class="modal-overlay"></div>');
     overlay.innerHTML = '<div class="modal">' +
       '<button class="modal-close" id="donateClose" aria-label="' + t("donate.close") + '">✕</button>' +
-      '<h2 class="modal-title">❤️ ' + t("donate.title") + '</h2>' +
+      '<h2 class="modal-title">🌱 ' + t("donate.title") + '</h2>' +
       '<p class="modal-note">' + t("donate.note") + '</p>' +
       rows +
     '</div>';

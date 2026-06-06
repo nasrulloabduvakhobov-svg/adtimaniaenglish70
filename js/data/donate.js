@@ -22,7 +22,7 @@ window.ME70_DONATE = {
     },
     {
       id: "paynet",
-      name: "Paynet",
+      name: "MedEnglish Fund",
       icon: "🟢",
       note: "Humo karta",
       holder: "MedEnglish Support",

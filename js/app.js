@@ -464,6 +464,13 @@
           '<p>' + t("section.usmle.desc") + '</p>' +
           '<div class="card-meta">🔒 ' + t("section.soon") + '</div>' +
         '</div>' +
+        '<div class="card locked" id="germanCard" role="button" tabindex="0" aria-disabled="true">' +
+          '<span class="soon-badge">' + t("section.soon") + '</span>' +
+          '<div class="card-ico">🇩🇪</div>' +
+          '<h3>' + t("section.german") + '</h3>' +
+          '<p>' + t("section.german.desc") + '</p>' +
+          '<div class="card-meta">🔒 ' + t("section.soon") + '</div>' +
+        '</div>' +
       '</div>' +
       '<h2 style="margin:26px 0 4px;font-size:1.15rem">' + t("home.progress.title") + '</h2>' +
       '<div class="progress-overview">' +
@@ -478,7 +485,7 @@
       '</div>');
 
     var notify = function () { toast(t("section.soonMsg")); };
-    ["session90Card", "usmleCard"].forEach(function (cid) {
+    ["session90Card", "usmleCard", "germanCard"].forEach(function (cid) {
       var c = document.getElementById(cid);
       if (!c) return;
       c.addEventListener("click", notify);

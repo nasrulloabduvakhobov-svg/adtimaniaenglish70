@@ -1130,27 +1130,53 @@
   }
 
   /* ---------- Views: 70-day Marathon ---------- */
-  // Build the task list for a given day (1..MARATHON_DAYS). Deterministic from data.
+  // Order each skill from easiest to hardest so the 70 days genuinely progress
+  // Elementary -> Advanced. Lower levels have more items (reading: 25 elementary vs
+  // 5 advanced), so Upper-Intermediate/Advanced naturally occupy fewer days.
+  var _marOrder = null;
+  function buildMarathonOrder() {
+    if (_marOrder) return _marOrder;
+    var rRank = { elementary: 0, pre: 1, inter: 2, upper: 3, advanced: 4 };
+    var cefr = { A1: 0, A2: 1, B1: 2, B2: 3, C1: 4, C2: 5 };
+    function byLevel(arr, rankOf) {
+      return arr.map(function (x, i) { return { x: x, i: i, r: rankOf(x) }; })
+        .sort(function (a, b) { return (a.r - b.r) || (a.i - b.i); })
+        .map(function (o) { return o.x; });
+    }
+    var gt = [];
+    GRAMMAR.forEach(function (g) { for (var n = 1; n <= TESTS_PER_TENSE; n++) gt.push({ tid: g.id, n: n, name: g.name }); });
+    _marOrder = {
+      reading: byLevel(READING, function (x) { return rRank[x.level] != null ? rRank[x.level] : 9; }),
+      listening: byLevel(LISTENING, function (x) { return cefr[x.level] != null ? cefr[x.level] : 9; }),
+      writing: byLevel(WRITING, function (x) { return cefr[x.level] != null ? cefr[x.level] : 9; }),
+      speaking: byLevel(SPEAKING, function (x) { return cefr[x.level] != null ? cefr[x.level] : 9; }),
+      gtests: gt
+    };
+    return _marOrder;
+  }
+  // The day's CEFR-style band is driven by the reading level (5-band: elementary..advanced).
+  function marathonDayLevel(day) {
+    var ord = buildMarathonOrder();
+    var r = ord.reading[day - 1];
+    return r ? r.level : "advanced";
+  }
+  // Build the task list for a given day (1..MARATHON_DAYS), level-ordered.
   function marathonTasks(day) {
+    var ord = buildMarathonOrder();
     var i = day - 1;
     var tasks = [];
-    var r = READING[i];
+    var r = ord.reading[i];
     if (r) tasks.push({ type: "reading", icon: "📖", id: r.id, title: r.title, hash: "#/reading/" + r.id });
-    var l = LISTENING[i];
+    var l = ord.listening[i];
     if (l) tasks.push({ type: "listening", icon: "🎧", id: l.id, title: l.title, hash: "#/listening/" + l.id });
-    var w = WRITING[i];
+    var w = ord.writing[i];
     if (w) tasks.push({ type: "writing", icon: "✍️", id: w.id, title: w.title, hash: "#/writing/" + w.id });
-    var sp = SPEAKING[i];
+    var sp = ord.speaking[i];
     if (sp) tasks.push({ type: "speaking", icon: "🎙️", id: sp.id, title: sp.title, hash: "#/speaking/" + sp.id });
-    // Grammar test — interleave tenses so each day cycles to a new tense.
-    if (GRAMMAR.length) {
-      var g = GRAMMAR[i % GRAMMAR.length];
-      var tnum = Math.floor(i / GRAMMAR.length) + 1;
-      if (tnum <= TESTS_PER_TENSE) {
-        tasks.push({ type: "gtest", icon: "🧠", key: "gtest:" + g.id + ":" + tnum,
-          title: g.name + " — " + t("gtests.test") + " " + tnum, hash: "#/grammar-tests/" + g.id + "/" + tnum });
-      }
-    }
+    // Grammar test — pedagogical tense order (simple tenses first, complex later).
+    var gt = ord.gtests[i];
+    if (gt) tasks.push({ type: "gtest", icon: "🧠", key: "gtest:" + gt.tid + ":" + gt.n,
+      title: gt.name + " — " + t("gtests.test") + " " + gt.n, hash: "#/grammar-tests/" + gt.tid + "/" + gt.n });
     // Vocabulary test
     var vtotal = Math.ceil(VOCAB.length / VTEST_SIZE);
     if (day <= vtotal) {
@@ -1179,22 +1205,40 @@
 
   function viewMarathonList() {
     var doneDays = 0, totalTasks = 0, doneTasks = 0;
-    var tiles = "";
+    var days = [];
     for (var d = 1; d <= MARATHON_DAYS; d++) {
       var st = marathonDayStatus(d);
       totalTasks += st.total; doneTasks += st.done;
       var full = st.total > 0 && st.done === st.total;
       if (full) doneDays++;
-      var badge = full
-        ? '<span class="tile-badge done">✓</span>'
-        : '<span class="tile-badge">' + st.done + '/' + st.total + '</span>';
-      tiles += '<a class="tile" href="#/marathon/' + d + '">' +
-        '<div><div class="tile-title">' + t("marathon.day") + ' ' + d + '</div>' +
-        '<div class="tile-sub">' + st.done + '/' + st.total + ' ' + t("marathon.completed") + '</div></div>' +
-        badge +
-      '</a>';
+      days.push({ d: d, st: st, full: full, lvl: marathonDayLevel(d) });
     }
     var pct = totalTasks ? Math.round(doneTasks / totalTasks * 100) : 0;
+
+    // Group consecutive days into level bands (Elementary -> Advanced).
+    var groupsHtml = "", curLvl = null, buf = "", count = 0;
+    function flush() {
+      if (curLvl == null) return;
+      groupsHtml += '<h2 style="font-size:1.05rem;margin:18px 0 8px">' +
+        '<span class="level-tag ' + curLvl + '">' + t("reading.level." + curLvl) + '</span> ' +
+        '<span style="color:var(--muted);font-size:.8rem;font-weight:600">(' + count + ' ' + t("marathon.dayWord") + ')</span></h2>' +
+        '<div class="grid cols">' + buf + '</div>';
+      buf = ""; count = 0;
+    }
+    days.forEach(function (o) {
+      if (o.lvl !== curLvl) { flush(); curLvl = o.lvl; }
+      count++;
+      var badge = o.full
+        ? '<span class="tile-badge done">✓</span>'
+        : '<span class="tile-badge">' + o.st.done + '/' + o.st.total + '</span>';
+      buf += '<a class="tile" href="#/marathon/' + o.d + '">' +
+        '<div><div class="tile-title">' + t("marathon.day") + ' ' + o.d + '</div>' +
+        '<div class="tile-sub">' + o.st.done + '/' + o.st.total + ' ' + t("marathon.completed") + '</div></div>' +
+        badge +
+      '</a>';
+    });
+    flush();
+
     setApp('' +
       '<div class="breadcrumb"><a href="#/">‹ ' + t("nav.home") + '</a></div>' +
       '<div class="page-head"><h1>🏁 ' + t("marathon.title") + '</h1><p>' + t("marathon.desc") + '</p></div>' +
@@ -1203,12 +1247,13 @@
         '<div class="q-counter">' + pct + '%</div></div>' +
         '<div class="progress-bar"><span style="width:' + pct + '%"></span></div>' +
       '</div>' +
-      '<div class="grid cols">' + tiles + '</div>');
+      groupsHtml);
   }
 
   function viewMarathonDay(dayStr) {
     var day = parseInt(dayStr, 10);
     if (!day || day < 1 || day > MARATHON_DAYS) return notFound();
+    var lvl = marathonDayLevel(day);
     var tasks = marathonTasks(day);
     var doneCount = 0;
     var rows = tasks.map(function (tk) {
@@ -1228,7 +1273,7 @@
     '</div>';
     setApp('' +
       '<div class="breadcrumb"><a href="#/marathon">‹ ' + t("marathon.title") + '</a></div>' +
-      '<div class="page-head"><h1>' + t("marathon.day") + ' ' + day + '</h1><p>' + t("marathon.dayDesc") + '</p></div>' +
+      '<div class="page-head"><h1>' + t("marathon.day") + ' ' + day + ' <span class="level-tag ' + lvl + '" style="vertical-align:middle;font-size:.55em">' + t("reading.level." + lvl) + '</span></h1><p>' + t("marathon.dayDesc") + '</p></div>' +
       '<div class="passage" style="margin-bottom:16px">' +
         '<div class="quiz-head"><div><b style="font-size:1.05rem">' + doneCount + ' / ' + tasks.length + ' ' + t("marathon.completed") + '</b></div>' +
         '<div class="q-counter">' + pct + '%</div></div>' +

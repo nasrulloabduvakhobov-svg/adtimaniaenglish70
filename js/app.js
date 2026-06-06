@@ -439,6 +439,7 @@
           '<div class="hero-stat"><b>' + totalTests + '</b><span>' + t("stat.tests") + '</span></div>' +
           '<div class="hero-stat"><b>' + langCount + '</b><span>UZ · EN · RU</span></div>' +
         '</div>' +
+        '<button class="hero-cta" id="heroStart" type="button">' + t("home.start") + ' →</button>' +
       '</section>' +
       '<div class="grid section-cards">' +
         sections.map(function (s) {
@@ -483,6 +484,14 @@
       c.addEventListener("click", notify);
       c.addEventListener("keydown", function (e) { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); notify(); } });
     });
+
+    var startBtn = document.getElementById("heroStart");
+    if (startBtn) {
+      startBtn.addEventListener("click", function () {
+        var target = document.querySelector(".section-cards");
+        if (target) target.scrollIntoView({ behavior: "smooth", block: "start" });
+      });
+    }
   }
 
   /* ---------- Views: Grammar ---------- */

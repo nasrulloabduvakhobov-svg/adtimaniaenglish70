@@ -884,3 +884,253 @@ window.ME70_READING.push(
     ]
   }
 );
+
+
+
+/* ===== BATCH: extra passages (reach 100) ===== */
+window.ME70_READING.push(
+  { id: "el-26", level: "elementary", title: "Drink Enough Water",
+    text: ["Water is very important for our body. We need it every day.", "We should drink about six to eight glasses of water a day.", "Water helps the blood, the skin and the brain work well.", "When it is hot or we do sport, we must drink even more water."],
+    questions: [
+      { q: "How many glasses of water should we drink a day?", options: ["Six to eight", "One", "Twenty", "None"], answer: 0 },
+      { q: "What does water help?", options: ["The blood, skin and brain", "Only the hair", "Only the teeth", "Nothing"], answer: 0 },
+      { q: "When do we need more water?", options: ["When it is hot or we do sport", "When we sleep only", "Never", "In winter only"], answer: 0 },
+      { q: "How often do we need water?", options: ["Every day", "Once a month", "Once a year", "Never"], answer: 0 }
+    ] },
+  { id: "el-27", level: "elementary", title: "Going for a Walk",
+    text: ["Every evening, Bobur goes for a walk in the park.", "Walking is easy and good for the heart.", "He walks for thirty minutes and breathes the fresh air.", "After the walk, he feels calm and sleeps well."],
+    questions: [
+      { q: "When does Bobur walk?", options: ["Every evening", "Every night only", "Once a year", "Never"], answer: 0 },
+      { q: "Why is walking good?", options: ["It is good for the heart", "It is bad for you", "It makes you sick", "It is dangerous"], answer: 0 },
+      { q: "How long does he walk?", options: ["Thirty minutes", "Five hours", "One second", "All day"], answer: 0 },
+      { q: "How does he feel after?", options: ["Calm", "Angry", "Sick", "Hungry"], answer: 0 }
+    ] },
+  { id: "el-28", level: "elementary", title: "A Cold Day",
+    text: ["It is a cold winter day. The wind is strong.", "Dilnoza wears a warm coat, a hat and gloves.", "Warm clothes keep her body warm and stop her getting ill.", "She drinks hot tea when she comes home."],
+    questions: [
+      { q: "What is the weather like?", options: ["Cold and windy", "Hot and sunny", "Rainy and warm", "Snowy and warm"], answer: 0 },
+      { q: "What does Dilnoza wear?", options: ["A warm coat, hat and gloves", "A swimsuit", "Only a t-shirt", "Nothing"], answer: 0 },
+      { q: "Why does she wear warm clothes?", options: ["To stay warm and not get ill", "To look funny", "To get cold", "For no reason"], answer: 0 },
+      { q: "What does she drink at home?", options: ["Hot tea", "Cold water", "Ice cream", "Nothing"], answer: 0 }
+    ] },
+  { id: "el-29", level: "elementary", title: "The School Nurse",
+    text: ["There is a nurse at our school. Her room is near the door.", "If a child feels ill, they go to the nurse.", "She checks the child and calls the parents if needed.", "The nurse keeps all the children safe and healthy."],
+    questions: [
+      { q: "Where is the nurse's room?", options: ["Near the door", "On the roof", "In the garden", "At the bank"], answer: 0 },
+      { q: "Who goes to the nurse?", options: ["A child who feels ill", "Only teachers", "No one", "Only adults"], answer: 0 },
+      { q: "What does she do if needed?", options: ["Calls the parents", "Goes home", "Does nothing", "Closes the school"], answer: 0 },
+      { q: "What is the nurse's job?", options: ["Keep children safe and healthy", "Teach maths", "Drive a bus", "Cook lunch"], answer: 0 }
+    ] },
+  { id: "el-30", level: "elementary", title: "Eat Breakfast",
+    text: ["Breakfast is the first meal of the day. It gives us energy.", "A good breakfast can be bread, eggs, fruit or milk.", "Children who eat breakfast can study and play better.", "We should not skip breakfast before school or work."],
+    questions: [
+      { q: "What does breakfast give us?", options: ["Energy", "Illness", "Fear", "Nothing"], answer: 0 },
+      { q: "What is a good breakfast?", options: ["Bread, eggs, fruit or milk", "Only candy", "Only coffee", "Nothing"], answer: 0 },
+      { q: "Who studies and plays better?", options: ["Children who eat breakfast", "Children who skip breakfast", "No one", "Only adults"], answer: 0 },
+      { q: "What should we not do?", options: ["Skip breakfast", "Eat breakfast", "Drink milk", "Eat fruit"], answer: 0 }
+    ] },
+  { id: "el-31", level: "elementary", title: "A Trip to the Eye Doctor",
+    text: ["Jasur cannot see the board at school well.", "His mother takes him to the eye doctor.", "The doctor checks his eyes and gives him glasses.", "Now Jasur can see clearly and read every word."],
+    questions: [
+      { q: "What is Jasur's problem?", options: ["He cannot see the board well", "He cannot walk", "He has a cough", "He is hungry"], answer: 0 },
+      { q: "Who takes him to the doctor?", options: ["His mother", "His friend", "His teacher", "No one"], answer: 0 },
+      { q: "What does the doctor give him?", options: ["Glasses", "A book", "Medicine", "A ball"], answer: 0 },
+      { q: "What can Jasur do now?", options: ["See clearly and read", "Run faster", "Sleep more", "Sing"], answer: 0 }
+    ] },
+  { id: "el-32", level: "elementary", title: "Keep Your Room Clean",
+    text: ["A clean room is good for our health. Dust can make us cough.", "We should open the window to let in fresh air.", "Once a week, we clean the floor and the table.", "In a clean and tidy room, it is easy to rest and sleep."],
+    questions: [
+      { q: "What can dust make us do?", options: ["Cough", "Run", "Sing", "Grow"], answer: 0 },
+      { q: "Why should we open the window?", options: ["To let in fresh air", "To make noise", "To get cold", "For no reason"], answer: 0 },
+      { q: "How often should we clean the floor?", options: ["Once a week", "Once a year", "Never", "Every minute"], answer: 0 },
+      { q: "What is easy in a clean room?", options: ["To rest and sleep", "To get sick", "To lose things", "To shout"], answer: 0 }
+    ] },
+  { id: "el-33", level: "elementary", title: "Helping Grandmother",
+    text: ["My grandmother is old and cannot walk fast.", "Every day I help her take her medicine on time.", "I also bring her water and open the curtains for light.", "Grandmother smiles and says I am a good helper."],
+    questions: [
+      { q: "What can grandmother not do?", options: ["Walk fast", "Eat", "Talk", "Sleep"], answer: 0 },
+      { q: "What does the child help with?", options: ["Taking medicine on time", "Driving a car", "Cooking dinner", "Building a house"], answer: 0 },
+      { q: "What else does the child bring?", options: ["Water", "Snow", "Money", "Toys"], answer: 0 },
+      { q: "What does grandmother say?", options: ["The child is a good helper", "The child is lazy", "Nothing", "Go away"], answer: 0 }
+    ] },
+
+  { id: "pre-21", level: "pre", title: "Managing Everyday Stress",
+    text: ["Stress is the body's natural reaction to difficult situations. A little stress is normal, but too much can harm our health.", "Common signs of stress include headaches, poor sleep and feeling worried all the time.", "Simple activities such as deep breathing, exercise and talking to friends can reduce stress.", "If stress becomes too strong to handle alone, it is wise to ask a doctor for help."],
+    questions: [
+      { q: "What is stress?", options: ["The body's reaction to difficult situations", "A type of food", "A medicine", "A disease of the bones"], answer: 0 },
+      { q: "Which is a sign of stress?", options: ["Poor sleep", "Stronger teeth", "Better eyesight", "Longer hair"], answer: 0 },
+      { q: "What can reduce stress?", options: ["Deep breathing and exercise", "More worrying", "Less sleep", "Skipping meals"], answer: 0 },
+      { q: "When should you ask a doctor for help?", options: ["When stress is too strong to handle alone", "Never", "Only when happy", "When you feel fine"], answer: 0 }
+    ] },
+  { id: "pre-22", level: "pre", title: "The Benefits of Walking",
+    text: ["Walking is one of the simplest and cheapest forms of exercise. Almost everyone can do it.", "A brisk daily walk strengthens the heart, improves mood and helps control weight.", "It also keeps the joints flexible and can lower the risk of many diseases.", "Experts suggest about thirty minutes of walking on most days of the week."],
+    questions: [
+      { q: "Why is walking a good exercise?", options: ["It is simple and cheap", "It is very expensive", "It needs special machines", "It is dangerous"], answer: 0 },
+      { q: "What does a daily walk strengthen?", options: ["The heart", "Only the hair", "Nothing", "The teeth only"], answer: 0 },
+      { q: "What else does walking do?", options: ["Keeps joints flexible", "Breaks bones", "Causes disease", "Makes you weaker"], answer: 0 },
+      { q: "How much walking is suggested?", options: ["About 30 minutes most days", "Five hours daily", "Once a year", "Never"], answer: 0 }
+    ] },
+  { id: "pre-23", level: "pre", title: "Understanding Allergies",
+    text: ["An allergy happens when the body reacts to something that is usually harmless, such as pollen, dust or certain foods.", "The immune system treats these things as dangerous and causes symptoms like sneezing, itching or a rash.", "Some allergies are mild, but others can be serious and need quick medical care.", "People with allergies should avoid the things that cause them and carry their medicine if a doctor advises it."],
+    questions: [
+      { q: "What is an allergy?", options: ["A reaction to usually harmless things", "A type of bone", "A vitamin", "A kind of exercise"], answer: 0 },
+      { q: "What can cause an allergy?", options: ["Pollen, dust or certain foods", "Only water", "Only sleep", "Only sunlight"], answer: 0 },
+      { q: "Which is an allergy symptom?", options: ["Sneezing or itching", "Stronger bones", "Better hearing", "Faster running"], answer: 0 },
+      { q: "What should people with allergies do?", options: ["Avoid the things that cause them", "Eat more of them", "Ignore the doctor", "Stop breathing"], answer: 0 }
+    ] },
+  { id: "pre-24", level: "pre", title: "Why Breakfast Is Important",
+    text: ["After a long night's sleep, the body needs fuel to start the day. Breakfast provides this energy.", "A good breakfast improves concentration and helps both children and adults perform better.", "People who skip breakfast often feel tired and may eat too much unhealthy food later.", "A balanced breakfast can include whole grains, fruit, eggs or milk."],
+    questions: [
+      { q: "Why does the body need breakfast?", options: ["For energy to start the day", "To feel tired", "To skip lunch", "For no reason"], answer: 0 },
+      { q: "What does a good breakfast improve?", options: ["Concentration", "Bad mood", "Illness", "Nothing"], answer: 0 },
+      { q: "What may happen if you skip breakfast?", options: ["Feel tired and overeat later", "Feel stronger", "Sleep better", "Grow taller"], answer: 0 },
+      { q: "What can a balanced breakfast include?", options: ["Whole grains, fruit, eggs or milk", "Only sweets", "Only coffee", "Nothing"], answer: 0 }
+    ] },
+  { id: "pre-25", level: "pre", title: "Smoking and Your Health",
+    text: ["Smoking is one of the most harmful habits for human health. Tobacco smoke contains many dangerous chemicals.", "It damages the lungs and the heart and greatly increases the risk of cancer.", "Smoking also affects people nearby, who breathe in the smoke; this is called passive smoking.", "Quitting smoking, even after many years, brings important benefits to health."],
+    questions: [
+      { q: "What does tobacco smoke contain?", options: ["Many dangerous chemicals", "Only clean air", "Vitamins", "Water"], answer: 0 },
+      { q: "What does smoking damage?", options: ["The lungs and heart", "Only the hair", "Nothing", "The bones only"], answer: 0 },
+      { q: "What is passive smoking?", options: ["Breathing in other people's smoke", "Smoking in secret", "Quitting smoking", "Smoking once"], answer: 0 },
+      { q: "What does quitting bring?", options: ["Important health benefits", "More disease", "No change", "Weaker lungs"], answer: 0 }
+    ] },
+  { id: "pre-26", level: "pre", title: "Staying Safe in the Sun",
+    text: ["Sunlight helps the body make vitamin D, but too much sun can be harmful.", "Strong sun can burn the skin and, over many years, increase the risk of skin cancer.", "To stay safe, wear a hat, use sun cream and avoid the sun in the hottest hours.", "It is also important to drink water to avoid losing too much fluid in the heat."],
+    questions: [
+      { q: "What does sunlight help the body make?", options: ["Vitamin D", "Vitamin Z", "Sugar", "Bone marrow"], answer: 0 },
+      { q: "What can too much strong sun cause?", options: ["Skin burns and higher cancer risk", "Better skin forever", "Stronger bones", "Nothing"], answer: 0 },
+      { q: "How can you stay safe in the sun?", options: ["Wear a hat and use sun cream", "Stare at the sun", "Wear nothing", "Sit in the hottest hours"], answer: 0 },
+      { q: "Why drink water in the heat?", options: ["To avoid losing too much fluid", "To feel worse", "To get cold", "For no reason"], answer: 0 }
+    ] },
+  { id: "pre-27", level: "pre", title: "The Power of Hand Hygiene",
+    text: ["Washing the hands is one of the easiest ways to prevent the spread of disease.", "Many germs pass from person to person through the hands we use to touch our face and food.", "We should wash with soap for at least twenty seconds, especially before eating and after the toilet.", "In hospitals, good hand hygiene saves thousands of lives every year."],
+    questions: [
+      { q: "What does hand washing prevent?", options: ["The spread of disease", "Good health", "Clean water", "Strong bones"], answer: 0 },
+      { q: "How do many germs pass between people?", options: ["Through the hands", "Through sunlight", "Through sleep", "Through music"], answer: 0 },
+      { q: "How long should we wash our hands?", options: ["At least twenty seconds", "One second", "An hour", "A whole day"], answer: 0 },
+      { q: "Why is hand hygiene vital in hospitals?", options: ["It saves thousands of lives", "It wastes time", "It spreads disease", "It has no effect"], answer: 0 }
+    ] },
+
+  { id: "int-16", level: "inter", title: "How Vaccines Train the Body",
+    text: ["A vaccine works by teaching the immune system to recognise a specific germ without causing the disease itself.", "It usually contains a weakened, dead or partial form of the germ, or instructions for the body to make a harmless piece of it.", "The immune system responds by producing antibodies and memory cells that stay in the body for a long time.", "If the real germ later enters the body, these memory cells allow a fast and strong defence, often before the person even feels ill."],
+    questions: [
+      { q: "What does a vaccine teach the immune system to do?", options: ["Recognise a specific germ", "Ignore all germs", "Produce sugar", "Stop working"], answer: 0 },
+      { q: "What can a vaccine contain?", options: ["A weakened or partial form of a germ", "Only pure sugar", "Strong live disease", "Nothing at all"], answer: 0 },
+      { q: "What does the immune system produce in response?", options: ["Antibodies and memory cells", "More germs", "Bones", "Glucose"], answer: 0 },
+      { q: "Why are memory cells useful later?", options: ["They allow a fast, strong defence", "They cause disease", "They weaken the body", "They have no role"], answer: 0 }
+    ] },
+  { id: "int-17", level: "inter", title: "The Human Skeleton",
+    text: ["The adult human skeleton is made up of 206 bones that give the body its shape and support.", "Besides support, the skeleton protects vital organs: the skull guards the brain and the ribs shield the heart and lungs.", "Bones also store minerals such as calcium, and the marrow inside many bones produces blood cells.", "Regular exercise and a diet rich in calcium and vitamin D keep bones strong throughout life."],
+    questions: [
+      { q: "How many bones are in the adult skeleton?", options: ["206", "106", "306", "26"], answer: 0 },
+      { q: "What protects the brain?", options: ["The skull", "The ribs", "The spine only", "The feet"], answer: 0 },
+      { q: "What is produced in the bone marrow?", options: ["Blood cells", "Saliva", "Tears", "Sweat"], answer: 0 },
+      { q: "What keeps bones strong?", options: ["Exercise and calcium-rich diet", "Skipping meals", "No movement", "Only sugar"], answer: 0 }
+    ] },
+  { id: "int-18", level: "inter", title: "Understanding Blood Pressure",
+    text: ["Blood pressure is the force of blood pushing against the walls of the arteries as the heart pumps.", "It is written as two numbers: the higher one (systolic) when the heart beats, and the lower one (diastolic) when it rests.", "A reading around 120 over 80 is considered normal for most adults.", "Consistently high blood pressure, or hypertension, strains the heart and raises the risk of stroke, so it must be monitored."],
+    questions: [
+      { q: "What is blood pressure?", options: ["The force of blood on artery walls", "The speed of breathing", "The amount of sugar", "The size of the heart"], answer: 0 },
+      { q: "What does the higher number show?", options: ["When the heart beats (systolic)", "When the heart stops", "The lung volume", "The body weight"], answer: 0 },
+      { q: "Which reading is considered normal?", options: ["About 120 over 80", "200 over 150", "60 over 30", "300 over 200"], answer: 0 },
+      { q: "Why must hypertension be monitored?", options: ["It strains the heart and raises stroke risk", "It is harmless", "It improves health", "It lowers risk"], answer: 0 }
+    ] },
+  { id: "int-19", level: "inter", title: "The Liver and Its Functions",
+    text: ["The liver is the largest internal organ and performs hundreds of essential tasks every day.", "It filters toxins from the blood, breaks down old red blood cells and stores energy as glycogen.", "The liver also produces bile, a fluid that helps the body digest fats in the small intestine.", "Because of its many roles, damage from alcohol, infection or poor diet can have serious effects on the whole body."],
+    questions: [
+      { q: "How big is the liver among internal organs?", options: ["The largest", "The smallest", "Average size", "The size of a cell"], answer: 0 },
+      { q: "What does the liver filter?", options: ["Toxins from the blood", "Air from the lungs", "Light from the eyes", "Sound"], answer: 0 },
+      { q: "What fluid does the liver produce?", options: ["Bile", "Saliva", "Sweat", "Tears"], answer: 0 },
+      { q: "What can damage the liver?", options: ["Alcohol, infection or poor diet", "Drinking water", "Sleeping well", "Walking"], answer: 0 }
+    ] },
+  { id: "int-20", level: "inter", title: "How the Kidneys Filter Blood",
+    text: ["The two kidneys act as the body's filter, cleaning the blood and removing waste and extra water as urine.", "Each kidney contains about a million tiny filtering units called nephrons.", "The kidneys also help control blood pressure and keep the right balance of salts and water in the body.", "Drinking enough water and limiting salt help the kidneys do their job and prevent stones from forming."],
+    questions: [
+      { q: "What do the kidneys remove from the blood?", options: ["Waste and extra water", "Oxygen", "Bones", "Memories"], answer: 0 },
+      { q: "What are the filtering units called?", options: ["Nephrons", "Neurons", "Alveoli", "Villi"], answer: 0 },
+      { q: "What else do the kidneys help control?", options: ["Blood pressure and salt-water balance", "Hair colour", "Eye movement", "Tooth growth"], answer: 0 },
+      { q: "What helps the kidneys stay healthy?", options: ["Enough water and less salt", "Lots of salt", "No water", "Only sugar"], answer: 0 }
+    ] },
+  { id: "int-21", level: "inter", title: "Stress and the Body",
+    text: ["When we face danger, the body releases hormones such as adrenaline and cortisol, preparing us to act quickly.", "This 'fight or flight' response speeds up the heart, raises blood pressure and sharpens the senses.", "In short bursts this reaction is helpful, but long-term stress keeps these hormones high and can harm health.", "Chronic stress is linked to heart disease, weak immunity and trouble sleeping, so managing it is important."],
+    questions: [
+      { q: "Which hormones does the body release under stress?", options: ["Adrenaline and cortisol", "Insulin only", "Vitamin C", "Bile"], answer: 0 },
+      { q: "What does the 'fight or flight' response do?", options: ["Speeds up the heart and sharpens senses", "Slows everything to a stop", "Makes you sleep", "Removes hunger forever"], answer: 0 },
+      { q: "When is the stress reaction helpful?", options: ["In short bursts", "Over many years", "Never", "Only at night"], answer: 0 },
+      { q: "What is chronic stress linked to?", options: ["Heart disease and weak immunity", "Perfect health", "Stronger bones", "Better sleep"], answer: 0 }
+    ] },
+  { id: "int-22", level: "inter", title: "The Science of Nutrition",
+    text: ["Nutrition is the study of how the food we eat affects the body. A balanced diet provides energy and the building blocks for growth and repair.", "The main nutrients are carbohydrates, proteins and fats, along with vitamins and minerals needed in smaller amounts.", "Eating too much processed food, high in sugar and unhealthy fat, can lead to obesity and related diseases.", "Choosing whole foods, plenty of vegetables and the right portion sizes supports long-term health."],
+    questions: [
+      { q: "What is nutrition the study of?", options: ["How food affects the body", "How muscles move", "How stars form", "How rivers flow"], answer: 0 },
+      { q: "Which are the main nutrients?", options: ["Carbohydrates, proteins and fats", "Only water", "Only salt", "Only sugar"], answer: 0 },
+      { q: "What can too much processed food lead to?", options: ["Obesity and related diseases", "Perfect health", "Stronger bones", "Better eyesight"], answer: 0 },
+      { q: "What supports long-term health?", options: ["Whole foods and right portions", "Only sweets", "Skipping vegetables", "Huge portions"], answer: 0 }
+    ] },
+
+  { id: "upp-6", level: "upper", title: "The Gut Microbiome",
+    text: ["The human gut is home to trillions of microorganisms, collectively known as the microbiome, which play a surprising role in our health.", "These bacteria help digest food, produce certain vitamins and train the immune system to tell friend from foe.", "Research increasingly links an unbalanced microbiome to conditions ranging from obesity to mood disorders.", "A varied diet rich in fibre and fermented foods is thought to encourage a healthy and diverse community of gut bacteria."],
+    questions: [
+      { q: "What is the microbiome?", options: ["The community of microorganisms in the gut", "A single large organ", "A type of bone", "A vitamin"], answer: 0 },
+      { q: "What do gut bacteria help with?", options: ["Digestion and training the immune system", "Pumping blood", "Growing hair", "Producing tears"], answer: 0 },
+      { q: "What is an unbalanced microbiome linked to?", options: ["Obesity and mood disorders", "Better health always", "Stronger teeth", "Nothing"], answer: 0 },
+      { q: "What encourages healthy gut bacteria?", options: ["A varied, fibre-rich diet", "Only sugar", "No food", "Only meat"], answer: 0 }
+    ] },
+  { id: "upp-7", level: "upper", title: "Personalised Medicine",
+    text: ["Traditional medicine often treats patients with the same condition in much the same way, but people can respond very differently to the same drug.", "Personalised medicine uses information about a person's genes, environment and lifestyle to tailor prevention and treatment.", "For example, genetic tests can reveal whether a particular cancer drug is likely to work for a specific patient.", "Although promising, this approach raises questions about cost, privacy and equal access to advanced care."],
+    questions: [
+      { q: "What is a limitation of traditional treatment?", options: ["People respond differently to the same drug", "It is always perfect", "It uses no drugs", "It cures everything"], answer: 0 },
+      { q: "What does personalised medicine use?", options: ["Genes, environment and lifestyle", "Only a patient's age", "Only the weather", "Random guesses"], answer: 0 },
+      { q: "What can genetic tests reveal?", options: ["Whether a drug is likely to work", "The patient's future job", "The weather tomorrow", "Nothing useful"], answer: 0 },
+      { q: "What concern does it raise?", options: ["Cost, privacy and equal access", "Too much free care", "No concerns at all", "Less data"], answer: 0 }
+    ] },
+  { id: "upp-8", level: "upper", title: "The Challenge of Chronic Disease",
+    text: ["Chronic diseases, such as diabetes, heart disease and asthma, last for years and are now the leading cause of death worldwide.", "Unlike a sudden infection, they often develop slowly and are shaped by lifestyle factors like diet, activity and smoking.", "Managing them requires long-term care, regular monitoring and active participation by the patient, not just a single cure.", "Health systems increasingly focus on prevention and education, since stopping these diseases early is cheaper and more effective than treating their complications."],
+    questions: [
+      { q: "What are chronic diseases?", options: ["Long-lasting conditions like diabetes", "Quick infections that vanish", "Broken bones only", "Temporary colds"], answer: 0 },
+      { q: "What shapes many chronic diseases?", options: ["Lifestyle factors", "Only luck", "Only weather", "Nothing"], answer: 0 },
+      { q: "What does managing them require?", options: ["Long-term care and patient participation", "A single pill once", "No effort", "Ignoring them"], answer: 0 },
+      { q: "Why focus on prevention?", options: ["It is cheaper and more effective", "It is more expensive", "It does not work", "It causes disease"], answer: 0 }
+    ] },
+  { id: "upp-9", level: "upper", title: "Sleep and Memory",
+    text: ["Sleep is far more than rest; it is an active period during which the brain processes the day's experiences.", "During deep sleep, the brain strengthens important memories and clears away connections it no longer needs.", "Studies show that people who sleep well after learning remember information far better than those who stay awake.", "Chronic lack of sleep not only harms memory and concentration but is also linked to long-term brain disease."],
+    questions: [
+      { q: "What does the brain do during sleep?", options: ["Processes the day's experiences", "Stops completely", "Grows larger", "Produces food"], answer: 0 },
+      { q: "What happens during deep sleep?", options: ["Important memories are strengthened", "Memories are deleted at random", "The heart stops", "Nothing"], answer: 0 },
+      { q: "What do studies show about sleep and learning?", options: ["Sleeping after learning improves memory", "Staying awake is better", "Sleep erases learning", "Learning is impossible"], answer: 0 },
+      { q: "What is chronic lack of sleep linked to?", options: ["Long-term brain disease", "Perfect memory", "Stronger focus", "Better health"], answer: 0 }
+    ] },
+
+  { id: "adv-6", level: "advanced", title: "The Ethics of Gene Editing",
+    text: ["Advances in gene-editing tools such as CRISPR have made it possible to alter the DNA of living organisms with remarkable precision.", "In medicine, this technology offers hope of correcting the faulty genes responsible for inherited diseases that were once untreatable.", "Yet editing the genes of human embryos, whose changes would pass to future generations, raises profound ethical questions about consent and unintended consequences.", "Many scientists argue for strict international rules, warning that the line between curing disease and 'designing' humans is dangerously thin."],
+    questions: [
+      { q: "What does CRISPR allow scientists to do?", options: ["Alter DNA with precision", "Cure all diseases instantly", "Create new planets", "Stop ageing forever"], answer: 0 },
+      { q: "What medical hope does gene editing offer?", options: ["Correcting faulty genes behind inherited diseases", "Replacing all surgery", "Removing the need for food", "Ending all infections"], answer: 0 },
+      { q: "Why is editing human embryos especially controversial?", options: ["Changes pass to future generations", "It is too cheap", "It is completely safe", "It has no effect"], answer: 0 },
+      { q: "What do many scientists call for?", options: ["Strict international rules", "No rules at all", "Secret experiments", "Banning all medicine"], answer: 0 }
+    ] },
+  { id: "adv-7", level: "advanced", title: "Antimicrobial Resistance as a Global Threat",
+    text: ["Antimicrobial resistance, often called AMR, occurs when microbes evolve to withstand the drugs designed to destroy them.", "Decades of overusing antibiotics in medicine and agriculture have accelerated this process, producing 'superbugs' that defeat standard treatments.", "Experts warn that without effective antibiotics, routine operations and minor infections could once again become life-threatening.", "Tackling AMR demands global cooperation: tighter prescribing, better hygiene, investment in new drugs and responsible use in farming."],
+    questions: [
+      { q: "What is antimicrobial resistance?", options: ["Microbes evolving to survive drugs", "A new antibiotic", "A vitamin", "A type of surgery"], answer: 0 },
+      { q: "What has accelerated AMR?", options: ["Overuse of antibiotics", "Drinking water", "Vaccination", "Sleeping well"], answer: 0 },
+      { q: "What do experts warn could happen?", options: ["Minor infections become life-threatening", "All disease disappears", "Antibiotics get stronger alone", "Nothing changes"], answer: 0 },
+      { q: "What does tackling AMR demand?", options: ["Global cooperation and responsible use", "Ignoring the problem", "Using more antibiotics", "Closing all farms"], answer: 0 }
+    ] },
+  { id: "adv-8", level: "advanced", title: "Artificial Intelligence in Medicine",
+    text: ["Artificial intelligence is increasingly able to analyse medical images, predict disease and suggest treatments faster than any human could.", "In some studies, AI systems detect certain cancers on scans as accurately as experienced specialists, promising earlier diagnosis.", "However, these systems are only as reliable as the data used to train them, and biased data can lead to unfair or dangerous errors.", "Most experts believe AI should support, not replace, doctors, combining computational power with human judgement and empathy."],
+    questions: [
+      { q: "What can AI do in medicine?", options: ["Analyse images and predict disease", "Replace the need for hospitals", "Feel emotions", "Perform every surgery alone"], answer: 0 },
+      { q: "What have some studies shown about AI?", options: ["It detects some cancers as accurately as specialists", "It is always wrong", "It cannot read scans", "It cures cancer instantly"], answer: 0 },
+      { q: "What can biased training data cause?", options: ["Unfair or dangerous errors", "Perfect results", "Faster recovery", "No effect"], answer: 0 },
+      { q: "What do most experts believe about AI's role?", options: ["It should support, not replace, doctors", "It should replace all doctors", "It should be banned", "It is useless"], answer: 0 }
+    ] },
+  { id: "adv-9", level: "advanced", title: "The Roots of Health Inequality",
+    text: ["Health is not determined by medicine alone; where people are born, live and work has a powerful effect on how long and how well they live.", "Factors such as income, education, housing and access to clean food and care are known as the social determinants of health.", "Studies repeatedly show that poorer communities suffer higher rates of disease and shorter life expectancy, even within wealthy nations.", "Addressing these inequalities requires action far beyond hospitals, including fair wages, good schools and healthy environments for all."],
+    questions: [
+      { q: "What strongly affects how long people live?", options: ["Where they are born, live and work", "Only their genes", "Only their doctor", "Only luck"], answer: 0 },
+      { q: "What are social determinants of health?", options: ["Income, education, housing and access to care", "Types of medicine", "Surgical tools", "Hospital colours"], answer: 0 },
+      { q: "What do studies repeatedly show?", options: ["Poorer communities have more disease and shorter lives", "Everyone is equally healthy", "Wealth has no effect", "Medicine fixes everything"], answer: 0 },
+      { q: "What does addressing inequality require?", options: ["Action beyond hospitals, like fair wages and good schools", "Only more pills", "Nothing", "Closing schools"], answer: 0 }
+    ] }
+);

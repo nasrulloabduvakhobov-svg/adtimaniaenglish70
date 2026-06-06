@@ -652,3 +652,220 @@ window.ME70_LISTENING.push(
     ]
   }
 );
+
+
+
+/* ===== BATCH: extra listening (reach 100) ===== */
+window.ME70_LISTENING.push(
+  { id: "lis-med-36", cat: "medical", level: "A2", title: "At the Reception Desk",
+    script: ["Good morning. I have an appointment with Doctor Karimova at nine o'clock.", "Please take a seat in the waiting room.", "The doctor will call your name soon.", "If you feel worse, tell the nurse at the desk."],
+    questions: [
+      { q: "What time is the appointment?", options: ["Nine o'clock", "Twelve o'clock", "Three o'clock", "Six o'clock"], answer: 0 },
+      { q: "Where should the patient wait?", options: ["In the waiting room", "Outside in the street", "In the car park", "At home"], answer: 0 },
+      { q: "Who should the patient tell if they feel worse?", options: ["The nurse at the desk", "A taxi driver", "A teacher", "No one"], answer: 0 }
+    ] },
+  { id: "lis-med-37", cat: "medical", level: "A2", title: "Buying Medicine",
+    script: ["The customer asks the pharmacist for something for a cough.", "The pharmacist gives a small bottle of syrup.", "Take one spoon in the morning and one before bed.", "Keep the medicine away from children."],
+    questions: [
+      { q: "What does the customer want?", options: ["Something for a cough", "A new phone", "Bread", "A book"], answer: 0 },
+      { q: "How often should they take the syrup?", options: ["Morning and before bed", "Every hour", "Once a week", "Never"], answer: 0 },
+      { q: "What is the safety advice?", options: ["Keep it away from children", "Share it with everyone", "Leave it in the sun", "Drink it all at once"], answer: 0 }
+    ] },
+  { id: "lis-med-38", cat: "medical", level: "B1", title: "Explaining a Diet Plan",
+    script: ["The dietitian explains a simple plan to a patient who wants to lose weight.", "She suggests eating more vegetables and less fried food.", "Drinking water instead of sugary drinks is an easy first step.", "She also recommends a short walk after each meal."],
+    questions: [
+      { q: "What does the patient want to do?", options: ["Lose weight", "Gain a cold", "Learn to drive", "Build a house"], answer: 0 },
+      { q: "What should the patient drink instead of sugary drinks?", options: ["Water", "More soda", "Coffee with sugar", "Energy drinks"], answer: 0 },
+      { q: "What does she recommend after meals?", options: ["A short walk", "A long sleep", "Heavy lifting", "Watching TV"], answer: 0 }
+    ] },
+  { id: "lis-med-39", cat: "medical", level: "B1", title: "Before an Operation",
+    script: ["The surgeon explains what will happen during the small operation.", "The patient must not eat or drink for eight hours before surgery.", "He will receive anaesthesia, so he will not feel any pain.", "After the operation, he will rest in the recovery room for a few hours."],
+    questions: [
+      { q: "How long before surgery must the patient stop eating?", options: ["Eight hours", "Ten minutes", "Two days", "One year"], answer: 0 },
+      { q: "Why will the patient feel no pain?", options: ["He receives anaesthesia", "He is very brave", "The surgery is fake", "He is asleep at home"], answer: 0 },
+      { q: "Where will he rest after the operation?", options: ["The recovery room", "The kitchen", "The car", "The garden"], answer: 0 }
+    ] },
+  { id: "lis-med-40", cat: "medical", level: "B1", title: "A Phone Call to the Clinic",
+    script: ["A mother calls the clinic because her child has a high fever.", "The nurse asks how high the temperature is and how long it has lasted.", "She advises giving fluids and a children's fever medicine.", "If the fever does not fall by evening, the child should be seen by a doctor."],
+    questions: [
+      { q: "Why does the mother call?", options: ["Her child has a high fever", "To book a holiday", "To order food", "To complain about noise"], answer: 0 },
+      { q: "What does the nurse advise?", options: ["Fluids and fever medicine", "Cold baths in ice", "A long run", "Nothing at all"], answer: 0 },
+      { q: "When should the child see a doctor?", options: ["If the fever does not fall by evening", "Only next year", "Never", "After full recovery"], answer: 0 }
+    ] },
+  { id: "lis-med-41", cat: "medical", level: "B2", title: "Discussing Test Results",
+    script: ["The doctor reviews the patient's blood test results with him.", "Most values are normal, but his cholesterol is slightly higher than recommended.", "She explains that diet and exercise can usually bring it down without medication.", "They agree to repeat the test in three months to check for improvement."],
+    questions: [
+      { q: "What is slightly high in the results?", options: ["His cholesterol", "His height", "His shoe size", "His age"], answer: 0 },
+      { q: "How can it usually be lowered?", options: ["Diet and exercise", "More fried food", "Less sleep", "Smoking"], answer: 0 },
+      { q: "When will they repeat the test?", options: ["In three months", "In ten years", "Tomorrow", "Never"], answer: 0 }
+    ] },
+  { id: "lis-med-42", cat: "medical", level: "B2", title: "A Public Health Announcement",
+    script: ["This winter, health officials are encouraging people to get the seasonal flu vaccine.", "The vaccine is especially important for the elderly, young children and people with chronic illness.", "Officials remind the public that washing hands and staying home when ill reduce the spread of infection.", "Free vaccination is available at all local clinics throughout the season."],
+    questions: [
+      { q: "What are officials encouraging?", options: ["Getting the flu vaccine", "Travelling abroad", "Eating more sweets", "Buying coats"], answer: 0 },
+      { q: "Who especially needs the vaccine?", options: ["The elderly and chronically ill", "Only athletes", "Only tourists", "No one"], answer: 0 },
+      { q: "Where is free vaccination available?", options: ["At all local clinics", "Only abroad", "In supermarkets", "Nowhere"], answer: 0 }
+    ] },
+  { id: "lis-med-43", cat: "medical", level: "B1", title: "Physiotherapy Advice",
+    script: ["After his knee injury, the physiotherapist gives the patient some exercises.", "He should do them gently twice a day and stop if the pain is sharp.", "Ice can be used for ten minutes to reduce swelling.", "Recovery takes time, so patience and regular practice are important."],
+    questions: [
+      { q: "How often should he do the exercises?", options: ["Twice a day", "Once a month", "Every minute", "Never"], answer: 0 },
+      { q: "What can be used to reduce swelling?", options: ["Ice for ten minutes", "Hot oil", "Sugar", "Loud music"], answer: 0 },
+      { q: "What is important for recovery?", options: ["Patience and regular practice", "Giving up quickly", "Running marathons", "Ignoring the advice"], answer: 0 }
+    ] },
+  { id: "lis-med-44", cat: "medical", level: "A2", title: "Healthy Teeth",
+    script: ["The dentist tells the child to brush twice every day.", "She should use a small amount of toothpaste.", "Eating too many sweets is bad for the teeth.", "The child should visit the dentist twice a year."],
+    questions: [
+      { q: "How often should the child brush?", options: ["Twice a day", "Once a week", "Once a year", "Never"], answer: 0 },
+      { q: "What is bad for the teeth?", options: ["Too many sweets", "Brushing", "Water", "Fruit"], answer: 0 },
+      { q: "How often should she visit the dentist?", options: ["Twice a year", "Every day", "Never", "Once in a lifetime"], answer: 0 }
+    ] },
+  { id: "lis-med-45", cat: "medical", level: "B2", title: "Mental Health at Work",
+    script: ["The speaker talks about looking after mental health in the workplace.", "Long hours and constant pressure can lead to stress and burnout.", "Taking short breaks and talking about problems openly can help a lot.", "Companies that support well-being often have happier and more productive staff."],
+    questions: [
+      { q: "What can long hours and pressure lead to?", options: ["Stress and burnout", "Perfect health", "More holidays", "Higher salary always"], answer: 0 },
+      { q: "What can help according to the speaker?", options: ["Short breaks and open talk", "Working without rest", "Hiding problems", "Skipping sleep"], answer: 0 },
+      { q: "What do supportive companies often have?", options: ["Happier, more productive staff", "Empty offices", "More illness", "No workers"], answer: 0 }
+    ] },
+  { id: "lis-med-46", cat: "medical", level: "A2", title: "Resting at Home",
+    script: ["The doctor tells the patient to rest at home for a few days.", "He should drink warm fluids and sleep well.", "He must not go to work until he feels better.", "If the cough gets worse, he should call the clinic."],
+    questions: [
+      { q: "What should the patient do at home?", options: ["Rest for a few days", "Run every morning", "Work all night", "Travel far"], answer: 0 },
+      { q: "What should he drink?", options: ["Warm fluids", "Cold soda", "Strong coffee", "Nothing"], answer: 0 },
+      { q: "When should he call the clinic?", options: ["If the cough gets worse", "If he feels fine", "Never", "Only next year"], answer: 0 }
+    ] },
+  { id: "lis-med-47", cat: "medical", level: "B1", title: "Giving Directions in a Hospital",
+    script: ["A visitor asks how to find the children's ward.", "The receptionist says to take the lift to the second floor.", "Then turn left and follow the blue signs.", "The ward is at the end of the corridor on the right."],
+    questions: [
+      { q: "Which ward is the visitor looking for?", options: ["The children's ward", "The kitchen", "The car park", "The library"], answer: 0 },
+      { q: "Which floor should they go to?", options: ["The second floor", "The roof", "The basement", "The tenth floor"], answer: 0 },
+      { q: "Which signs should they follow?", options: ["The blue signs", "The red lights", "The green doors", "No signs"], answer: 0 }
+    ] },
+  { id: "lis-med-48", cat: "medical", level: "B2", title: "Understanding a Prescription",
+    script: ["The pharmacist carefully explains a new prescription to an elderly patient.", "She should take the white tablet once daily in the morning with food.", "The blue tablet is only for nights when she cannot sleep.", "She should not drink alcohol while taking these medicines."],
+    questions: [
+      { q: "When should she take the white tablet?", options: ["Once daily in the morning with food", "Five times a night", "Only on weekends", "Never"], answer: 0 },
+      { q: "When is the blue tablet for?", options: ["Nights when she cannot sleep", "Every meal", "Breakfast only", "Exercise"], answer: 0 },
+      { q: "What should she avoid?", options: ["Alcohol", "Water", "Food", "Sleep"], answer: 0 }
+    ] },
+  { id: "lis-med-49", cat: "medical", level: "B1", title: "Donating Blood",
+    script: ["A volunteer explains what happens when you donate blood.", "First, the staff check your health and your blood type.", "The donation itself takes only about ten minutes.", "Afterwards, you rest and have a drink and a snack."],
+    questions: [
+      { q: "What do staff check first?", options: ["Your health and blood type", "Your phone number only", "Your favourite food", "Your shoe size"], answer: 0 },
+      { q: "How long does the donation take?", options: ["About ten minutes", "Five hours", "Two days", "One week"], answer: 0 },
+      { q: "What do you do afterwards?", options: ["Rest and have a drink and snack", "Run a race", "Go straight to work lifting", "Donate again at once"], answer: 0 }
+    ] },
+  { id: "lis-med-50", cat: "medical", level: "B2", title: "A Talk on Heart Health",
+    script: ["The cardiologist gives a short talk on keeping the heart healthy.", "She explains that regular exercise and a low-salt diet protect the heart.", "Smoking and constant stress, she warns, are major risk factors for heart disease.", "She encourages everyone over forty to have their blood pressure checked regularly."],
+    questions: [
+      { q: "What protects the heart?", options: ["Exercise and a low-salt diet", "Smoking", "Constant stress", "Skipping checks"], answer: 0 },
+      { q: "What are major risk factors?", options: ["Smoking and constant stress", "Walking and sleeping", "Water and fruit", "Reading"], answer: 0 },
+      { q: "Who should check blood pressure regularly?", options: ["Everyone over forty", "Only children", "No one", "Only athletes"], answer: 0 }
+    ] },
+
+  { id: "lis-gen-36", cat: "general", level: "A2", title: "Ordering at a Café",
+    script: ["Good afternoon. Could I have a cup of tea and a cheese sandwich, please?", "Would you like anything else with that?", "No, thank you. How much is it?", "That will be fifteen thousand, please."],
+    questions: [
+      { q: "What does the customer order?", options: ["Tea and a cheese sandwich", "Coffee and cake", "Juice and soup", "Nothing"], answer: 0 },
+      { q: "Does the customer want anything else?", options: ["No", "Yes, a pizza", "Yes, ice cream", "Yes, a salad"], answer: 0 },
+      { q: "What does the customer ask at the end?", options: ["How much it is", "The time", "The weather", "The way home"], answer: 0 }
+    ] },
+  { id: "lis-gen-37", cat: "general", level: "A2", title: "Asking for Directions",
+    script: ["Excuse me, how do I get to the train station?", "Go straight ahead and turn right at the bank.", "The station is about five minutes on foot.", "Thank you very much for your help."],
+    questions: [
+      { q: "Where does the person want to go?", options: ["The train station", "The airport", "The hospital", "The school"], answer: 0 },
+      { q: "Where should they turn right?", options: ["At the bank", "At the park", "At the river", "At the shop"], answer: 0 },
+      { q: "How long does it take on foot?", options: ["About five minutes", "Two hours", "A whole day", "One second"], answer: 0 }
+    ] },
+  { id: "lis-gen-38", cat: "general", level: "B1", title: "Planning a Weekend Trip",
+    script: ["Two friends are planning a trip to the mountains this weekend.", "They decide to leave early on Saturday morning to avoid traffic.", "They will need warm clothes because it can be cold at night.", "On Sunday evening, they plan to drive back before it gets dark."],
+    questions: [
+      { q: "Where are the friends going?", options: ["To the mountains", "To the sea", "To another country", "To the desert"], answer: 0 },
+      { q: "Why will they leave early on Saturday?", options: ["To avoid traffic", "To skip breakfast", "To sleep more", "To be late"], answer: 0 },
+      { q: "Why do they need warm clothes?", options: ["It can be cold at night", "It is always hot", "For a party", "To swim"], answer: 0 }
+    ] },
+  { id: "lis-gen-39", cat: "general", level: "B1", title: "A Job Interview",
+    script: ["The manager welcomes the candidate and asks her to sit down.", "She asks the candidate about her previous experience and skills.", "The candidate explains that she worked in customer service for three years.", "At the end, the manager says they will call her within a week."],
+    questions: [
+      { q: "What does the manager ask about?", options: ["Experience and skills", "The weather", "Her favourite film", "Her phone"], answer: 0 },
+      { q: "How long did the candidate work in customer service?", options: ["Three years", "Three days", "Ten years", "One month"], answer: 0 },
+      { q: "When will the manager call her?", options: ["Within a week", "Never", "In a year", "Tomorrow only"], answer: 0 }
+    ] },
+  { id: "lis-gen-40", cat: "general", level: "A2", title: "At the Supermarket",
+    script: ["Excuse me, where can I find the milk?", "It is at the back of the shop, in the fridge section.", "Is there any bread left today?", "Yes, fresh bread is on the shelf near the entrance."],
+    questions: [
+      { q: "What is the customer looking for first?", options: ["Milk", "Shoes", "Books", "A phone"], answer: 0 },
+      { q: "Where is the milk?", options: ["In the fridge section at the back", "By the door", "On the roof", "Outside"], answer: 0 },
+      { q: "Where is the fresh bread?", options: ["On the shelf near the entrance", "In the fridge", "In the car park", "There is none"], answer: 0 }
+    ] },
+  { id: "lis-gen-41", cat: "general", level: "B2", title: "Talking About Technology",
+    script: ["The speaker discusses how smartphones have changed daily life.", "They make communication and information instant, which is a great advantage.", "However, he warns that spending too long on screens can harm sleep and focus.", "He suggests setting limits and taking regular breaks from devices."],
+    questions: [
+      { q: "What have smartphones changed?", options: ["Daily life", "The weather", "The price of gold", "The seasons"], answer: 0 },
+      { q: "What is an advantage mentioned?", options: ["Instant communication and information", "Worse memory", "More traffic", "Higher prices"], answer: 0 },
+      { q: "What does the speaker suggest?", options: ["Setting limits and taking breaks", "Using screens all night", "Throwing away all phones", "Never resting"], answer: 0 }
+    ] },
+  { id: "lis-gen-42", cat: "general", level: "B1", title: "A Lost Item",
+    script: ["A passenger tells the bus station staff that he has lost his bag.", "He describes it as a black backpack with a laptop inside.", "The staff member checks the lost-and-found box.", "Luckily, someone has handed it in, and the passenger is very relieved."],
+    questions: [
+      { q: "What has the passenger lost?", options: ["A black backpack", "His shoes", "A dog", "His passport only"], answer: 0 },
+      { q: "What is inside the bag?", options: ["A laptop", "Food", "Clothes only", "Nothing"], answer: 0 },
+      { q: "What happened to the bag?", options: ["Someone handed it in", "It was destroyed", "It was sold", "It is still lost"], answer: 0 }
+    ] },
+  { id: "lis-gen-43", cat: "general", level: "B2", title: "Protecting the Environment",
+    script: ["The presenter talks about simple ways to protect the environment.", "Reducing waste, recycling and saving energy at home all make a difference.", "She points out that using public transport lowers air pollution.", "Small daily choices, she says, add up to a big effect over time."],
+    questions: [
+      { q: "What is the talk about?", options: ["Protecting the environment", "Cooking recipes", "Buying cars", "Playing football"], answer: 0 },
+      { q: "What lowers air pollution?", options: ["Using public transport", "Driving alone always", "Burning rubbish", "Leaving lights on"], answer: 0 },
+      { q: "What does she say about small daily choices?", options: ["They add up to a big effect", "They never matter", "They harm the planet", "They are impossible"], answer: 0 }
+    ] },
+  { id: "lis-gen-44", cat: "general", level: "A2", title: "Making Plans with a Friend",
+    script: ["Hi, are you free this evening?", "Yes, I am. Do you want to watch a film?", "Great idea. Let's meet at the cinema at seven.", "Perfect, see you there!"],
+    questions: [
+      { q: "What do the friends decide to do?", options: ["Watch a film", "Go swimming", "Study maths", "Clean the house"], answer: 0 },
+      { q: "Where will they meet?", options: ["At the cinema", "At the gym", "At school", "At the airport"], answer: 0 },
+      { q: "What time will they meet?", options: ["At seven", "At noon", "At midnight", "At three"], answer: 0 }
+    ] },
+  { id: "lis-gen-45", cat: "general", level: "B1", title: "Booking a Hotel Room",
+    script: ["Good evening. I would like to book a room for two nights.", "We have a single room with breakfast included.", "That sounds good. What time is check-out?", "Check-out is at eleven in the morning."],
+    questions: [
+      { q: "How many nights does the guest want?", options: ["Two nights", "Ten nights", "One night", "A month"], answer: 0 },
+      { q: "What is included with the room?", options: ["Breakfast", "A car", "A gym trainer", "Nothing"], answer: 0 },
+      { q: "What time is check-out?", options: ["Eleven in the morning", "Midnight", "Three in the afternoon", "Six in the evening"], answer: 0 }
+    ] },
+  { id: "lis-gen-46", cat: "general", level: "B2", title: "The Importance of Reading",
+    script: ["The speaker explains why reading regularly is so valuable.", "Reading widens vocabulary, improves focus and reduces stress.", "She recommends reading a little every day, even just before bed.", "Choosing topics you enjoy, she adds, makes the habit easy to keep."],
+    questions: [
+      { q: "What does reading widen?", options: ["Vocabulary", "Shoe size", "Height", "Hair length"], answer: 0 },
+      { q: "How often does she recommend reading?", options: ["A little every day", "Once a year", "Never", "Only at exams"], answer: 0 },
+      { q: "What makes the habit easy to keep?", options: ["Choosing topics you enjoy", "Reading boring texts", "Reading nothing", "Reading very fast once"], answer: 0 }
+    ] },
+  { id: "lis-gen-47", cat: "general", level: "A2", title: "The Weather Today",
+    script: ["Good morning. Here is today's weather.", "It will be cloudy in the morning with a little rain.", "In the afternoon, the sun will come out and it will be warm.", "Remember to take an umbrella just in case."],
+    questions: [
+      { q: "What is the morning weather?", options: ["Cloudy with a little rain", "Hot and sunny", "Snowy", "Very windy"], answer: 0 },
+      { q: "What happens in the afternoon?", options: ["The sun comes out", "It snows", "A storm begins", "It stays dark"], answer: 0 },
+      { q: "What should people take?", options: ["An umbrella", "A swimsuit", "Skis", "A heater"], answer: 0 }
+    ] },
+  { id: "lis-gen-48", cat: "general", level: "B1", title: "Volunteering in the Community",
+    script: ["A young man talks about why he volunteers at the local library.", "He helps children with their reading every Saturday morning.", "He says volunteering makes him feel useful and happy.", "He encourages others to give a few hours of their time too."],
+    questions: [
+      { q: "Where does he volunteer?", options: ["At the local library", "At a hospital", "At a factory", "At the airport"], answer: 0 },
+      { q: "Who does he help?", options: ["Children with their reading", "Doctors", "Pilots", "Farmers"], answer: 0 },
+      { q: "How does volunteering make him feel?", options: ["Useful and happy", "Tired and angry", "Bored", "Afraid"], answer: 0 }
+    ] },
+  { id: "lis-gen-49", cat: "general", level: "B2", title: "Managing Your Money",
+    script: ["The adviser shares simple tips for managing money wisely.", "She suggests writing down what you earn and what you spend each month.", "Saving a small amount regularly is better than saving a lot rarely.", "Avoiding unnecessary debt, she says, brings peace of mind."],
+    questions: [
+      { q: "What does she suggest writing down?", options: ["What you earn and spend", "Your dreams", "The weather", "Your friends' names"], answer: 0 },
+      { q: "What is better for saving?", options: ["A small amount regularly", "A lot only once", "Nothing at all", "Spending everything"], answer: 0 },
+      { q: "What brings peace of mind?", options: ["Avoiding unnecessary debt", "Borrowing a lot", "Ignoring money", "Spending fast"], answer: 0 }
+    ] },
+  { id: "lis-gen-50", cat: "general", level: "B1", title: "A Visit to the Museum",
+    script: ["A guide welcomes a group of students to the city museum.", "She explains that the tour will last about one hour.", "Photographs are allowed, but visitors must not touch the objects.", "At the end, there is a small shop where students can buy postcards."],
+    questions: [
+      { q: "How long will the tour last?", options: ["About one hour", "Five minutes", "A whole day", "Three days"], answer: 0 },
+      { q: "What must visitors not do?", options: ["Touch the objects", "Take photographs", "Listen to the guide", "Walk slowly"], answer: 0 },
+      { q: "What can students buy at the end?", options: ["Postcards", "Cars", "Medicine", "Furniture"], answer: 0 }
+    ] }
+);

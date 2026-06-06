@@ -1,5 +1,5 @@
 /* MedEnglish70 service worker — network-first (auto-update on refresh, offline fallback) */
-var CACHE = "medenglish70-v27";
+var CACHE = "medenglish70-v28";
 var ASSETS = [
   "./",
   "./index.html",

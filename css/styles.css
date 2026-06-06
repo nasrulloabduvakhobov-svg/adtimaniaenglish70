@@ -123,6 +123,21 @@ a { color: inherit; text-decoration: none; }
   display: flex; flex-direction: column; gap: 8px;
 }
 a.card:hover, .card.clickable:hover { transform: translateY(-3px); box-shadow: var(--shadow); border-color: var(--primary); }
+
+/* locked / coming-soon card */
+.card.locked {
+  position: relative; cursor: not-allowed; opacity: .72;
+  border-style: dashed; background: var(--bg);
+}
+.card.locked:hover { border-color: var(--primary); opacity: .85; }
+.card.locked h3, .card.locked p { filter: grayscale(0.2); }
+.card.locked .card-ico { background: var(--border); }
+.soon-badge {
+  position: absolute; top: 12px; right: 12px;
+  background: var(--accent); color: #fff;
+  font-size: .68rem; font-weight: 700; letter-spacing: .3px;
+  padding: 4px 10px; border-radius: 999px; text-transform: uppercase;
+}
 .card .card-ico {
   width: 46px; height: 46px; border-radius: 12px; display: grid; place-items: center; font-size: 1.4rem;
   background: var(--primary-soft); color: var(--primary);

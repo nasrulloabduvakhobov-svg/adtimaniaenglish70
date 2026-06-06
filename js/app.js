@@ -449,6 +449,13 @@
             '<div class="card-meta">' + s.meta + ' ›</div>' +
           '</a>';
         }).join("") +
+        '<div class="card locked" id="session90Card" role="button" tabindex="0" aria-disabled="true">' +
+          '<span class="soon-badge">' + t("section.soon") + '</span>' +
+          '<div class="card-ico">📅</div>' +
+          '<h3>' + t("section.session90") + '</h3>' +
+          '<p>' + t("section.session90.desc") + '</p>' +
+          '<div class="card-meta">🔒 ' + t("section.soon") + '</div>' +
+        '</div>' +
       '</div>' +
       '<h2 style="margin:26px 0 4px;font-size:1.15rem">' + t("home.progress.title") + '</h2>' +
       '<div class="progress-overview">' +
@@ -461,6 +468,13 @@
         '<div class="po-card"><b>' + getSpeakDone().length + '</b><span>' + t("prog.speakDone") + '</span></div>' +
         '<div class="po-card"><b>' + avg + '%</b><span>' + t("prog.avgScore") + '</span></div>' +
       '</div>');
+
+    var cs = document.getElementById("session90Card");
+    if (cs) {
+      var notify = function () { toast(t("section.soonMsg")); };
+      cs.addEventListener("click", notify);
+      cs.addEventListener("keydown", function (e) { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); notify(); } });
+    }
   }
 
   /* ---------- Views: Grammar ---------- */

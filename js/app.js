@@ -16,6 +16,7 @@
   var TESTS_PER_TENSE = GT.testsPerTense || 10;
   var Q_PER_TEST = GT.questionsPerTest || 20;
   var ALL_TENSE_IDS = GRAMMAR.map(function (g) { return g.id; });
+  var MARATHON_DAYS = 70;
 
   /* ---------- State ---------- */
   var state = {
@@ -411,6 +412,7 @@
     var langCount = Object.keys(I18N || {}).length || 3;
 
     var sections = [
+      { hash: "#/marathon", icon: "🏁", key: "marathon", meta: MARATHON_DAYS + " " + t("marathon.dayWord") },
       { hash: "#/grammar", icon: "📘", key: "grammar", meta: GRAMMAR.length + " " + t("stat.tenses").toLowerCase() },
       { hash: "#/reading", icon: "📖", key: "reading", meta: READING.length + " " + t("stat.passages").toLowerCase() },
       { hash: "#/listening", icon: "🎧", key: "listening", meta: LISTENING.length + " " + t("listening.unit") },
@@ -1126,6 +1128,116 @@
     setApp('<div class="empty"><h2>404</h2><p><a class="btn" href="#/">' + t("nav.home") + '</a></p></div>');
   }
 
+  /* ---------- Views: 70-day Marathon ---------- */
+  // Build the task list for a given day (1..MARATHON_DAYS). Deterministic from data.
+  function marathonTasks(day) {
+    var i = day - 1;
+    var tasks = [];
+    var r = READING[i];
+    if (r) tasks.push({ type: "reading", icon: "📖", id: r.id, title: r.title, hash: "#/reading/" + r.id });
+    var l = LISTENING[i];
+    if (l) tasks.push({ type: "listening", icon: "🎧", id: l.id, title: l.title, hash: "#/listening/" + l.id });
+    var w = WRITING[i];
+    if (w) tasks.push({ type: "writing", icon: "✍️", id: w.id, title: w.title, hash: "#/writing/" + w.id });
+    var sp = SPEAKING[i];
+    if (sp) tasks.push({ type: "speaking", icon: "🎙️", id: sp.id, title: sp.title, hash: "#/speaking/" + sp.id });
+    // Grammar test — interleave tenses so each day cycles to a new tense.
+    if (GRAMMAR.length) {
+      var g = GRAMMAR[i % GRAMMAR.length];
+      var tnum = Math.floor(i / GRAMMAR.length) + 1;
+      if (tnum <= TESTS_PER_TENSE) {
+        tasks.push({ type: "gtest", icon: "🧠", key: "gtest:" + g.id + ":" + tnum,
+          title: g.name + " — " + t("gtests.test") + " " + tnum, hash: "#/grammar-tests/" + g.id + "/" + tnum });
+      }
+    }
+    // Vocabulary test
+    var vtotal = Math.ceil(VOCAB.length / VTEST_SIZE);
+    if (day <= vtotal) {
+      tasks.push({ type: "vtest", icon: "✅", key: "vtest:" + day,
+        title: t("tests.title") + " " + day, hash: "#/tests/" + day });
+    }
+    return tasks;
+  }
+  function marathonTaskDone(task) {
+    switch (task.type) {
+      case "reading": return getReadDone().indexOf(task.id) >= 0;
+      case "listening": return getListenDone().indexOf(task.id) >= 0;
+      case "writing": return getWriteDone().indexOf(task.id) >= 0;
+      case "speaking": return getSpeakDone().indexOf(task.id) >= 0;
+      case "gtest":
+      case "vtest": return getScores()[task.key] != null;
+    }
+    return false;
+  }
+  function marathonDayStatus(day) {
+    var tasks = marathonTasks(day);
+    var done = 0;
+    tasks.forEach(function (tk) { if (marathonTaskDone(tk)) done++; });
+    return { done: done, total: tasks.length };
+  }
+
+  function viewMarathonList() {
+    var doneDays = 0, totalTasks = 0, doneTasks = 0;
+    var tiles = "";
+    for (var d = 1; d <= MARATHON_DAYS; d++) {
+      var st = marathonDayStatus(d);
+      totalTasks += st.total; doneTasks += st.done;
+      var full = st.total > 0 && st.done === st.total;
+      if (full) doneDays++;
+      var badge = full
+        ? '<span class="tile-badge done">✓</span>'
+        : '<span class="tile-badge">' + st.done + '/' + st.total + '</span>';
+      tiles += '<a class="tile" href="#/marathon/' + d + '">' +
+        '<div><div class="tile-title">' + t("marathon.day") + ' ' + d + '</div>' +
+        '<div class="tile-sub">' + st.done + '/' + st.total + ' ' + t("marathon.completed") + '</div></div>' +
+        badge +
+      '</a>';
+    }
+    var pct = totalTasks ? Math.round(doneTasks / totalTasks * 100) : 0;
+    setApp('' +
+      '<div class="breadcrumb"><a href="#/">‹ ' + t("nav.home") + '</a></div>' +
+      '<div class="page-head"><h1>🏁 ' + t("marathon.title") + '</h1><p>' + t("marathon.desc") + '</p></div>' +
+      '<div class="passage" style="margin-bottom:16px">' +
+        '<div class="quiz-head"><div><b style="font-size:1.05rem">' + doneDays + ' / ' + MARATHON_DAYS + ' ' + t("marathon.daysDone") + '</b></div>' +
+        '<div class="q-counter">' + pct + '%</div></div>' +
+        '<div class="progress-bar"><span style="width:' + pct + '%"></span></div>' +
+      '</div>' +
+      '<div class="grid cols">' + tiles + '</div>');
+  }
+
+  function viewMarathonDay(dayStr) {
+    var day = parseInt(dayStr, 10);
+    if (!day || day < 1 || day > MARATHON_DAYS) return notFound();
+    var tasks = marathonTasks(day);
+    var doneCount = 0;
+    var rows = tasks.map(function (tk) {
+      var isDone = marathonTaskDone(tk);
+      if (isDone) doneCount++;
+      return '<a class="tile" href="' + tk.hash + '">' +
+        '<div><div class="tile-title">' + tk.icon + ' ' + t("marathon.t." + tk.type) + '</div>' +
+        '<div class="tile-sub">' + esc(tk.title) + '</div></div>' +
+        '<span class="tile-badge ' + (isDone ? "done" : "") + '">' + (isDone ? "✓" : "›") + '</span>' +
+      '</a>';
+    }).join("");
+    var pct = tasks.length ? Math.round(doneCount / tasks.length * 100) : 0;
+    var allDone = tasks.length > 0 && doneCount === tasks.length;
+    var nav = '<div class="btn-row" style="margin-top:16px">' +
+      (day > 1 ? '<a class="btn" href="#/marathon/' + (day - 1) + '">‹ ' + t("marathon.day") + ' ' + (day - 1) + '</a>' : '') +
+      (day < MARATHON_DAYS ? '<a class="btn" href="#/marathon/' + (day + 1) + '">' + t("marathon.day") + ' ' + (day + 1) + ' ›</a>' : '') +
+    '</div>';
+    setApp('' +
+      '<div class="breadcrumb"><a href="#/marathon">‹ ' + t("marathon.title") + '</a></div>' +
+      '<div class="page-head"><h1>' + t("marathon.day") + ' ' + day + '</h1><p>' + t("marathon.dayDesc") + '</p></div>' +
+      '<div class="passage" style="margin-bottom:16px">' +
+        '<div class="quiz-head"><div><b style="font-size:1.05rem">' + doneCount + ' / ' + tasks.length + ' ' + t("marathon.completed") + '</b></div>' +
+        '<div class="q-counter">' + pct + '%</div></div>' +
+        '<div class="progress-bar"><span style="width:' + pct + '%"></span></div>' +
+        (allDone ? '<p class="lis-tip" style="margin-top:12px">🎉 ' + t("marathon.allDone") + '</p>' : '') +
+      '</div>' +
+      '<div class="grid cols">' + rows + '</div>' +
+      nav);
+  }
+
   /* ---------- Router ---------- */
   function router() {
     stopSpeech();
@@ -1135,6 +1247,7 @@
     var root = parts[0] || "";
     try {
       if (root === "") return viewHome();
+      if (root === "marathon") return parts[1] ? viewMarathonDay(parts[1]) : viewMarathonList();
       if (root === "grammar") return parts[1] ? viewGrammarDetail(parts[1]) : viewGrammarList();
       if (root === "reading") return parts[1] ? viewPassage(parts[1]) : viewReadingList();
       if (root === "listening") return parts[1] ? viewListening(parts[1]) : viewListeningList();
